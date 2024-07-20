@@ -3,8 +3,28 @@
     "pages/index/index",
     "pages/logs/logs"
   ],
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/home.png",
+        "selectedIconPath": "./images/home-on.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "log",
+        "iconPath": "./images/group.png",
+        "selectedIconPath": "./images/group-on.png"
+      }
+    ]
+  },
   "window": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationStyle": "custom"
   },
   "style": "v2",
