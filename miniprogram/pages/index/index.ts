@@ -5,14 +5,10 @@ const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia0
 
 Component({
   data: {
-    motto: 'Hello World',
     userInfo: {
       avatarUrl: defaultAvatarUrl,
       nickName: '',
     },
-    hasUserInfo: false,
-    canIUseGetUserProfile: wx.canIUse('getUserProfile'),
-    canIUseNicknameComp: wx.canIUse('input.type.nickname'),
   },
   methods: {
     // 事件处理函数
@@ -23,18 +19,8 @@ Component({
     },
     onChooseAvatar(e: any) {
       const { avatarUrl } = e.detail
-      const { nickName } = this.data.userInfo
       this.setData({
         "userInfo.avatarUrl": avatarUrl,
-        hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-      })
-    },
-    onInputChange(e: any) {
-      const nickName = e.detail.value
-      const { avatarUrl } = this.data.userInfo
-      this.setData({
-        "userInfo.nickName": nickName,
-        hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
       })
     },
     getUserProfile() {
@@ -44,8 +30,7 @@ Component({
         success: (res) => {
           console.log(res)
           this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
+            "userInfo.nickName": res.userInfo.nickName,
           })
         }
       })

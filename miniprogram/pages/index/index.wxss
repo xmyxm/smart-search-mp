@@ -25,38 +25,19 @@ page {
   border-radius: 50%;
 }
 
+.userinfo-nickname {
+  font-size: 14px;
+  line-height: 18px;
+  height: 18px;
+}
+
+.btn-color {
+  margin-top: 15px;
+  background-color: #07c160;
+  color: #ffffff;
+}
+
 .usermotto {
   margin-top: 200px;
 }
 
-.avatar-wrapper {
-  padding: 0;
-  width: 56px !important;
-  border-radius: 8px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
-}
-
-.nickname-wrapper {
-  display: flex;
-  width: 100%;
-  padding: 16px;
-  box-sizing: border-box;
-  border-top: .5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
-  color: black;
-}
-
-.nickname-label {
-  width: 105px;
-}
-
-.nickname-input {
-  flex: 1;
-}
