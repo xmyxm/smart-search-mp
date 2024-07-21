@@ -1,16 +1,5 @@
-// index.ts
-// 获取应用实例
-const app = getApp<IAppOption>()
-const defaultAvatarUrl =
-	'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-
 Page({
-	data: {
-		userInfo: {
-			avatarUrl: defaultAvatarUrl,
-			nickName: '',
-		},
-	},
+	data: {},
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
 	},
@@ -42,9 +31,9 @@ Page({
 	onShareAppMessage() {
 		// 监听用户点击页面内转发按钮（button 组件 open-type="share"）或右上角菜单“转发”按钮的行为，并自定义转发内容。
 		return {
-			title: '分享标题',
-			path: '/pages/index/index', // 分享路径
-			imageUrl: 'https://p0.meituan.net/travelcube/a7e89847dc7141bda43ed354a18627ab18689.png', // 自定义分享图片
+			title: '二维码生成器',
+			path: 'packages/qrocde/pages/index/index', // 分享路径
+			imageUrl: 'https://p0.meituan.net/travelcube/a2af48433a8ef3751ae58e2afec784589104.png', // 自定义分享图片
 			success: function () {
 				wx.showToast({
 					title: '分享成功',
@@ -62,36 +51,7 @@ Page({
 		}
 	},
 	// 事件处理函数
-	bindViewTap() {
-		wx.navigateTo({
-			// url: '../logs/logs',
-			// url: '../tool/tool',
-			// url: '/pages/tool/tool',
-			url: '/packages/qrcode/pages/index/index',
-			success: function () {
-				console.log('navigateTo success')
-			},
-			fail: function (error) {
-				console.log('navigateTo fail', error)
-			},
-		})
-	},
-	onChooseAvatar(e: any) {
-		const { avatarUrl } = e.detail
-		this.setData({
-			'userInfo.avatarUrl': avatarUrl,
-		})
-	},
-	getUserProfile() {
-		// 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-		wx.getUserProfile({
-			desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-			success: res => {
-				console.log(res)
-				this.setData({
-					'userInfo.nickName': res.userInfo.nickName,
-				})
-			},
-		})
+	bindCreateQRCodeTap() {
+		console.log('----123123--123123')
 	},
 })

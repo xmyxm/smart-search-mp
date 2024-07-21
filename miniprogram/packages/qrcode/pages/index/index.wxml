@@ -1,0 +1,7 @@
+<navigation-bar title="二维码生成器" back="{{ true }}" color="black" background="#FFF" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<textarea class="user-content" auto-focus auto-height placeholder="请输入：链接/文本" />
+		<button class="btn-qrcode" bindtap="bindCreateQRCodeTap">生成二维码</button>
+	</view>
+</scroll-view>

@@ -96,9 +96,12 @@ Component({
 		back() {
 			const { data } = this
 			if (data.delta) {
-				wx.navigateBack({
-					delta: data.delta,
-				})
+				const isGoHome = getCurrentPages().length === data.delta
+				if (isGoHome) {
+					wx.switchTab({ url: '/pages/index/index' })
+				} else {
+					wx.navigateBack({ delta: data.delta })
+				}
 			}
 			this.triggerEvent('back', { delta: data.delta }, {})
 		},

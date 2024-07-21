@@ -1,5 +1,11 @@
 {
 	"pages": ["pages/index/index", "pages/logs/logs", "pages/tool/tool", "pages/life/life"],
+	"subPackages": [
+		{
+			"root": "packages/qrcode",
+			"pages": ["pages/index/index"]
+		}
+	],
 	"tabBar": {
 		"color": "#000000",
 		"selectedColor": "#4CAF50",

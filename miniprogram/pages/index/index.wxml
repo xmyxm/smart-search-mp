@@ -13,6 +13,6 @@
 				<button class="btn-color" bindtap="getUserProfile">点击获取昵称</button>
 			</block>
 		</view>
-		<view class="usermotto"><text class="user-motto" bindtap="bindViewTap">查看日志</text></view>
+		<view class="usermotto"><text class="user-motto" bindtap="bindViewTap">生成二维码</text></view>
 	</view>
 </scroll-view>
