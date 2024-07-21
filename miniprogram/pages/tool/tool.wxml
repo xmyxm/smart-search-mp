@@ -15,6 +15,7 @@
 					wx:for="{{ item.list }}"
 					wx:for-item="obj"
 					wx:key="{{ obj.name }}"
+					data-value="{{obj.link}}"
 					bindtap="bindViewTap"
 				>
 					<image class="menu-icon" src="{{ obj.icon }}" mode="cover" />
