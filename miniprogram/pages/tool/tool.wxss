@@ -1,0 +1,17 @@
+.container {
+  font-size: 14px;
+  color: #000000;
+}
+
+.menu-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-name {
+    font-size: 14px;
+  }
+
+  .menu-child-box {
+    display: flex;
+  }
