@@ -10,6 +10,5 @@
 			value="{{content}}"
 		/>
 		<button class="btn-qrcode" bindtap="bindCreateQRCodeTap">生成二维码</button>
-		
 	</view>
 </scroll-view>
