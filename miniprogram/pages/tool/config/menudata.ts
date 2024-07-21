@@ -1,5 +1,5 @@
 const menuList = [
-    {
+	{
 		name: '工具',
 		list: [
 			{
@@ -242,6 +242,5 @@ const menuList = [
 		],
 	},
 ]
-
 
 module.exports = menuList
