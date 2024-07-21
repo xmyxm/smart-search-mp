@@ -6,8 +6,8 @@
   "author": "",
   "description": "",
   "scripts": {
-    "lint": "eslint miniprogram --fix --ext .ts --ext .tsx",
-    "write": "prettier --write \"miniprogram/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint miniprogram --fix --ext .ts --ext .wxml --ext .wxss --ext .json",
+    "write": "prettier --write \"miniprogram/**/*.{js,ts,wxml,wxss}\"",
     "prepare": "husky install"
   },
   "husky": {

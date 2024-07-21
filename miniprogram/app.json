@@ -1,44 +1,40 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/tool/tool"
-  ],
-  "tabBar": {
-    "color": "#000000",
-    "selectedColor": "#4CAF50",
-    "backgroundColor": "#ffffff",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "./images/home.png",
-        "selectedIconPath": "./images/home-on.png"
-      },
-      {
-        "pagePath": "pages/logs/logs",
-        "text": "log",
-        "iconPath": "./images/group.png",
-        "selectedIconPath": "./images/group-on.png"
-      }
-    ]
-  },
-  "window": {
-    "navigationBarTextStyle": "white",
-    "navigationStyle": "custom"
-  },
-  "style": "v2",
-  "renderer": "skyline",
-  "rendererOptions": {
-    "skyline": {
-      "defaultDisplayBlock": true,
-      "disableABTest": true,
-      "sdkVersionBegin": "3.0.0",
-      "sdkVersionEnd": "15.255.255"
-    }
-  },
-  "componentFramework": "glass-easel",
-  "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+	"pages": ["pages/index/index", "pages/logs/logs", "pages/tool/tool"],
+	"tabBar": {
+		"color": "#000000",
+		"selectedColor": "#4CAF50",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "./images/home.png",
+				"selectedIconPath": "./images/home-on.png"
+			},
+			{
+				"pagePath": "pages/logs/logs",
+				"text": "log",
+				"iconPath": "./images/group.png",
+				"selectedIconPath": "./images/group-on.png"
+			}
+		]
+	},
+	"window": {
+		"navigationBarTextStyle": "white",
+		"navigationStyle": "custom"
+	},
+	"style": "v2",
+	"renderer": "skyline",
+	"rendererOptions": {
+		"skyline": {
+			"defaultDisplayBlock": true,
+			"disableABTest": true,
+			"sdkVersionBegin": "3.0.0",
+			"sdkVersionEnd": "15.255.255"
+		}
+	},
+	"componentFramework": "glass-easel",
+	"sitemapLocation": "sitemap.json",
+	"lazyCodeLoading": "requiredComponents"
 }

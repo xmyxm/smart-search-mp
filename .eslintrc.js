@@ -44,6 +44,12 @@ module.exports = {
 			files: ['*.md'],
 			processor: 'markdown/markdown',
 		},
+		{
+			files: ["*.json"],
+			rules: {
+			  "no-unused-expressions": "off"
+			}
+		}
 	],
 	// 开启规则和发生错误时报告的等级
 	rules: {
