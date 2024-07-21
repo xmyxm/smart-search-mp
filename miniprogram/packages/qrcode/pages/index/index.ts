@@ -1,5 +1,9 @@
+// import drawQrcode from '../../utils/index.js'
+
 Page({
-	data: {},
+	data: {
+		content: '', // 用于存储用户输入的内容
+	},
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
 	},
@@ -50,8 +54,29 @@ Page({
 			},
 		}
 	},
+	// 处理 textarea 输入事件
+	handleInput(event: any) {
+		this.setData({
+			content: event.detail.value.trim(),
+		})
+	},
 	// 事件处理函数
 	bindCreateQRCodeTap() {
 		console.log('----123123--123123')
+		// drawQrcode({
+		// 	width: 200,
+		// 	height: 200,
+		// 	canvasId: 'myQrcode',
+		// 	// ctx: wx.createCanvasContext('myQrcode'),
+		// 	text: this.data.content,
+		// 	// v1.0.0+版本支持在二维码上绘制图片
+		// 	image: {
+		// 		imageResource: 'https://p0.meituan.net/travelcube/afef95131eb86fee084a96727a58fa352086.png',
+		// 		dx: 70,
+		// 		dy: 70,
+		// 		dWidth: 60,
+		// 		dHeight: 60,
+		// 	},
+		// })
 	},
 })

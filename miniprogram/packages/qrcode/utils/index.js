@@ -1,4 +1,4 @@
-import { QRCode, QRErrorCorrectLevel } from './qrcode'
+import { QRCode, QRErrorCorrectLevel } from './qrcode.js'
 
 // support Chinese
 function utf16to8(str) {
