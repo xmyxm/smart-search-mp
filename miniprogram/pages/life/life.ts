@@ -1,8 +1,8 @@
-import { toolList } from '../../config/toolsdata'
+import { lifeList } from '../../config/lifedata'
 
 Component({
 	data: {
-		toolList,
+		lifeList,
 	},
 	methods: {
 		// 事件处理函数

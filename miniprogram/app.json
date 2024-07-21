@@ -1,5 +1,5 @@
 {
-	"pages": ["pages/index/index", "pages/logs/logs", "pages/tool/tool"],
+	"pages": ["pages/index/index", "pages/logs/logs", "pages/tool/tool", "pages/life/life"],
 	"tabBar": {
 		"color": "#000000",
 		"selectedColor": "#4CAF50",
@@ -13,16 +13,22 @@
 				"selectedIconPath": "./images/home-color.png"
 			},
 			{
-				"pagePath": "pages/logs/logs",
-				"text": "log",
-				"iconPath": "./images/log.png",
-				"selectedIconPath": "./images/log-color.png"
-			},
-			{
 				"pagePath": "pages/tool/tool",
 				"text": "开发工具箱",
 				"iconPath": "./images/tool.png",
 				"selectedIconPath": "./images/tool-color.png"
+			},
+			{
+				"pagePath": "pages/life/life",
+				"text": "生活",
+				"iconPath": "./images/life.png",
+				"selectedIconPath": "./images/life-color.png"
+			},
+			{
+				"pagePath": "pages/logs/logs",
+				"text": "log",
+				"iconPath": "./images/log.png",
+				"selectedIconPath": "./images/log-color.png"
 			}
 		]
 	},
