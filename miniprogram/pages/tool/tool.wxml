@@ -12,17 +12,18 @@
 			wx:for-item="item"
 			wx:key="{{ item.name }}"
 		>
-			<text class="menu-name">{{ item.name }}</text>
+			<text class="menu-title">{{ item.name }}</text>
 			<view wx:if="{{ item.list && item.list.length > 0 }}" class="menu-child-box">
-				<text
+				<view
+					class="child-item"
 					wx:for="{{ item.list }}"
-					class="menu-name"
 					wx:for-item="obj"
 					wx:key="{{ obj.name }}"
 					bindtap="bindViewTap"
 				>
-					{{ obj.name }}
-				</text>
+					<image class="menu-icon" src="{{ obj.icon }}" mode="cover" />
+					<text class="menu-name"> {{ obj.name }} </text>
+				</view>
 			</view>
 		</view>
 	</view>

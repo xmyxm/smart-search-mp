@@ -10,19 +10,42 @@ page {
 }
 
 .container {
-	font-size: 14px;
+	font-size: 28rppx;
 	color: #000000;
 }
 
 .menu-box {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
+}
+
+.menu-title {
+	font-size: 28rpx;
+	line-height: 32rpx;
+}
+
+.menu-child-box {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.child-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 168rpx;
+	height: 168rpx;
 }
 
 .menu-name {
 	font-size: 14px;
 }
 
-.menu-child-box {
-	display: flex;
+.menu-icon {
+	width: 128rpx;
+	height: 128rpx;
+	border-radius: 50%;
 }
