@@ -16,4 +16,10 @@ Component({
 			})
 		},
 	},
+	methods: {
+		// 事件处理函数
+		bindLogTap() {
+			console.log(`记录启动次数：${this.data.logs.length}`)
+		},
+	},
 })

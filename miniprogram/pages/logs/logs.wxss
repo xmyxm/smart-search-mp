@@ -1,6 +1,8 @@
 .log-item {
-	margin-top: 20rpx;
-	text-align: center;
+    text-align: left;
+    display: block;
+    padding: 30rpx;
+    border-bottom: 1px solid #f9f9f9;
 }
 
 .log-item:last-child {
