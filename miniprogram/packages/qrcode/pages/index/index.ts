@@ -1,4 +1,4 @@
-// import drawQrcode from '../../utils/index.js'
+import drawQrcode from '../../utils/index'
 
 Page({
 	data: {
@@ -63,20 +63,20 @@ Page({
 	// 事件处理函数
 	bindCreateQRCodeTap() {
 		console.log('----123123--123123')
-		// drawQrcode({
-		// 	width: 200,
-		// 	height: 200,
-		// 	canvasId: 'myQrcode',
-		// 	// ctx: wx.createCanvasContext('myQrcode'),
-		// 	text: this.data.content,
-		// 	// v1.0.0+版本支持在二维码上绘制图片
-		// 	image: {
-		// 		imageResource: 'https://p0.meituan.net/travelcube/afef95131eb86fee084a96727a58fa352086.png',
-		// 		dx: 70,
-		// 		dy: 70,
-		// 		dWidth: 60,
-		// 		dHeight: 60,
-		// 	},
-		// })
+		drawQrcode({
+			width: 200,
+			height: 200,
+			canvasId: 'myQrcode',
+			// ctx: wx.createCanvasContext('myQrcode'),
+			text: this.data.content,
+			// v1.0.0+版本支持在二维码上绘制图片
+			image: {
+				imageResource: 'https://p0.meituan.net/travelcube/afef95131eb86fee084a96727a58fa352086.png',
+				dx: 70,
+				dy: 70,
+				dWidth: 60,
+				dHeight: 60,
+			},
+		})
 	},
 })

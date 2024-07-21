@@ -1,4 +1,6 @@
-import { QRCode, QRErrorCorrectLevel } from './qrcode.js'
+// @ts-nocheck
+
+import { QRCode, QRErrorCorrectLevel } from './qrcode'
 
 // support Chinese
 function utf16to8(str) {
