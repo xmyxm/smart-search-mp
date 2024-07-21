@@ -1,33 +1,21 @@
-page {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
-
-.scrollarea {
-	flex: 1;
-	overflow-y: hidden;
-}
-
 .container {
-	font-size: 28rppx;
 	color: #000000;
+	padding: 0 20rpx 88rpx;
 }
 
 .menu-box {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	margin-top: 50rpx;
 }
 
 .menu-title {
-	font-size: 28rpx;
-	line-height: 32rpx;
+	font-size: 36rpx;
+	line-height: 36rpx;
 }
 
 .menu-child-box {
 	display: flex;
-	justify-content: space-between;
 	flex-wrap: wrap;
 }
 
@@ -36,8 +24,10 @@ page {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 168rpx;
-	height: 168rpx;
+	width: 148rpx;
+	height: 148rpx;
+	margin-right: 10rpx;
+	overflow: hidden;
 }
 
 .menu-name {
@@ -45,7 +35,7 @@ page {
 }
 
 .menu-icon {
-	width: 128rpx;
-	height: 128rpx;
+	width: 80rpx;
+	height: 80rpx;
 	border-radius: 50%;
 }
