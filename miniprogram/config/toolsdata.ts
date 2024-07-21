@@ -1,4 +1,4 @@
-export const menuList = [
+export const toolList = [
 	{
 		name: '工具',
 		list: [
