@@ -17,20 +17,17 @@ module.exports = {
 	tabWidth: 4,
 	// 是否使用 tab 代替 space(空格) 为单位缩进，默认 false
 	useTabs: true,
-	plugins: [
-		"prettier-plugin-wxml",
-	  ],
 	overrides: [
 		{
 			files: "*.wxml",
 			options: {
-			parser: "wxml"
+				parser: "html"
 			}
 		},
 		{
 			files: "*.wxss",
 			options: {
-			parser: "css"
+				parser: "css"
 			}
 		}
 	]

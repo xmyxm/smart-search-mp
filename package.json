@@ -36,10 +36,7 @@
     "lint-staged": "^12.3.4",
     "miniprogram-api-typings": "^2.8.3-1",
     "prettier": "^2.8.8",
-    "prettier-plugin-wxml": "^3.0.0",
-    "rimraf": "^5.0.9"
-  },
-  "dependencies": {
+    "rimraf": "^5.0.9",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.16.1",
     "typescript": "^5.5.3"
