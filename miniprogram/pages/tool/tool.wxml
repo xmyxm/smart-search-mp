@@ -1,12 +1,31 @@
-<navigation-bar title="开发工具箱" back="{{true}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <text bindtap="bindViewClick" class="user-motto">查看数据</text>
-    <view class="menu-box" wx:if="{{menudata &&  menudata.length > 0}}" wx:for="{{menudata}}" wx:for-item="item" wx:key="{{item.name}}">
-      <text class="menu-name">{{item.name}}</text>
-      <view class="menu-child-box" wx:if="{{item.list &&  item.list.length > 0}}">
-        <text bindtap="bindViewTap" class="menu-name" wx:for="{{item.list}}" wx:for-item="obj" wx:key="{{obj.name}}">{{obj.name}}</text>
-      </view>
-    </view>
-  </view>
+<navigation-bar title="开发工具箱" back="{{ true }}" color="black" background="#FFF" /><scroll-view
+	class="scrollarea"
+	scroll-y=""
+	type="list"
+>
+	<view class="container">
+		<text class="user-motto" bindtap="bindViewClick">查看数据</text>
+		<view
+			wx:if="{{ menudata && menudata.length > 0 }}"
+			wx:for="{{ menudata }}"
+			class="menu-box"
+			wx:for-item="item"
+			wx:key="{{ item.name }}"
+		>
+			<text class="menu-name">{{ item.name }}</text>
+			<view wx:if="{{ item.list && item.list.length > 0 }}" class="menu-child-box">
+				<text
+					wx:for="{{ item.list }}"
+					class="menu-name"
+					wx:for-item="obj"
+					wx:key="{{ obj.name }}"
+					bindtap="bindViewTap"
+				>
+					{{ obj.name }}
+				</text>
+			</view>
+		</view>
+	</view>
 </scroll-view>
+
+

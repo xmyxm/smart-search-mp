@@ -1,18 +1,23 @@
-<navigation-bar title="微智搜" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <view class="userinfo">
-      <block>
-        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-      <block>
-      <button class="btn-color" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">点击选取头像</button>
-      <button class="btn-color" bindtap="getUserProfile"> 点击获取昵称 </button>
-      </block>
-    </view>
-    <view class="usermotto">
-      <text bindtap="bindViewTap" class="user-motto">查看日志</text>
-    </view>
-  </view>
+<navigation-bar title="微智搜" back="{{ false }}" color="black" background="#FFF" /><scroll-view
+	class="scrollarea"
+	scroll-y=""
+	type="list"
+>
+	<view class="container">
+		<view class="userinfo">
+			<block>
+				<image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" mode="cover" />
+				<text class="userinfo-nickname">{{ userInfo.nickName }}</text>
+			</block>
+			<block>
+				<button class="btn-color" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+					点击选取头像
+				</button>
+				<button class="btn-color" bindtap="getUserProfile">点击获取昵称</button>
+			</block>
+		</view>
+		<view class="usermotto"><text class="user-motto" bindtap="bindViewTap">查看日志</text></view>
+	</view>
 </scroll-view>
+
+
