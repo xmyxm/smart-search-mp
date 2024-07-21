@@ -10,13 +10,19 @@
 				"pagePath": "pages/index/index",
 				"text": "首页",
 				"iconPath": "./images/home.png",
-				"selectedIconPath": "./images/home-on.png"
+				"selectedIconPath": "./images/home-color.png"
 			},
 			{
 				"pagePath": "pages/logs/logs",
 				"text": "log",
-				"iconPath": "./images/group.png",
-				"selectedIconPath": "./images/group-on.png"
+				"iconPath": "./images/log.png",
+				"selectedIconPath": "./images/log-color.png"
+			},
+			{
+				"pagePath": "pages/tool/tool",
+				"text": "开发工具箱",
+				"iconPath": "./images/tool.png",
+				"selectedIconPath": "./images/tool-color.png"
 			}
 		]
 	},

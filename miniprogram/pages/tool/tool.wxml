@@ -2,8 +2,8 @@
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
 		<view
-			wx:if="{{ menudata && menudata.length > 0 }}"
-			wx:for="{{ menudata }}"
+			wx:if="{{ menuList && menuList.length > 0 }}"
+			wx:for="{{ menuList }}"
 			class="menu-box"
 			wx:for-item="item"
 			wx:key="{{ item.name }}"

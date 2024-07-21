@@ -1,8 +1,8 @@
-const menudata = require('./config/menudata')
+import { menuList } from '../../config/menudata'
 
 Component({
 	data: {
-		menudata,
+		menuList,
 	},
 	methods: {
 		// 事件处理函数
@@ -13,7 +13,7 @@ Component({
 		},
 		// 事件处理函数
 		bindViewClick() {
-			console.log(menudata)
+			console.log(menuList)
 		},
 	},
 })

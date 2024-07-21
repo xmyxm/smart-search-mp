@@ -1,4 +1,4 @@
-const menuList = [
+export const menuList = [
 	{
 		name: '工具',
 		list: [
@@ -21,11 +21,6 @@ const menuList = [
 				name: '草料二维码',
 				link: 'https://cli.im/',
 				icon: 'https://p0.meituan.net/scarlett/a67f306580b523fc9d7f9692f3a1daed428.png',
-			},
-			{
-				name: '语雀',
-				link: 'https://www.yuque.com/',
-				icon: 'https://p1.meituan.net/scarlett/40e24fc7311c1a53d8a1cc3b6b851ac74232.png',
 			},
 			{
 				name: '菜鸟工具集',
@@ -242,5 +237,3 @@ const menuList = [
 		],
 	},
 ]
-
-module.exports = menuList

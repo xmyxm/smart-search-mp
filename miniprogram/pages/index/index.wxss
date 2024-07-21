@@ -1,9 +1,9 @@
 .userinfo {
+	margin-top: 200rpx;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	color: #aaa;
-	width: 80%;
 }
 
 .userinfo-avatar {
@@ -15,17 +15,18 @@
 }
 
 .userinfo-nickname {
-	font-size: 14px;
-	line-height: 18px;
-	height: 18px;
+	font-size: 28rpx;
+	line-height: 36rpx;
+	height: 36rpx;
 }
 
 .btn-color {
-	margin-top: 15px;
+	margin-top: 30rpx;
 	background-color: #07c160;
 	color: #ffffff;
 }
 
 .usermotto {
-	margin-top: 200px;
+	margin-top: 400rpx;
+	text-align: center;
 }
