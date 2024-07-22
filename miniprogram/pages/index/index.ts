@@ -42,17 +42,18 @@ Page({
 	onShareAppMessage() {
 		// 监听用户点击页面内转发按钮（button 组件 open-type="share"）或右上角菜单“转发”按钮的行为，并自定义转发内容。
 		return {
-			title: '分享标题',
+			title: '微智搜',
 			path: '/pages/index/index', // 分享路径
-			imageUrl: 'https://p0.meituan.net/travelcube/a7e89847dc7141bda43ed354a18627ab18689.png', // 自定义分享图片
-			success: function () {
+			imageUrl:
+				'https://wx.qlogo.cn/mmhead/wzJhLVPsrd0K5G3fPwK6u4dIqicJwATDGUayslsgeeMr3cDibkSoMZms9jAkiaaG3FplBdWJO8ViaTU/0', // 自定义分享图片
+			success() {
 				wx.showToast({
 					title: '分享成功',
 					icon: 'success',
 					duration: 2000,
 				})
 			},
-			fail: function () {
+			fail() {
 				wx.showToast({
 					title: '分享失败',
 					icon: 'none',
