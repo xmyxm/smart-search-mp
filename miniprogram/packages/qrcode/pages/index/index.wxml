@@ -5,11 +5,11 @@
 			class="user-content"
 			auto-focus
 			auto-height
-			placeholder="请输入：链接/文本"
+			placeholder="{{placeholder}}"
 			bindinput="handleInput"
 			value="{{content}}"
 		/>
 		<button class="btn-qrcode" bindtap="bindCreateQRCodeTap">生成二维码</button>
-		<canvas type="2d" style="width: 200px; height: 200px;" canvas-id="myQrcode"></canvas>
+		<canvas type="2d" style="width: 200px; height: 200px" canvas-id="myQrcode"></canvas>
 	</view>
 </scroll-view>

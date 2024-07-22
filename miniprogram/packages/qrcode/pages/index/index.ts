@@ -2,6 +2,7 @@ import drawQrcode from '../../utils/index'
 
 Page({
 	data: {
+		placeholderText: '请输入：链接/文本',
 		content: '', // 用于存储用户输入的内容
 	},
 	onLoad() {
@@ -62,13 +63,21 @@ Page({
 	},
 	// 事件处理函数
 	bindCreateQRCodeTap() {
-		console.log('----123123--123123')
+		const { content, placeholderText } = this.data
+		console.log('----bindCreateQRCodeTap', content)
+		if (!content) {
+			wx.showToast({
+				title: placeholderText,
+				icon: 'none',
+				duration: 2000,
+			})
+		}
 		drawQrcode({
 			width: 200,
 			height: 200,
 			canvasId: 'myQrcode',
 			// ctx: wx.createCanvasContext('myQrcode'),
-			text: this.data.content,
+			text: content,
 			// v1.0.0+版本支持在二维码上绘制图片
 			image: {
 				imageResource: 'https://p0.meituan.net/travelcube/afef95131eb86fee084a96727a58fa352086.png',
