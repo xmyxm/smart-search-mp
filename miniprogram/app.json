@@ -1,5 +1,5 @@
 {
-	"pages": ["pages/index/index", "pages/logs/logs", "pages/tool/tool", "pages/life/life"],
+	"pages": ["pages/tool/tool", "pages/life/life", "pages/index/index", "pages/logs/logs"],
 	"subPackages": [
 		{
 			"root": "packages/qrcode",
@@ -13,12 +13,6 @@
 		"borderStyle": "black",
 		"list": [
 			{
-				"pagePath": "pages/index/index",
-				"text": "首页",
-				"iconPath": "./images/home.png",
-				"selectedIconPath": "./images/home-color.png"
-			},
-			{
 				"pagePath": "pages/tool/tool",
 				"text": "开发工具箱",
 				"iconPath": "./images/tool.png",
@@ -26,15 +20,9 @@
 			},
 			{
 				"pagePath": "pages/life/life",
-				"text": "生活",
+				"text": "学习博客",
 				"iconPath": "./images/life.png",
 				"selectedIconPath": "./images/life-color.png"
-			},
-			{
-				"pagePath": "pages/logs/logs",
-				"text": "log",
-				"iconPath": "./images/log.png",
-				"selectedIconPath": "./images/log-color.png"
 			}
 		]
 	},
