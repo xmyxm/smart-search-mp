@@ -29,10 +29,17 @@ export const platformInfoList: PlatformInfoType[] = [
 		select: false,
 	},
 	{
-		icon: 'https://p0.meituan.net/travelcube/77a48d4489c3a22b5032a6ba067516335992.png',
-		path: 'pages/webview/webview?url=',
-		appid: 'wx0b42a347aafbe0d0',
-		name: '美团·惠省',
+		icon: 'https://p0.meituan.net/travelcube/5bfbe1c92e02871ac3f548f04479cd9e4283.png',
+		path: 'pages/webview/index?url=',
+		appid: 'wx7649daed8f2335c4',
+		name: '美团·酒店',
 		select: false,
 	},
+	// {
+	// 	icon: 'https://p0.meituan.net/travelcube/77a48d4489c3a22b5032a6ba067516335992.png',
+	// 	path: 'pages/webview/webview?url=',
+	// 	appid: 'wx0b42a347aafbe0d0',
+	// 	name: '美团·惠省',
+	// 	select: false,
+	// },
 ]
