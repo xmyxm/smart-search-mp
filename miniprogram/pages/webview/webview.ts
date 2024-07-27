@@ -5,7 +5,7 @@ import { WebviewStateType, MpUrlHistoryInfoType } from './util/datatype'
 
 Page({
 	data: {
-		placeholderText: '请输入URL链接',
+		placeholderText: '请输入URL链接，如: https://m.dianping.com',
 		platformInfoList,
 		content: '',
 		mpUrlHistoryList: [],
@@ -16,9 +16,9 @@ Page({
 			wx.getStorageSync(storageKey.WEBVIEW_MPURL_HISTORY_LIST) || []
 		).map(({ appid, mpUrl, timeStamp }: MpUrlHistoryInfoType) => {
 			const time = formatMiniTime(new Date(Number(timeStamp)))
-			console.log('time:', time)
+			const icon = (platformInfoList.find((item: PlatformInfoType) => item.appid === appid) || {}).icon || ''
 			return {
-				icon: platformInfoList.find((item: PlatformInfoType) => item.appid === appid)?.icon || '',
+				icon,
 				mpUrl,
 				timeStamp,
 				time,
@@ -78,7 +78,7 @@ Page({
 	},
 	// 处理 textarea 输入事件
 	handleInput(event: any) {
-		const content = event.detail.value.trim()
+		const content = typeof event === 'object' ? event.detail.value.trim() : event
 		this.setData({
 			content,
 		})
@@ -102,6 +102,9 @@ Page({
 			}))
 			this.setData({ platformInfoList: list })
 		}
+	},
+	bindClearTap() {
+		this.handleInput('')
 	},
 	bindCreateMPURLTap() {
 		const { content } = this.data
