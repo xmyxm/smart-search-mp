@@ -23,7 +23,7 @@ export const platformInfoList: PlatformInfoType[] = [
 	},
 	{
 		icon: 'https://p0.meituan.net/travelcube/64987dcc63952feb618cf0100e61dc289621.png',
-		path: 'pages/webview/webview?url=',
+		path: 'index/pages/h5/pt/h5?weburl=',
 		appid: 'wx2c348cf579062e56',
 		name: '美团·外卖',
 		select: false,
