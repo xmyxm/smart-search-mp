@@ -5,7 +5,7 @@ import { WebviewStateType, MpUrlHistoryInfoType } from './util/datatype'
 
 Page({
 	data: {
-		placeholderText: '请输入URL链接，如: https://m.dianping.com',
+		placeholderText: '请输入URL链接，如: https://cube.dianping.com/cube/block/67e34cde9c5d/295306/index.html',
 		platformInfoList,
 		content: '',
 		mpUrlHistoryList: [],
@@ -186,14 +186,14 @@ Page({
 	},
 	openOtherMiniProgram(event: any) {
 		const { appid } = this.data.platformInfoList.find(item => item.select) || {}
+		// 'pages/webview/webview?url=https%3A%2F%2Fcube.dianping.com%2Fcube%2Fblock%2Fd91c203ec9f0%2F295324%2Findex.html'
 		const { mpurl } = event.currentTarget.dataset
+		console.log('---------mpurl', mpurl)
 		if (appid && mpurl) {
 			wx.navigateToMiniProgram({
 				appId: appid,
-				path: 'pages/index/index', // 可选
-				extraData: {
-					foo: 'bar',
-				},
+				path: mpurl,
+				extraData: {},
 				envVersion: 'release', // 可选
 				success(res) {
 					console.log('打开成功', res)
@@ -210,18 +210,18 @@ Page({
 			})
 		}
 	},
-	// 事件处理函数
-	bindViewTap() {
-		wx.navigateTo({
-			// url: '../logs/logs',
-			// url: '../tool/tool',
-			// url: '/pages/tool/tool',
-			url: '/packages/qrcode/pages/index/index',
+	bindClearChacheDataTap() {
+		this.setData({
+			mpUrlHistoryList: [],
+		})
+		wx.setStorage({
+			key: storageKey.WEBVIEW_MPURL_HISTORY_LIST,
+			data: [],
 			success() {
-				console.log('navigateTo success')
+				console.log('清除链接缓存成功')
 			},
-			fail(error) {
-				console.log('navigateTo fail', error)
+			fail(err) {
+				console.error('清除链接缓存失败', err)
 			},
 		})
 	},

@@ -67,6 +67,23 @@
 	text-align: center;
 }
 
+.option-box {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.option-name {
+	font-size: 14px;
+}
+
+.option-icon {
+	font-size: 12rpx;
+	border-radius: 8rpx;
+	background-color: #e1e1e1;
+	padding: 8rpx 12rpx;
+}
+
 .urllist {
 	display: flex;
 	flex-direction: column;
