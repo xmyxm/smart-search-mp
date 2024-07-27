@@ -74,7 +74,6 @@
 	white-space: nowrap;
 	padding-bottom: 15rpx;
 	padding-top: 15rpx;
-    border-bottom: 1px solid #f1f1f1;
 	border-top: 1px solid #f1f1f1;
 }
 

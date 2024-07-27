@@ -38,8 +38,8 @@
 				<image class="urllist-icon" src="{{ item.icon }}" mode="cover" />
 				<text class="urllist-url">{{ item.mpUrl }}</text>
 				<text class="urllist-time">{{ item.time }}</text>
-				<view class="btn-review" data-mpurl="{{ item.mpUrl }}" bindtap="bindCreateMPURLTap">复制</view>
-				<view class="btn-test" bindtap="bindCreateMPURLTap">打开</view>
+				<view class="btn-review" data-mpurl="{{ item.mpUrl }}" bindtap="bindCopyTap">复制</view>
+				<view class="btn-test" data-mpurl="{{ item.mpUrl }}" bindtap="openOtherMiniProgram">打开</view>
 			</view>
 		</view>
 	</view>

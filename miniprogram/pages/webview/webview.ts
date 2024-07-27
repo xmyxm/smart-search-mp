@@ -25,7 +25,8 @@ Page({
 			}
 		})
 
-		this.setData({ mpUrlHistoryList: historyList })
+		const content = wx.getStorageSync(storageKey.WEBVIEW_INPUT_CONTENT) || ''
+		this.setData({ mpUrlHistoryList: historyList, content })
 	},
 	onShow() {
 		// 页面显示/切入前台时触发。
@@ -77,8 +78,19 @@ Page({
 	},
 	// 处理 textarea 输入事件
 	handleInput(event: any) {
+		const content = event.detail.value.trim()
 		this.setData({
-			content: event.detail.value.trim(),
+			content,
+		})
+		wx.setStorage({
+			key: storageKey.WEBVIEW_INPUT_CONTENT,
+			data: content,
+			success() {
+				console.log('更新输入记录缓存成功')
+			},
+			fail(err) {
+				console.error('更新输入记录缓存失败', err)
+			},
 		})
 	},
 	bindSelectPlatformTap(event: any) {
@@ -92,37 +104,60 @@ Page({
 		}
 	},
 	bindCreateMPURLTap() {
-		const currentMpUrl = this.data.content
-		const selectPlatformInfo = this.data.platformInfoList.find(item => item.select)
-		const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(({ appid, mpUrl }) => {
-			return !(appid === selectPlatformInfo?.appid && mpUrl === currentMpUrl)
-		})
-		const currentTime = Date.now()
-		historyList.unshift({
-			icon: selectPlatformInfo?.icon || '',
-			appid: selectPlatformInfo?.appid || '',
-			mpUrl: currentMpUrl,
-			timeStamp: `${currentTime}`,
-			time: formatMiniTime(new Date(currentTime)),
-		})
-		this.setData({
-			mpUrlHistoryList: historyList,
-		})
-		const historyListCacheData = historyList.map(({ appid, mpUrl, timeStamp }: MpUrlHistoryInfoType) => ({
-			appid,
-			mpUrl,
-			timeStamp,
-		}))
-		wx.setStorage({
-			key: storageKey.WEBVIEW_MPURL_HISTORY_LIST,
-			data: historyListCacheData,
-			success() {
-				console.log('生成链接存储成功')
-			},
-			fail(err) {
-				console.error('生成链接存储失败', err)
-			},
-		})
+		const { content } = this.data
+		if (content) {
+			const urlPattern = /^(https?:\/\/)?([^\s$.?#].[^\s]*)$/i
+			if (urlPattern.test(content)) {
+				const { appid = '', path = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
+				const currentMpUrl = `${path}${encodeURIComponent(content)}`
+				const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
+					(item: MpUrlHistoryInfoType) => {
+						return !(item.appid === appid && item.mpUrl === currentMpUrl)
+					},
+				)
+				const currentTime = Date.now()
+				historyList.unshift({
+					icon,
+					appid,
+					mpUrl: currentMpUrl,
+					timeStamp: `${currentTime}`,
+					time: formatMiniTime(new Date(currentTime)),
+				})
+				if (historyList.length > 50) {
+					historyList.length = 50
+				}
+				this.setData({
+					mpUrlHistoryList: historyList,
+				})
+				const historyListCacheData = historyList.map((item: MpUrlHistoryInfoType) => ({
+					appid: item.appid,
+					mpUrl: item.mpUrl,
+					timeStamp: item.timeStamp,
+				}))
+				wx.setStorage({
+					key: storageKey.WEBVIEW_MPURL_HISTORY_LIST,
+					data: historyListCacheData,
+					success() {
+						console.log('更新链接缓存成功')
+					},
+					fail(err) {
+						console.error('更新链接缓存失败', err)
+					},
+				})
+			} else {
+				wx.showToast({
+					title: '请输入正确的url链接',
+					icon: 'none',
+					duration: 2000,
+				})
+			}
+		} else {
+			wx.showToast({
+				title: '请输入url链接',
+				icon: 'none',
+				duration: 2000,
+			})
+		}
 	},
 	bindCopyTap(event: any) {
 		const { mpurl } = event.currentTarget.dataset
@@ -143,6 +178,32 @@ Page({
 						duration: 2000,
 					})
 				},
+			})
+		}
+	},
+	openOtherMiniProgram(event: any) {
+		const { appid } = this.data.platformInfoList.find(item => item.select) || {}
+		const { mpurl } = event.currentTarget.dataset
+		if (appid && mpurl) {
+			wx.navigateToMiniProgram({
+				appId: appid,
+				path: 'pages/index/index', // 可选
+				extraData: {
+					foo: 'bar',
+				},
+				envVersion: 'release', // 可选
+				success(res) {
+					console.log('打开成功', res)
+				},
+				fail(err) {
+					console.error('打开失败', err)
+				},
+			})
+		} else {
+			wx.showToast({
+				title: '参数不完整，无法完成跳转',
+				icon: 'none',
+				duration: 2000,
 			})
 		}
 	},
