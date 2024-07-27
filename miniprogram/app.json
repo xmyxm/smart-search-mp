@@ -1,5 +1,5 @@
 {
-	"pages": ["pages/tool/tool", "pages/life/life", "pages/index/index", "pages/logs/logs"],
+	"pages": ["pages/webview/webview", "pages/tool/tool", "pages/life/life", "pages/index/index", "pages/logs/logs"],
 	"subPackages": [
 		{
 			"root": "packages/qrcode",
@@ -12,6 +12,12 @@
 		"backgroundColor": "#ffffff",
 		"borderStyle": "black",
 		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "微智搜",
+				"iconPath": "./images/index.png",
+				"selectedIconPath": "./images/index-color.png"
+			},
 			{
 				"pagePath": "pages/tool/tool",
 				"text": "开发工具箱",

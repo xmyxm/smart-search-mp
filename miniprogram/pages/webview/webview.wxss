@@ -1,0 +1,116 @@
+.container {
+	padding: 30rpx;
+}
+
+.title {
+	font-size: 14px;
+}
+
+.platform {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20rpx;
+}
+
+.platform-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 160rpx;
+	border-radius: 20rpx;
+	padding: 10rpx;
+}
+
+.box-select {
+	background-color: #e1e1e1;
+}
+
+.platform-icon {
+	overflow: hidden;
+	width: 68rpx;
+	height: 68rpx;
+	border-radius: 50%;
+}
+
+.platform-name {
+	font-size: 28rpx;
+	line-height: 36rpx;
+	height: 36rpx;
+	margin-top: 6rpx;
+}
+
+.user-content {
+	margin-top: 20rpx;
+	min-height: 400rpx;
+	width: 100%;
+	background-color: #e1e1e1;
+	border-radius: 16rpx;
+	padding: 20rpx;
+}
+
+.btn-qrcode {
+	width: 80%;
+	height: 60rpx;
+	color: #ffffff;
+	background-color: #1aad19;
+	margin: 40rpx auto;
+	border-radius: 8rpx;
+}
+
+.urllist {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.urllist-box {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	white-space: nowrap;
+	padding-bottom: 15rpx;
+	padding-top: 15rpx;
+    border-bottom: 1px solid #f1f1f1;
+	border-top: 1px solid #f1f1f1;
+}
+
+.urllist-icon {
+	overflow: hidden;
+	width: 36rpx;
+	height: 36rpx;
+	border-radius: 50%;
+	margin-right: 10rpx;
+}
+
+.urllist-url {
+	font-size: 36rpx;
+	flex: 1;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-right: 10rpx;
+}
+
+.urllist-time {
+	font-size: 36rpx;
+	margin-right: 14rpx;
+}
+
+.btn-review {
+	margin-right: 16rpx;
+}
+
+.btn-review,
+.btn-test {
+	width: 100rpx;
+	line-height: 56rpx;
+	font-size: 36rpx;
+	background-color: #1aad19;
+	text-align: center;
+	color: #fff;
+	border-radius: 8rpx;
+}

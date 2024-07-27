@@ -1,0 +1,46 @@
+<navigation-bar title="小程序跳转链接生成工具" back="{{ false }}" color="black" background="#f1f1f1" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<view class="title">选择生成小程序链接的平台：</view>
+		<view class="platform">
+			<view
+				wx:if="{{ platformInfoList && platformInfoList.length > 0 }}"
+				wx:for="{{ platformInfoList }}"
+				class="{{ 'platform-box' + (item.select ? ' box-select' : '') }}"
+				wx:for-item="item"
+				wx:key="{{ item.appid }}"
+				data-appid="{{ item.appid }}"
+				bindtap="bindSelectPlatformTap"
+			>
+				<image class="platform-icon" src="{{ item.icon }}" mode="cover" />
+				<text class="platform-name">{{ item.name }}</text>
+			</view>
+		</view>
+		<textarea
+			class="user-content"
+			auto-focus
+			auto-height
+			placeholder="{{placeholderText}}"
+			bindinput="handleInput"
+			value="{{content}}"
+		/>
+		<button class="btn-qrcode" bindtap="bindCreateMPURLTap">生成链接</button>
+		<view class="title">操作历史：</view>
+		<view class="urllist">
+			<view
+				wx:if="{{ mpUrlHistoryList && mpUrlHistoryList.length > 0 }}"
+				wx:for="{{ mpUrlHistoryList }}"
+				class="urllist-box"
+				wx:for-item="item"
+				wx:key="{{ item.appid }}"
+				data-appid="{{ item.appid }}"
+			>
+				<image class="urllist-icon" src="{{ item.icon }}" mode="cover" />
+				<text class="urllist-url">{{ item.mpUrl }}</text>
+				<text class="urllist-time">{{ item.time }}</text>
+				<view class="btn-review" data-mpurl="{{ item.mpUrl }}" bindtap="bindCreateMPURLTap">复制</view>
+				<view class="btn-test" bindtap="bindCreateMPURLTap">打开</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>

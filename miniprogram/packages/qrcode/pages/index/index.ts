@@ -39,14 +39,14 @@ Page({
 			title: '二维码生成器',
 			path: 'packages/qrocde/pages/index/index', // 分享路径
 			imageUrl: 'https://p0.meituan.net/travelcube/a2af48433a8ef3751ae58e2afec784589104.png', // 自定义分享图片
-			success: function () {
+			success() {
 				wx.showToast({
 					title: '分享成功',
 					icon: 'success',
 					duration: 2000,
 				})
 			},
-			fail: function () {
+			fail() {
 				wx.showToast({
 					title: '分享失败',
 					icon: 'none',
