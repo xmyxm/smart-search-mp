@@ -98,8 +98,8 @@
 	align-items: center;
 	width: 100%;
 	white-space: nowrap;
-	padding-bottom: 15rpx;
-	padding-top: 15rpx;
+	padding-bottom: 20rpx;
+	padding-top: 20rpx;
 	border-top: 1px solid #f1f1f1;
 }
 
