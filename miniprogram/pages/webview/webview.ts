@@ -223,6 +223,17 @@ Page({
 			showModal: !this.data.showModal,
 		})
 	},
+	// 处理 textarea 输入事件
+	handleModalInput(event: any) {
+		const modalContent = event.detail.value.trim()
+		this.setData({
+			modalContent,
+		})
+	},
+	bindCopyModalContentTap() {
+		this.copyURL(this.data.modalContent)
+		this.bindModalTap()
+	},
 	copyURL(mpurl: string) {
 		wx.setClipboardData({
 			data: mpurl,

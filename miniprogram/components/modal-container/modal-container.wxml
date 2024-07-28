@@ -1,16 +1,6 @@
-<view
-	class="modal-mask"
-	wx:if="{{showModal}}"
-	bindtap="hideModal"
-	catchtouchmove="preventTouchMove"
->
+<view class="modal-mask" catchtouchmove="preventTouchMove">
 	<view class="modal-box">
-		<image
-			class="modal-image"
-			catchtap="dialogToPage"
-			data-schema="{{dialoInfo.schema}}"
-			src="{{dialoInfo.imageUrl}}"
-		></image>
-		<view class="modal-btn-close" catchtap="hideModal"></view>
+		<slot />
+		<view class="modal-btn-close" bindtap="hideModal"></view>
 	</view>
 </view>

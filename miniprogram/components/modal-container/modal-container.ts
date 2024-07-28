@@ -55,7 +55,10 @@ Component({
 	 */
 	methods: {
 		hideModal() {
-			this.triggerEvent('hideModal')
+			this.triggerEvent('bindModalTap')
+		},
+		preventTouchMove() {
+			console.log('滑动')
 		},
 	},
 })
