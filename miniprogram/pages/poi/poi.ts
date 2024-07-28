@@ -130,20 +130,20 @@ Page({
 	bindCreatePoiPathTap() {
 		const { content } = this.data
 		if (content) {
+			const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
 			const {
-				appid = '',
-				icon = '',
-				regex = /shopshare\/([a-zA-Z0-9]+)\?/,
-			} = this.data.platformInfoList.find(item => item.select) || {}
+				dpPath = '',
+				mtPath = '',
+				dpRegex = /shopshare\/([a-zA-Z0-9]+)\?/,
+				mtRegex = /dpurl\.cn\/([a-zA-Z0-9]+)/,
+			} = this.data.selectPoiTypeInfo
+			const isDP = appid === APPID_KEY.DIANPING_MP_MAIN
+			const path = isDP ? dpPath : mtPath
+			const regex = isDP ? dpRegex : mtRegex
 			// 使用正则表达式进行匹配
 			const match = content.match(regex)
 			if (match && match[1]) {
 				const id = match[1]
-
-				const path =
-					appid === APPID_KEY.DIANPING_MP_MAIN
-						? this.data.selectPoiTypeInfo.dpPath
-						: this.data.selectPoiTypeInfo.mtPath
 				const currentPoiPath = `${path}${id}`
 				const historyList: PoiPathHistoryInfoType[] = this.data.poiPathHistoryList.filter(
 					(item: PoiPathHistoryInfoType) => {
@@ -203,7 +203,7 @@ Page({
 	openOtherMiniProgram(event: any) {
 		// 'pages/webview/webview?url=https%3A%2F%2Fcube.dianping.com%2Fcube%2Fblock%2Fd91c203ec9f0%2F295324%2Findex.html'
 		const { poipath, appid } = event.currentTarget.dataset
-		console.log('---------appid、mpurl', appid, poipath)
+		console.log('---------appid、poipath', appid, poipath)
 		if (appid && poipath) {
 			wx.navigateToMiniProgram({
 				appId: appid,
