@@ -1,5 +1,12 @@
 {
-	"pages": ["pages/webview/webview", "pages/tool/tool", "pages/life/life", "pages/index/index", "pages/logs/logs"],
+	"pages": [
+		"pages/poi/poi",
+		"pages/webview/webview",
+		"pages/tool/tool",
+		"pages/life/life",
+		"pages/index/index",
+		"pages/logs/logs"
+	],
 	"subPackages": [
 		{
 			"root": "packages/qrcode",

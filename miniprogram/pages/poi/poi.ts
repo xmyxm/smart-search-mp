@@ -1,6 +1,6 @@
 import { platformInfoList, PlatformInfoType } from './util/platformdata'
+import { WebviewStateType, PoiPathHistoryInfoType } from './util/datatype'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
-import { WebviewStateType, MpUrlHistoryInfoType } from './util/datatype'
 import { storageKey } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 
@@ -9,27 +9,27 @@ Page({
 		placeholderText: defaultPlaceholderText,
 		platformInfoList,
 		content: defaultCopyContent,
-		mpUrlHistoryList: [],
+		poiPathHistoryList: [],
 		showModal: false,
 		modalContent: '',
 	} as WebviewStateType,
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
-		const historyList: MpUrlHistoryInfoType[] = (
-			wx.getStorageSync(storageKey.WEBVIEW_MPURL_HISTORY_LIST) || []
-		).map(({ appid, mpUrl, timeStamp }: MpUrlHistoryInfoType) => {
-			const time = formatMiniTime(new Date(Number(timeStamp)))
-			const icon = (platformInfoList.find((item: PlatformInfoType) => item.appid === appid) || {}).icon || ''
-			return {
-				icon,
-				mpUrl,
-				timeStamp,
-				time,
-			}
-		})
+		const historyList: PoiPathHistoryInfoType[] = (wx.getStorageSync(storageKey.POI_URL_HISTORY_LIST) || []).map(
+			({ appid, poiPath, timeStamp }: PoiPathHistoryInfoType) => {
+				const time = formatMiniTime(new Date(Number(timeStamp)))
+				const icon = (platformInfoList.find((item: PlatformInfoType) => item.appid === appid) || {}).icon || ''
+				return {
+					icon,
+					poiPath,
+					timeStamp,
+					time,
+				}
+			},
+		)
 
-		const content = wx.getStorageSync(storageKey.WEBVIEW_MPURL_INPUT_CONTENT) || ''
-		this.setData({ mpUrlHistoryList: historyList, content })
+		const content = wx.getStorageSync(storageKey.POI_URL_INPUT_CONTENT) || ''
+		this.setData({ poiPathHistoryList: historyList, content })
 	},
 	onShow() {
 		// 页面显示/切入前台时触发。
@@ -59,8 +59,8 @@ Page({
 	onShareAppMessage() {
 		// 监听用户点击页面内转发按钮（button 组件 open-type="share"）或右上角菜单“转发”按钮的行为，并自定义转发内容。
 		return {
-			title: '小程序跳转链接生成工具',
-			path: 'pages/webview/webview', // 分享路径
+			title: '小程序商户链接生成工具',
+			path: 'pages/poi/poi', // 分享路径
 			imageUrl: 'https://p1.meituan.net/travelcube/22dd461137b5560e7544045e66f416d025980.jpg', // 自定义分享图片，尺寸 500px*400px，官方要求 5:4
 			success() {
 				wx.showToast({
@@ -85,7 +85,7 @@ Page({
 			content,
 		})
 		wx.setStorage({
-			key: storageKey.WEBVIEW_MPURL_INPUT_CONTENT,
+			key: storageKey.POI_URL_INPUT_CONTENT,
 			data: content,
 			success() {
 				console.log('更新输入记录缓存成功')
@@ -108,32 +108,32 @@ Page({
 	bindClearTap() {
 		this.handleInput('')
 	},
-	bindCreateMPURLTap() {
-		let { content } = this.data
+	bindCreatePoiPathTap() {
+		const { content } = this.data
 		if (content) {
-			const urlPattern = /^(https?:\/\/)?([^\s$.?#].[^\s]*)$/i
-			if (urlPattern.test(content)) {
+			// 定义正则表达式
+			const regex = /shopshare\/([a-zA-Z0-9]+)\?/
+			// 使用正则表达式进行匹配
+			const match = content.match(regex)
+			if (match && match[1]) {
+				const shopUuid = match[1]
 				const {
 					appid = '',
 					path = '',
 					icon = '',
 					pathCP = '',
-					urlCP = '',
 				} = this.data.platformInfoList.find(item => item.select) || {}
-				if (urlCP) {
-					content = content + (content.indexOf('?') > -1 ? '&' : '?') + urlCP
-				}
-				const currentMpUrl = `${path}${encodeURIComponent(content)}${pathCP}`
-				const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
-					(item: MpUrlHistoryInfoType) => {
-						return !(item.appid === appid && item.mpUrl === currentMpUrl)
+				const currentPoiPath = `${path}?shopUuid=${shopUuid}${pathCP}`
+				const historyList: PoiPathHistoryInfoType[] = this.data.poiPathHistoryList.filter(
+					(item: PoiPathHistoryInfoType) => {
+						return !(item.appid === appid && item.poiPath === currentPoiPath)
 					},
 				)
 				const currentTime = Date.now()
 				historyList.unshift({
 					icon,
 					appid,
-					mpUrl: currentMpUrl,
+					poiPath: currentPoiPath,
 					timeStamp: `${currentTime}`,
 					time: formatMiniTime(new Date(currentTime)),
 				})
@@ -141,15 +141,15 @@ Page({
 					historyList.length = 50
 				}
 				this.setData({
-					mpUrlHistoryList: historyList,
+					poiPathHistoryList: historyList,
 				})
-				const historyListCacheData = historyList.map((item: MpUrlHistoryInfoType) => ({
+				const historyListCacheData = historyList.map((item: PoiPathHistoryInfoType) => ({
 					appid: item.appid,
-					mpUrl: item.mpUrl,
+					poiPath: item.poiPath,
 					timeStamp: item.timeStamp,
 				}))
 				wx.setStorage({
-					key: storageKey.WEBVIEW_MPURL_HISTORY_LIST,
+					key: storageKey.POI_URL_HISTORY_LIST,
 					data: historyListCacheData,
 					success() {
 						console.log('更新链接缓存成功')
@@ -160,14 +160,14 @@ Page({
 				})
 			} else {
 				wx.showToast({
-					title: '请输入正确的url链接',
+					title: '未能匹配出商户ID，请复制正确的分享链接',
 					icon: 'none',
 					duration: 2000,
 				})
 			}
 		} else {
 			wx.showToast({
-				title: '请输入url链接',
+				title: '请贴入文本链接',
 				icon: 'none',
 				duration: 2000,
 			})
@@ -206,10 +206,10 @@ Page({
 	},
 	bindClearChacheDataTap() {
 		this.setData({
-			mpUrlHistoryList: [],
+			poiPathHistoryList: [],
 		})
 		wx.setStorage({
-			key: storageKey.WEBVIEW_MPURL_HISTORY_LIST,
+			key: storageKey.POI_URL_HISTORY_LIST,
 			data: [],
 			success() {
 				console.log('清除链接缓存成功')
