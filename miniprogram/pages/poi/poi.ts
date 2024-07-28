@@ -10,6 +10,7 @@ Page({
 		placeholderText: defaultPlaceholderText,
 		platformInfoList,
 		poiTypeInfoList,
+		selectPoiTypeInfo: poiTypeInfoList[0],
 		content: defaultCopyContent,
 		poiPathHistoryList: [],
 		showModal: false,
@@ -107,6 +108,11 @@ Page({
 			this.setData({ platformInfoList: list })
 		}
 	},
+	radioChange(event: any) {
+		console.log('选中的值为:', event.detail.value)
+		const selectPoiTypeInfo = this.data.poiTypeInfoList.find(item => item.showType === event.detail.value)
+		this.setData({ selectPoiTypeInfo })
+	},
 	bindSelectPoiTypeTap(event: any) {
 		const { showType } = event.currentTarget.dataset
 		if (showType) {
@@ -129,12 +135,7 @@ Page({
 			const match = content.match(regex)
 			if (match && match[1]) {
 				const shopUuid = match[1]
-				const {
-					appid = '',
-					path = '',
-					icon = '',
-					pathCP = '',
-				} = this.data.platformInfoList.find(item => item.select) || {}
+				const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
 				const currentPoiPath = `${path}${shopUuid}${pathCP}`
 				const historyList: PoiPathHistoryInfoType[] = this.data.poiPathHistoryList.filter(
 					(item: PoiPathHistoryInfoType) => {

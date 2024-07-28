@@ -13,6 +13,7 @@ export interface PoiStateType {
 	placeholderText: string
 	platformInfoList: PlatformInfoType[]
 	poiTypeInfoList: poiTypeInfoType[]
+	selectPoiTypeInfo: poiTypeInfoType
 	content: string
 	poiPathHistoryList: PoiPathHistoryInfoType[]
 	showModal: boolean

@@ -19,19 +19,18 @@
 		</block>
 		<block wx:if="{{ poiTypeInfoList && poiTypeInfoList.length > 0 }}">
 			<view class="title mt30">选择商户类型：</view>
-			<view class="poi-type">
+			<radio-group class="poi-type" bindchange="radioChange">
 				<view
 					wx:for="{{ poiTypeInfoList }}"
 					class="{{ 'poi-box' }}"
 					wx:for-item="item"
 					wx:key="{{ item.showType }}"
 					data-showType="{{ item.showType }}"
-					bindtap="bindSelectPoiTypeTap"
 				>
 					<radio class="poi-rad" value="{{item.showType}}" checked="{{item.checked}}" />
 					<text class="poi-name">{{ item.name }}</text>
 				</view>
-			</view>
+			</radio-group>
 		</block>
 		<textarea
 			class="user-content"
