@@ -27,6 +27,7 @@ Page({
 				const icon = (platformInfoList.find((item: PlatformInfoType) => item.appid === appid) || {}).icon || ''
 				return {
 					icon,
+					appid,
 					poiPath,
 					timeStamp,
 					time,

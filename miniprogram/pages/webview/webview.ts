@@ -23,6 +23,7 @@ Page({
 			const time = formatMiniTime(new Date(Number(timeStamp)))
 			const icon = (platformInfoList.find((item: PlatformInfoType) => item.appid === appid) || {}).icon || ''
 			return {
+				appid,
 				icon,
 				mpUrl,
 				timeStamp,
