@@ -20,7 +20,7 @@
 	align-items: center;
 	width: 160rpx;
 	border-radius: 20rpx;
-	padding: 10rpx;
+	padding: 20rpx;
 }
 
 .box-select {
