@@ -11,6 +11,7 @@ module.exports = {
 		App: true,
 		getApp: true,
 		Page: true,
+		getCurrentPages: true,
 		IAppOption: true,
 		Component: true,
 		wx: true,

@@ -9,6 +9,8 @@ Page({
 		platformInfoList,
 		content: 'https://cube.meituan.com/cube/block/67e34cde9c5d/295306/index.html',
 		mpUrlHistoryList: [],
+		showModal: false,
+		modalContent: '',
 	} as WebviewStateType,
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
@@ -165,23 +167,7 @@ Page({
 	bindCopyTap(event: any) {
 		const { mpurl } = event.currentTarget.dataset
 		if (mpurl) {
-			wx.setClipboardData({
-				data: mpurl,
-				success() {
-					wx.showToast({
-						title: '链接复制成功',
-						icon: 'success',
-						duration: 2000,
-					})
-				},
-				fail() {
-					wx.showToast({
-						title: '链接复制失败',
-						icon: 'none',
-						duration: 2000,
-					})
-				},
-			})
+			this.copyURL(mpurl)
 		}
 	},
 	openOtherMiniProgram(event: any) {
@@ -222,6 +208,37 @@ Page({
 			},
 			fail(err) {
 				console.error('清除链接缓存失败', err)
+			},
+		})
+	},
+	bindmpUrlTap(event: any) {
+		const { mpurl } = event.currentTarget.dataset
+		this.setData({
+			modalContent: mpurl,
+			showModal: true,
+		})
+	},
+	bindModalTap() {
+		this.setData({
+			showModal: !this.data.showModal,
+		})
+	},
+	copyURL(mpurl: string) {
+		wx.setClipboardData({
+			data: mpurl,
+			success() {
+				wx.showToast({
+					title: '链接复制成功',
+					icon: 'success',
+					duration: 2000,
+				})
+			},
+			fail() {
+				wx.showToast({
+					title: '链接复制失败',
+					icon: 'none',
+					duration: 2000,
+				})
 			},
 		})
 	},
