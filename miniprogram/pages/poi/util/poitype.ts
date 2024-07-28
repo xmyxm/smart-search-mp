@@ -13,7 +13,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		showType: 'food',
 		cate: 1,
 		dpPath: 'pages/poi/poi?shopUuid=',
-		mtPath: 'index/pages/poi/poi?id=',
+		mtPath: 'index/pages/poi/poi?showtype=food&cate=1&id=',
 		checked: true,
 	},
 	{
@@ -21,7 +21,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		showType: 'hotel',
 		cate: 20,
 		dpPath: 'pages/poi/poi?shopUuid=',
-		mtPath: 'index/pages/poi/poi?id=',
+		mtPath: 'index/pages/poi/poi?showtype=hotel&cate=20&id=',
 		checked: false,
 	},
 	{
@@ -29,7 +29,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		showType: 'cinema',
 		cate: 99,
 		dpPath: 'pages/poi/poi?shopUuid=',
-		mtPath: 'index/pages/poi/poi?id=',
+		mtPath: 'index/pages/poi/poi?showtype=cinema&cate=99&id=',
 		checked: false,
 	},
 	{
@@ -37,7 +37,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		showType: 'travel',
 		cate: [78, 195],
 		dpPath: 'pages/poi/poi?shopUuid=',
-		mtPath: 'index/pages/poi/poi?id=',
+		mtPath: 'index/pages/poi/poi?showtype=travel&cate=78&id=',
 		checked: false,
 	},
 	{
@@ -45,7 +45,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		showType: 'shopping',
 		cate: 0,
 		dpPath: 'pages/poi/poi?shopUuid=',
-		mtPath: 'index/pages/poi/poi?id=',
+		mtPath: 'index/pages/poi/poi?showtype=shopping&cate=0&id=',
 		checked: false,
 	},
 	{
@@ -53,7 +53,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		showType: 'OverseaHotel',
 		cate: 0,
 		dpPath: 'pages/poi/poi?shopUuid=',
-		mtPath: 'index/pages/poi/poi?id=',
+		mtPath: 'index/pages/poi/poi?showtype=OverseaHotel&cate=0&id=',
 		checked: false,
 	},
 ]

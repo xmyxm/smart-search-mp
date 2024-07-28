@@ -134,9 +134,13 @@ Page({
 			// 使用正则表达式进行匹配
 			const match = content.match(regex)
 			if (match && match[1]) {
-				const shopUuid = match[1]
+				const id = match[1]
 				const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
-				const currentPoiPath = `${path}${shopUuid}${pathCP}`
+				const path =
+					appid === 'wx734c1ad7b3562129'
+						? this.data.selectPoiTypeInfo.dpPath
+						: this.data.selectPoiTypeInfo.mtPath
+				const currentPoiPath = `${path}${id}`
 				const historyList: PoiPathHistoryInfoType[] = this.data.poiPathHistoryList.filter(
 					(item: PoiPathHistoryInfoType) => {
 						return !(item.appid === appid && item.poiPath === currentPoiPath)
