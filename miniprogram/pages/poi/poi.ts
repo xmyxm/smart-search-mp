@@ -134,12 +134,12 @@ Page({
 			const {
 				dpPath = '',
 				mtPath = '',
-				dpRegex = /shopshare\/([a-zA-Z0-9]+)\?/,
-				mtRegex = /dpurl\.cn\/([a-zA-Z0-9]+)/,
+				dpRegex = 'shopshare\\/([a-zA-Z0-9]+)\\?',
+				mtRegex = 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
 			} = this.data.selectPoiTypeInfo
 			const isDP = appid === APPID_KEY.DIANPING_MP_MAIN
 			const path = isDP ? dpPath : mtPath
-			const regex = isDP ? dpRegex : mtRegex
+			const regex = new RegExp(isDP ? dpRegex : mtRegex)
 			// 使用正则表达式进行匹配
 			const match = content.match(regex)
 			if (match && match[1]) {
