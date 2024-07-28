@@ -58,14 +58,14 @@
 					wx:key="{{ item.appid }}"
 				>
 					<image class="urllist-icon" src="{{ item.icon }}" mode="cover" />
-					<text class="urllist-url" data-mpurl="{{ item.poiPath }}" bindtap="bindmpUrlTap"
+					<text class="urllist-url" data-poipath="{{ item.poiPath }}" bindtap="bindmpUrlTap"
 						>{{ item.poiPath }}</text
 					>
 					<text class="urllist-time">{{ item.time }}</text>
-					<view class="btn-review" data-mpurl="{{ item.poiPath }}" bindtap="bindCopyTap">复制</view>
+					<view class="btn-review" data-poipath="{{ item.poiPath }}" bindtap="bindCopyTap">复制</view>
 					<view
 						class="btn-test"
-						data-mpurl="{{ item.poiPath }}"
+						data-poipath="{{ item.poiPath }}"
 						data-appid="{{ item.appid }}"
 						bindtap="openOtherMiniProgram"
 						>打开</view

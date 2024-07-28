@@ -2,7 +2,7 @@ export interface StorageKeyType {
 	[key: string]: string
 }
 
-export const storageKey: StorageKeyType = {
+export const STORAGE_KEY: StorageKeyType = {
 	WEBVIEW_MPURL_HISTORY_LIST: 'WEBVIEW_MPURL_HISTORY_LIST',
 	WEBVIEW_MPURL_INPUT_CONTENT: 'WEBVIEW_MPURL_INPUT_CONTENT',
 	POI_URL_HISTORY_LIST: 'POI_URL_HISTORY_LIST',

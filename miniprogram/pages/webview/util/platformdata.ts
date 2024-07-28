@@ -1,3 +1,5 @@
+import { APPID_KEY } from '../../../enum/appid'
+
 export interface PlatformInfoType {
 	icon: string
 	path: string
@@ -14,7 +16,7 @@ export const platformInfoList: PlatformInfoType[] = [
 		path: 'pages/webview/webview?url=',
 		pathCP: '',
 		urlCP: 'token=*&openId=*&cityId=*&longitude=*&latitude=*',
-		appid: 'wx734c1ad7b3562129',
+		appid: APPID_KEY.DIANPING_MP_MAIN,
 		name: '大众点评',
 		select: true,
 	},
@@ -23,7 +25,7 @@ export const platformInfoList: PlatformInfoType[] = [
 		path: 'index/pages/h5/pt/h5?weburl=',
 		pathCP: '&f_token=0&f_utm=0&f_openIdCipher=0&f_ci=0&f_pos=0',
 		urlCP: '',
-		appid: 'wxde8ac0a21135c07d',
+		appid: APPID_KEY.MEITUAN_MP_MAIN,
 		name: '美团',
 		select: false,
 	},
@@ -32,7 +34,7 @@ export const platformInfoList: PlatformInfoType[] = [
 		path: 'pages/web-view/web-view?webviewUrl=',
 		pathCP: '&type=DIRECT&wxapp_force_login=2',
 		urlCP: '',
-		appid: 'wx2c348cf579062e56',
+		appid: APPID_KEY.MEITUAN_MP_WAIMAI,
 		name: '美团·外卖',
 		select: false,
 	},
@@ -41,7 +43,7 @@ export const platformInfoList: PlatformInfoType[] = [
 		path: 'pages/webview/index?url=',
 		pathCP: '',
 		urlCP: '',
-		appid: 'wx7649daed8f2335c4',
+		appid: APPID_KEY.MEITUAN_MP_HOTEL,
 		name: '美团·酒店',
 		select: false,
 	},
@@ -50,7 +52,7 @@ export const platformInfoList: PlatformInfoType[] = [
 	// 	path: 'pages/webview/webview?url=',
 	// 	pathCP: '',
 	// 	urlCP: '',
-	// 	appid: 'wx0b42a347aafbe0d0',
+	// 	appid: APPID_KEY.MEITUAN_MP_HUISHENG,
 	// 	name: '美团·惠省',
 	// 	select: false,
 	// },

@@ -2,8 +2,9 @@ import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { PoiStateType, PoiPathHistoryInfoType } from './util/datatype'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
 import { poiTypeInfoList, poiTypeInfoType } from './util/poitype'
-import { storageKey } from '../../enum/storagekey'
+import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
+import { APPID_KEY } from '../../enum/appid'
 
 Page({
 	data: {
@@ -18,7 +19,7 @@ Page({
 	} as PoiStateType,
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
-		const historyList: PoiPathHistoryInfoType[] = (wx.getStorageSync(storageKey.POI_URL_HISTORY_LIST) || []).map(
+		const historyList: PoiPathHistoryInfoType[] = (wx.getStorageSync(STORAGE_KEY.POI_URL_HISTORY_LIST) || []).map(
 			({ appid, poiPath, timeStamp }: PoiPathHistoryInfoType) => {
 				const time = formatMiniTime(new Date(Number(timeStamp)))
 				const icon = (platformInfoList.find((item: PlatformInfoType) => item.appid === appid) || {}).icon || ''
@@ -31,7 +32,7 @@ Page({
 			},
 		)
 
-		const content = wx.getStorageSync(storageKey.POI_URL_INPUT_CONTENT) || ''
+		const content = wx.getStorageSync(STORAGE_KEY.POI_URL_INPUT_CONTENT) || ''
 		this.setData({ poiPathHistoryList: historyList, content })
 	},
 	onShow() {
@@ -88,7 +89,7 @@ Page({
 			content,
 		})
 		wx.setStorage({
-			key: storageKey.POI_URL_INPUT_CONTENT,
+			key: STORAGE_KEY.POI_URL_INPUT_CONTENT,
 			data: content,
 			success() {
 				console.log('更新输入记录缓存成功')
@@ -129,15 +130,18 @@ Page({
 	bindCreatePoiPathTap() {
 		const { content } = this.data
 		if (content) {
-			// 定义正则表达式
-			const regex = /shopshare\/([a-zA-Z0-9]+)\?/
+			const {
+				appid = '',
+				icon = '',
+				regex = /shopshare\/([a-zA-Z0-9]+)\?/,
+			} = this.data.platformInfoList.find(item => item.select) || {}
 			// 使用正则表达式进行匹配
 			const match = content.match(regex)
 			if (match && match[1]) {
 				const id = match[1]
-				const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
+
 				const path =
-					appid === 'wx734c1ad7b3562129'
+					appid === APPID_KEY.DIANPING_MP_MAIN
 						? this.data.selectPoiTypeInfo.dpPath
 						: this.data.selectPoiTypeInfo.mtPath
 				const currentPoiPath = `${path}${id}`
@@ -166,7 +170,7 @@ Page({
 					timeStamp: item.timeStamp,
 				}))
 				wx.setStorage({
-					key: storageKey.POI_URL_HISTORY_LIST,
+					key: STORAGE_KEY.POI_URL_HISTORY_LIST,
 					data: historyListCacheData,
 					success() {
 						console.log('更新链接缓存成功')
@@ -191,19 +195,19 @@ Page({
 		}
 	},
 	bindCopyTap(event: any) {
-		const { mpurl } = event.currentTarget.dataset
-		if (mpurl) {
-			this.copyURL(mpurl)
+		const { poipath } = event.currentTarget.dataset
+		if (poipath) {
+			this.copyURL(poipath)
 		}
 	},
 	openOtherMiniProgram(event: any) {
 		// 'pages/webview/webview?url=https%3A%2F%2Fcube.dianping.com%2Fcube%2Fblock%2Fd91c203ec9f0%2F295324%2Findex.html'
-		const { mpurl, appid } = event.currentTarget.dataset
-		console.log('---------appid、mpurl', appid, mpurl)
-		if (appid && mpurl) {
+		const { poipath, appid } = event.currentTarget.dataset
+		console.log('---------appid、mpurl', appid, poipath)
+		if (appid && poipath) {
 			wx.navigateToMiniProgram({
 				appId: appid,
-				path: mpurl,
+				path: poipath,
 				extraData: {},
 				envVersion: 'release', // 可选
 				success(res) {
@@ -226,7 +230,7 @@ Page({
 			poiPathHistoryList: [],
 		})
 		wx.setStorage({
-			key: storageKey.POI_URL_HISTORY_LIST,
+			key: STORAGE_KEY.POI_URL_HISTORY_LIST,
 			data: [],
 			success() {
 				console.log('清除链接缓存成功')
@@ -237,9 +241,9 @@ Page({
 		})
 	},
 	bindmpUrlTap(event: any) {
-		const { mpurl } = event.currentTarget.dataset
+		const { poipath } = event.currentTarget.dataset
 		this.setData({
-			modalContent: mpurl,
+			modalContent: poipath,
 			showModal: true,
 		})
 	},
@@ -259,9 +263,9 @@ Page({
 		this.copyURL(this.data.modalContent)
 		this.bindModalTap()
 	},
-	copyURL(mpurl: string) {
+	copyURL(poipath: string) {
 		wx.setClipboardData({
-			data: mpurl,
+			data: poipath,
 			success() {
 				wx.showToast({
 					title: '链接复制成功',

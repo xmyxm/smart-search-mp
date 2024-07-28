@@ -1,7 +1,7 @@
 import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
 import { WebviewStateType, MpUrlHistoryInfoType } from './util/datatype'
-import { storageKey } from '../../enum/storagekey'
+import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 
 Page({
@@ -16,7 +16,7 @@ Page({
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
 		const historyList: MpUrlHistoryInfoType[] = (
-			wx.getStorageSync(storageKey.WEBVIEW_MPURL_HISTORY_LIST) || []
+			wx.getStorageSync(STORAGE_KEY.WEBVIEW_MPURL_HISTORY_LIST) || []
 		).map(({ appid, mpUrl, timeStamp }: MpUrlHistoryInfoType) => {
 			const time = formatMiniTime(new Date(Number(timeStamp)))
 			const icon = (platformInfoList.find((item: PlatformInfoType) => item.appid === appid) || {}).icon || ''
@@ -28,7 +28,7 @@ Page({
 			}
 		})
 
-		const content = wx.getStorageSync(storageKey.WEBVIEW_MPURL_INPUT_CONTENT) || ''
+		const content = wx.getStorageSync(STORAGE_KEY.WEBVIEW_MPURL_INPUT_CONTENT) || ''
 		this.setData({ mpUrlHistoryList: historyList, content })
 	},
 	onShow() {
@@ -85,7 +85,7 @@ Page({
 			content,
 		})
 		wx.setStorage({
-			key: storageKey.WEBVIEW_MPURL_INPUT_CONTENT,
+			key: STORAGE_KEY.WEBVIEW_MPURL_INPUT_CONTENT,
 			data: content,
 			success() {
 				console.log('更新输入记录缓存成功')
@@ -149,7 +149,7 @@ Page({
 					timeStamp: item.timeStamp,
 				}))
 				wx.setStorage({
-					key: storageKey.WEBVIEW_MPURL_HISTORY_LIST,
+					key: STORAGE_KEY.WEBVIEW_MPURL_HISTORY_LIST,
 					data: historyListCacheData,
 					success() {
 						console.log('更新链接缓存成功')
@@ -209,7 +209,7 @@ Page({
 			mpUrlHistoryList: [],
 		})
 		wx.setStorage({
-			key: storageKey.WEBVIEW_MPURL_HISTORY_LIST,
+			key: STORAGE_KEY.WEBVIEW_MPURL_HISTORY_LIST,
 			data: [],
 			success() {
 				console.log('清除链接缓存成功')
