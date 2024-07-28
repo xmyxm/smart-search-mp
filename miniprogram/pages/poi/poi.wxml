@@ -29,22 +29,22 @@
 			<view class="btn-use" bindtap="bindClearTap">清空文本</view>
 			<view class="btn-use" bindtap="bindCreatePoiPathTap">生成链接</view>
 		</view>
-		<block wx:if="{{ mpUrlHistoryList && mpUrlHistoryList.length > 0 }}">
+		<block wx:if="{{ poiPathHistoryList && poiPathHistoryList.length > 0 }}">
 			<view class="option-box">
 				<text class="option-title">URL 生成历史：</text>
 				<text class="option-icon" bindtap="bindClearChacheDataTap">清除历史</text>
 			</view>
 			<view class="urllist">
-				<view wx:for="{{ mpUrlHistoryList }}" class="urllist-box" wx:for-item="item" wx:key="{{ item.appid }}">
+				<view wx:for="{{ poiPathHistoryList }}" class="urllist-box" wx:for-item="item" wx:key="{{ item.appid }}">
 					<image class="urllist-icon" src="{{ item.icon }}" mode="cover" />
-					<text class="urllist-url" data-mpurl="{{ item.mpUrl }}" bindtap="bindmpUrlTap"
-						>{{ item.mpUrl }}</text
+					<text class="urllist-url" data-mpurl="{{ item.poiPath }}" bindtap="bindmpUrlTap"
+						>{{ item.poiPath }}</text
 					>
 					<text class="urllist-time">{{ item.time }}</text>
-					<view class="btn-review" data-mpurl="{{ item.mpUrl }}" bindtap="bindCopyTap">复制</view>
+					<view class="btn-review" data-mpurl="{{ item.poiPath }}" bindtap="bindCopyTap">复制</view>
 					<view
 						class="btn-test"
-						data-mpurl="{{ item.mpUrl }}"
+						data-mpurl="{{ item.poiPath }}"
 						data-appid="{{ item.appid }}"
 						bindtap="openOtherMiniProgram"
 						>打开</view
