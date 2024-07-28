@@ -1,21 +1,23 @@
 <navigation-bar title="小程序跳转链接生成工具" back="{{ false }}" color="black" background="#f1f1f1" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
-		<view class="title">选择生成小程序链接的平台：</view>
-		<view class="platform">
-			<view
-				wx:if="{{ platformInfoList && platformInfoList.length > 0 }}"
-				wx:for="{{ platformInfoList }}"
-				class="{{ 'platform-box' + (item.select ? ' box-select' : '') }}"
-				wx:for-item="item"
-				wx:key="{{ item.appid }}"
-				data-appid="{{ item.appid }}"
-				bindtap="bindSelectPlatformTap"
-			>
-				<image class="platform-icon" src="{{ item.icon }}" mode="cover" />
-				<text class="platform-name">{{ item.name }}</text>
+		<block wx:if="{{ platformInfoList && platformInfoList.length > 0 }}">
+			<view class="title">选择生成小程序链接的平台：</view>
+			<view class="platform">
+				<view
+					wx:for="{{ platformInfoList }}"
+					class="{{ 'platform-box' + (item.select ? ' box-select' : '') }}"
+					wx:for-item="item"
+					wx:key="{{ item.appid }}"
+					data-appid="{{ item.appid }}"
+					bindtap="bindSelectPlatformTap"
+				>
+					<image class="platform-icon" src="{{ item.icon }}" mode="cover" />
+					<text class="platform-name">{{ item.name }}</text>
+				</view>
 			</view>
-		</view>
+		</block>
+
 		<textarea
 			class="user-content"
 			auto-focus

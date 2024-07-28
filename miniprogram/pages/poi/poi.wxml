@@ -1,40 +1,38 @@
 <navigation-bar title="小程序商户链接生成工具" back="{{ false }}" color="black" background="#f1f1f1" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
-		<view class="title">选择生成商户链接的平台：</view>
-		<view class="platform">
-			<view
-				wx:if="{{ platformInfoList && platformInfoList.length > 0 }}"
-				wx:for="{{ platformInfoList }}"
-				class="{{ 'platform-box' + (item.select ? ' box-select' : '') }}"
-				wx:for-item="item"
-				wx:key="{{ item.appid }}"
-				data-appid="{{ item.appid }}"
-				bindtap="bindSelectPlatformTap"
-			>
-				<image class="platform-icon" src="{{ item.icon }}" mode="cover" />
-				<text class="platform-name">{{ item.name }}</text>
+		<block wx:if="{{ platformInfoList && platformInfoList.length > 0 }}">
+			<view class="title">选择生成商户链接的平台：</view>
+			<view class="platform">
+				<view
+					wx:for="{{ platformInfoList }}"
+					class="{{ 'platform-box' + (item.select ? ' box-select' : '') }}"
+					wx:for-item="item"
+					wx:key="{{ item.appid }}"
+					data-appid="{{ item.appid }}"
+					bindtap="bindSelectPlatformTap"
+				>
+					<image class="platform-icon" src="{{ item.icon }}" mode="cover" />
+					<text class="platform-name">{{ item.name }}</text>
+				</view>
 			</view>
-		</view>
-		<view class="title mt30">选择商户类型：</view>
-		<view class="poi-type">
-			<view
-				wx:if="{{ poiTypeInfoList && poiTypeInfoList.length > 0 }}"
-				wx:for="{{ poiTypeInfoList }}"
-				class="{{ 'poi-box' }}"
-				wx:for-item="item"
-				wx:key="{{ item.showType }}"
-			>
-				<radio
-					class="poi-rad"
-					value="{{item.showType}}"
+		</block>
+		<block wx:if="{{ poiTypeInfoList && poiTypeInfoList.length > 0 }}">
+			<view class="title mt30">选择商户类型：</view>
+			<view class="poi-type">
+				<view
+					wx:for="{{ poiTypeInfoList }}"
+					class="{{ 'poi-box' }}"
+					wx:for-item="item"
+					wx:key="{{ item.showType }}"
 					data-showType="{{ item.showType }}"
 					bindtap="bindSelectPoiTypeTap"
-					checked="{{item.checked}}"
-				/>
-				<text class="poi-name">{{ item.name }}</text>
+				>
+					<radio class="poi-rad" value="{{item.showType}}" checked="{{item.checked}}" />
+					<text class="poi-name">{{ item.name }}</text>
+				</view>
 			</view>
-		</view>
+		</block>
 		<textarea
 			class="user-content"
 			auto-focus
