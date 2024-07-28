@@ -57,7 +57,14 @@
 <modal-container wx:if="{{showModal}}" name="webview" bind:bindModalTap="bindModalTap">
 	<view class="modal-main">
 		<view class="modal-title">生成链接</view>
-		<textarea class="user-content" bindinput="handleModalInput" maxlength="500" auto-focus auto-height value="{{modalContent}}" />
+		<textarea
+			class="user-content"
+			bindinput="handleModalInput"
+			maxlength="500"
+			auto-focus
+			auto-height
+			value="{{modalContent}}"
+		/>
 		<view class="btn-list">
 			<view class="btn-use" bindtap="bindCopyModalContentTap">复制链接</view>
 			<view class="btn-use" bindtap="bindModalTap">关闭弹窗</view>
