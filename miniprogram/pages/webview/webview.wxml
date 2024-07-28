@@ -30,7 +30,7 @@
 		</view>
 		<block wx:if="{{ mpUrlHistoryList && mpUrlHistoryList.length > 0 }}">
 			<view class="option-box">
-				<text class="option-title">url 生成历史：</text>
+				<text class="option-title">URL 生成历史：</text>
 				<text class="option-icon" bindtap="bindClearChacheDataTap">清除历史</text>
 			</view>
 			<view class="urllist">
