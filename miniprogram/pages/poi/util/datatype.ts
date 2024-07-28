@@ -1,4 +1,5 @@
 import { PlatformInfoType } from './platformdata'
+import { ImgKeyType } from '../../../enum/img'
 import { poiTypeInfoType } from './poitype'
 
 export interface PoiPathHistoryInfoType {
@@ -10,6 +11,7 @@ export interface PoiPathHistoryInfoType {
 }
 
 export interface PoiStateType {
+	imgInfoMap: ImgKeyType
 	placeholderText: string
 	platformInfoList: PlatformInfoType[]
 	poiTypeInfoList: poiTypeInfoType[]

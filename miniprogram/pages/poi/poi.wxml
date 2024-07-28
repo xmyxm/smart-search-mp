@@ -58,18 +58,34 @@
 					wx:key="{{ item.appid }}"
 				>
 					<image class="urllist-icon" src="{{ item.icon }}" mode="cover" />
-					<text class="urllist-url" data-poipath="{{ item.poiPath }}" bindtap="bindmpUrlTap"
-						>{{ item.poiPath }}</text
-					>
+					<text class="urllist-url">{{ item.poiPath }}</text>
 					<text class="urllist-time">{{ item.time }}</text>
-					<view class="btn-review" data-poipath="{{ item.poiPath }}" bindtap="bindCopyTap">复制</view>
-					<view
-						class="btn-test"
+					<image
+						class="btn-icon"
+						data-poipath="{{ item.poiPath }}"
+						bindtap="bindmpUrlTap"
+						title="明细"
+						src="{{imgInfoMap.BTN_DETAIL}}"
+						mode="cover"
+					/>
+					<image
+						class="btn-icon"
+						data-poipath="{{ item.poiPath }}"
+						bindtap="bindCopyTap"
+						title="复制"
+						src="{{imgInfoMap.BTN_COPY}}"
+						mode="cover"
+					/>
+
+					<image
+						class="btn-icon"
 						data-poipath="{{ item.poiPath }}"
 						data-appid="{{ item.appid }}"
 						bindtap="openOtherMiniProgram"
-						>打开</view
-					>
+						title="打开"
+						src="{{imgInfoMap.BTN_LINK}}"
+						mode="cover"
+					/>
 				</view>
 			</view>
 		</block>

@@ -22,20 +22,20 @@
 			{
 				"pagePath": "pages/index/index",
 				"text": "微智搜",
-				"iconPath": "./images/index.png",
-				"selectedIconPath": "./images/index-color.png"
+				"iconPath": "./images/bar/index.png",
+				"selectedIconPath": "./images/bar/index-color.png"
 			},
 			{
 				"pagePath": "pages/tool/tool",
 				"text": "开发工具箱",
-				"iconPath": "./images/tool.png",
-				"selectedIconPath": "./images/tool-color.png"
+				"iconPath": "./images/bar/tool.png",
+				"selectedIconPath": "./images/bar/tool-color.png"
 			},
 			{
 				"pagePath": "pages/life/life",
 				"text": "学习博客",
-				"iconPath": "./images/life.png",
-				"selectedIconPath": "./images/life-color.png"
+				"iconPath": "./images/bar/life.png",
+				"selectedIconPath": "./images/bar/life-color.png"
 			}
 		]
 	},
