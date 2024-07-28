@@ -59,9 +59,8 @@ Page({
 		// 监听用户点击页面内转发按钮（button 组件 open-type="share"）或右上角菜单“转发”按钮的行为，并自定义转发内容。
 		return {
 			title: '小程序跳转链接生成工具',
-			path: '/pages/index/index', // 分享路径
-			imageUrl:
-				'https://wx.qlogo.cn/mmhead/wzJhLVPsrd0K5G3fPwK6u4dIqicJwATDGUayslsgeeMr3cDibkSoMZms9jAkiaaG3FplBdWJO8ViaTU/0', // 自定义分享图片
+			path: 'pages/webview/webview', // 分享路径
+			imageUrl: 'https://p1.meituan.net/travelcube/22dd461137b5560e7544045e66f416d025980.jpg', // 自定义分享图片，尺寸 500px*400px，官方要求 5:4
 			success() {
 				wx.showToast({
 					title: '分享成功',
