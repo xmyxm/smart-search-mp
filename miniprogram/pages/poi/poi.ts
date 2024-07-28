@@ -1,6 +1,7 @@
 import { platformInfoList, PlatformInfoType } from './util/platformdata'
-import { WebviewStateType, PoiPathHistoryInfoType } from './util/datatype'
+import { PoiStateType, PoiPathHistoryInfoType } from './util/datatype'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
+import { poiTypeInfoList } from './util/poitype'
 import { storageKey } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 
@@ -8,11 +9,12 @@ Page({
 	data: {
 		placeholderText: defaultPlaceholderText,
 		platformInfoList,
+		poiTypeInfoList,
 		content: defaultCopyContent,
 		poiPathHistoryList: [],
 		showModal: false,
 		modalContent: '',
-	} as WebviewStateType,
+	} as PoiStateType,
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
 		const historyList: PoiPathHistoryInfoType[] = (wx.getStorageSync(storageKey.POI_URL_HISTORY_LIST) || []).map(
@@ -123,7 +125,7 @@ Page({
 					icon = '',
 					pathCP = '',
 				} = this.data.platformInfoList.find(item => item.select) || {}
-				const currentPoiPath = `${path}?shopUuid=${shopUuid}${pathCP}`
+				const currentPoiPath = `${path}${shopUuid}${pathCP}`
 				const historyList: PoiPathHistoryInfoType[] = this.data.poiPathHistoryList.filter(
 					(item: PoiPathHistoryInfoType) => {
 						return !(item.appid === appid && item.poiPath === currentPoiPath)

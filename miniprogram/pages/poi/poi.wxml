@@ -16,6 +16,21 @@
 				<text class="platform-name">{{ item.name }}</text>
 			</view>
 		</view>
+		<view class="title mt30">选择商户类型：</view>
+		<view class="poi-type">
+			<view
+				wx:if="{{ poiTypeInfoList && poiTypeInfoList.length > 0 }}"
+				wx:for="{{ poiTypeInfoList }}"
+				class="{{ 'poi-box' }}"
+				wx:for-item="item"
+				wx:key="{{ item.showType }}"
+				data-showType="{{ item.showType }}"
+				bindtap="bindSelectPlatformTap"
+			>
+				<radio class="poi-rad" value="{{item.showType}}" checked="{{item.checked}}" />
+				<text class="poi-name">{{ item.name }}</text>
+			</view>
+		</view>
 		<textarea
 			class="user-content"
 			auto-focus
@@ -35,7 +50,12 @@
 				<text class="option-icon" bindtap="bindClearChacheDataTap">清除历史</text>
 			</view>
 			<view class="urllist">
-				<view wx:for="{{ poiPathHistoryList }}" class="urllist-box" wx:for-item="item" wx:key="{{ item.appid }}">
+				<view
+					wx:for="{{ poiPathHistoryList }}"
+					class="urllist-box"
+					wx:for-item="item"
+					wx:key="{{ item.appid }}"
+				>
 					<image class="urllist-icon" src="{{ item.icon }}" mode="cover" />
 					<text class="urllist-url" data-mpurl="{{ item.poiPath }}" bindtap="bindmpUrlTap"
 						>{{ item.poiPath }}</text

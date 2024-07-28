@@ -1,4 +1,5 @@
 import { PlatformInfoType } from './platformdata'
+import { poiTypeInfoType } from './poitype'
 
 export interface PoiPathHistoryInfoType {
 	appid: string
@@ -8,9 +9,10 @@ export interface PoiPathHistoryInfoType {
 	time: string
 }
 
-export interface WebviewStateType {
+export interface PoiStateType {
 	placeholderText: string
 	platformInfoList: PlatformInfoType[]
+	poiTypeInfoList: poiTypeInfoType[]
 	content: string
 	poiPathHistoryList: PoiPathHistoryInfoType[]
 	showModal: boolean

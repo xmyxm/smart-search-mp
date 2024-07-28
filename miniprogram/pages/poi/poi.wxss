@@ -6,9 +6,33 @@
 	font-size: 14px;
 }
 
+.mt30 {
+	margin-top: 30rpx;
+}
+
+.poi-type {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.poi-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	white-space: nowrap;
+    padding-right: 24rpx;
+    padding-top: 20rpx;
+}
+
+.poi-name {
+	margin-left: 4rpx;
+}
+
 .platform {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 	margin-top: 30rpx;
 }
