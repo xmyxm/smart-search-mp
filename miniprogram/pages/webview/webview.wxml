@@ -34,20 +34,20 @@
 				<text class="option-icon" bindtap="bindClearChacheDataTap">清除历史</text>
 			</view>
 			<view class="urllist">
-				<view
-					wx:for="{{ mpUrlHistoryList }}"
-					class="urllist-box"
-					wx:for-item="item"
-					wx:key="{{ item.appid }}"
-					data-appid="{{ item.appid }}"
-				>
+				<view wx:for="{{ mpUrlHistoryList }}" class="urllist-box" wx:for-item="item" wx:key="{{ item.appid }}">
 					<image class="urllist-icon" src="{{ item.icon }}" mode="cover" />
 					<text class="urllist-url" data-mpurl="{{ item.mpUrl }}" bindtap="bindmpUrlTap"
 						>{{ item.mpUrl }}</text
 					>
 					<text class="urllist-time">{{ item.time }}</text>
 					<view class="btn-review" data-mpurl="{{ item.mpUrl }}" bindtap="bindCopyTap">复制</view>
-					<view class="btn-test" data-mpurl="{{ item.mpUrl }}" bindtap="openOtherMiniProgram">打开</view>
+					<view
+						class="btn-test"
+						data-mpurl="{{ item.mpUrl }}"
+						data-appid="{{ item.appid }}"
+						bindtap="openOtherMiniProgram"
+						>打开</view
+					>
 				</view>
 			</view>
 		</block>

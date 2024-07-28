@@ -108,12 +108,21 @@ Page({
 		this.handleInput('')
 	},
 	bindCreateMPURLTap() {
-		const { content } = this.data
+		let { content } = this.data
 		if (content) {
 			const urlPattern = /^(https?:\/\/)?([^\s$.?#].[^\s]*)$/i
 			if (urlPattern.test(content)) {
-				const { appid = '', path = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
-				const currentMpUrl = `${path}${encodeURIComponent(content)}`
+				const {
+					appid = '',
+					path = '',
+					icon = '',
+					pathCP = '',
+					urlCP = '',
+				} = this.data.platformInfoList.find(item => item.select) || {}
+				if (urlCP) {
+					content = content + (content.indexOf('?') > -1 ? '&' : '?') + urlCP
+				}
+				const currentMpUrl = `${path}${encodeURIComponent(content)}${pathCP}`
 				const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
 					(item: MpUrlHistoryInfoType) => {
 						return !(item.appid === appid && item.mpUrl === currentMpUrl)
@@ -170,10 +179,9 @@ Page({
 		}
 	},
 	openOtherMiniProgram(event: any) {
-		const { appid } = this.data.platformInfoList.find(item => item.select) || {}
 		// 'pages/webview/webview?url=https%3A%2F%2Fcube.dianping.com%2Fcube%2Fblock%2Fd91c203ec9f0%2F295324%2Findex.html'
-		const { mpurl } = event.currentTarget.dataset
-		console.log('---------mpurl', mpurl)
+		const { mpurl, appid } = event.currentTarget.dataset
+		console.log('---------appid、mpurl', appid, mpurl)
 		if (appid && mpurl) {
 			wx.navigateToMiniProgram({
 				appId: appid,
