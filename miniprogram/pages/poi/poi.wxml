@@ -24,10 +24,14 @@
 				class="{{ 'poi-box' }}"
 				wx:for-item="item"
 				wx:key="{{ item.showType }}"
-				data-showType="{{ item.showType }}"
-				bindtap="bindSelectPlatformTap"
 			>
-				<radio class="poi-rad" value="{{item.showType}}" checked="{{item.checked}}" />
+				<radio
+					class="poi-rad"
+					value="{{item.showType}}"
+					data-showType="{{ item.showType }}"
+					bindtap="bindSelectPoiTypeTap"
+					checked="{{item.checked}}"
+				/>
 				<text class="poi-name">{{ item.name }}</text>
 			</view>
 		</view>

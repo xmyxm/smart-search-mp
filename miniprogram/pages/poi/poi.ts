@@ -1,7 +1,7 @@
 import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { PoiStateType, PoiPathHistoryInfoType } from './util/datatype'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
-import { poiTypeInfoList } from './util/poitype'
+import { poiTypeInfoList, poiTypeInfoType } from './util/poitype'
 import { storageKey } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 
@@ -105,6 +105,16 @@ Page({
 				select: item.appid === appid,
 			}))
 			this.setData({ platformInfoList: list })
+		}
+	},
+	bindSelectPoiTypeTap(event: any) {
+		const { showType } = event.currentTarget.dataset
+		if (showType) {
+			const list: poiTypeInfoType[] = this.data.poiTypeInfoList.map((item: any) => ({
+				...item,
+				checked: item.showType === showType,
+			}))
+			this.setData({ poiTypeInfoList: list })
 		}
 	},
 	bindClearTap() {
