@@ -1,4 +1,5 @@
 import { PlatformInfoType } from './platformdata'
+import { ImgKeyType } from '../../../enum/img'
 
 export interface MpUrlHistoryInfoType {
 	appid: string
@@ -9,6 +10,7 @@ export interface MpUrlHistoryInfoType {
 }
 
 export interface WebviewStateType {
+	imgInfoMap: ImgKeyType
 	placeholderText: string
 	platformInfoList: PlatformInfoType[]
 	content: string

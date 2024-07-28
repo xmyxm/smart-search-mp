@@ -175,7 +175,7 @@ Page({
 					key: STORAGE_KEY.POI_URL_HISTORY_LIST,
 					data: historyListCacheData,
 					success() {
-						console.log('更新链接缓存成功')
+						console.log('更新链接缓存成功', historyListCacheData)
 					},
 					fail(err) {
 						console.error('更新链接缓存失败', err)

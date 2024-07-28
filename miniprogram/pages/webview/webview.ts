@@ -1,11 +1,13 @@
 import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
 import { WebviewStateType, MpUrlHistoryInfoType } from './util/datatype'
+import { WEBVIEW_POI_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 
 Page({
 	data: {
+		imgInfoMap: WEBVIEW_POI_IMAGE_ICON,
 		placeholderText: defaultPlaceholderText,
 		platformInfoList,
 		content: defaultCopyContent,
@@ -152,7 +154,7 @@ Page({
 					key: STORAGE_KEY.WEBVIEW_MPURL_HISTORY_LIST,
 					data: historyListCacheData,
 					success() {
-						console.log('更新链接缓存成功')
+						console.log('更新链接缓存成功', historyListCacheData)
 					},
 					fail(err) {
 						console.error('更新链接缓存失败', err)
