@@ -1,7 +1,7 @@
 {
 	"pages": [
-		"pages/webview/webview",
 		"pages/poi/poi",
+		"pages/webview/webview",
 		"pages/tool/tool",
 		"pages/life/life",
 		"pages/index/index",

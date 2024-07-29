@@ -24,7 +24,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		name: '酒店',
 		showType: 'hotel',
 		cate: 20,
-		dpPath: 'packages/hotel/pages/poi/pages/index/index?shopUuid=[id]&shopuuid=[id]&shopId=[id]',
+		dpPath: 'packages/hotel/pages/poi/pages/index/index?shopUuid=[id]&shopId=[id]', // 点评无法使用，必须传真实shopId
 		dpRegex: 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
 		mtPath: 'index/pages/poi/poi?showtype=hotel&cate=20&id=[id]',
 		mtRegex: 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
@@ -44,7 +44,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		name: '旅游',
 		showType: 'travel',
 		cate: [78, 195],
-		dpPath: 'pages/poi/poi?mode=subpackage&shopuuid=[id]&poiId=[id]',
+		dpPath: 'packages/trip/mpvue-pages/pages/poi/poi?mode=subpackage&shopuuid=[id]&poiId=[id]',
 		dpRegex: 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
 		mtPath: 'index/pages/poi/poi?showtype=travel&cate=78&id=[id]',
 		mtRegex: 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
@@ -64,7 +64,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		name: '海外酒店',
 		showType: 'OverseaHotel',
 		cate: 0,
-		dpPath: 'packages/oversea-hotel/pages/poi-detail-webview/index?shopId=[id]&shopuuid=[id]',
+		dpPath: 'packages/oversea-hotel/pages/poi-detail-webview/index?shopId=[id]&shopuuid=[id]', // 点评无法使用，必须传真实shopId
 		dpRegex: 'poiId=([0-9]+)',
 		mtPath: 'index/pages/poi/poi?showtype=OverseaHotel&cate=0&id=[id]',
 		mtRegex: 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
