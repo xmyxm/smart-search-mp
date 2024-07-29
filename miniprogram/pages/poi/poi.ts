@@ -130,6 +130,22 @@ Page({
 	bindClearTap() {
 		this.handleInput('')
 	},
+	bindCopyClipboardTap() {
+		const that = this
+		wx.getClipboardData({
+			success(res) {
+				that.handleInput(res.data)
+				console.log('剪切板内容:', res.data)
+			},
+			fail(err: any) {
+				wx.showToast({
+					title: `读取剪切板失败: ${err.message}`,
+					icon: 'none',
+					duration: 2000,
+				})
+			},
+		})
+	},
 	bindCreatePoiPathTap() {
 		const { content } = this.data
 		if (content) {

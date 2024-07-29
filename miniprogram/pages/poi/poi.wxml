@@ -43,6 +43,7 @@
 		/>
 		<view class="btn-list">
 			<view class="btn-use" bindtap="bindClearTap">清空文本</view>
+			<view class="btn-use" bindtap="bindCopyClipboardTap">粘贴剪切板</view>
 			<view class="btn-use" bindtap="bindCreatePoiPathTap">生成链接</view>
 		</view>
 		<block wx:if="{{ poiPathHistoryList && poiPathHistoryList.length > 0 }}">
@@ -103,8 +104,8 @@
 			value="{{modalContent}}"
 		/>
 		<view class="btn-list">
-			<view class="btn-use" bindtap="bindCopyModalContentTap">复制链接</view>
-			<view class="btn-use" bindtap="bindModalTap">关闭弹窗</view>
+			<view class="dialog-btn-use" bindtap="bindCopyModalContentTap">复制链接</view>
+			<view class="dialog-btn-use" bindtap="bindModalTap">关闭弹窗</view>
 		</view>
 	</view>
 </modal-container>
