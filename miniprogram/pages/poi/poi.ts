@@ -147,7 +147,7 @@ Page({
 			const match = content.match(regex)
 			if (match && match[1]) {
 				const id = match[1]
-				const currentPoiPath = `${path}${id}`
+				const currentPoiPath = path.replace(/\[id\]/g, id)
 				const historyList: PoiPathHistoryInfoType[] = this.data.poiPathHistoryList.filter(
 					(item: PoiPathHistoryInfoType) => {
 						return !(item.appid === appid && item.poiPath === currentPoiPath)
