@@ -64,6 +64,7 @@
 					<image
 						class="btn-icon"
 						data-poipath="{{ item.poiPath }}"
+						data-appid="{{ item.appid }}"
 						bindtap="bindmpUrlTap"
 						title="明细"
 						src="{{imgInfoMap.BTN_DETAIL}}"
@@ -103,8 +104,12 @@
 			auto-height
 			value="{{modalContent}}"
 		/>
+		<view class="app-content">
+			<text class="appid-name">AppId:</text>
+			<text class="appid-content">{{modalAppId}}</text>
+		</view>
 		<view class="btn-list">
-			<view class="dialog-btn-use" bindtap="bindCopyModalContentTap">复制链接</view>
+			<view class="dialog-btn-use" bindtap="bindCopyModalContentTap">复制全部</view>
 			<view class="dialog-btn-use" bindtap="bindModalTap">关闭弹窗</view>
 		</view>
 	</view>

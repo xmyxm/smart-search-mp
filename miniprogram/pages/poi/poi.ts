@@ -18,6 +18,7 @@ Page({
 		poiPathHistoryList: [],
 		showModal: false,
 		modalContent: '',
+		modalAppId: '',
 	} as PoiStateType,
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
@@ -216,7 +217,7 @@ Page({
 	bindCopyTap(event: any) {
 		const { poipath } = event.currentTarget.dataset
 		if (poipath) {
-			this.copyURL(poipath)
+			this.copyURL(poipath, '路径')
 		}
 	},
 	openOtherMiniProgram(event: any) {
@@ -260,8 +261,9 @@ Page({
 		})
 	},
 	bindmpUrlTap(event: any) {
-		const { poipath } = event.currentTarget.dataset
+		const { poipath, appid } = event.currentTarget.dataset
 		this.setData({
+			modalAppId: appid,
 			modalContent: poipath,
 			showModal: true,
 		})
@@ -279,22 +281,24 @@ Page({
 		})
 	},
 	bindCopyModalContentTap() {
-		this.copyURL(this.data.modalContent)
+		const { modalContent, modalAppId } = this.data
+		const text = `appid: ${modalAppId}、path: ${modalContent}`
+		this.copyURL(text, 'appid&路径')
 		this.bindModalTap()
 	},
-	copyURL(poipath: string) {
+	copyURL(poipath: string, msg: string) {
 		wx.setClipboardData({
 			data: poipath,
 			success() {
 				wx.showToast({
-					title: '链接复制成功',
+					title: `${msg}复制成功`,
 					icon: 'success',
 					duration: 2000,
 				})
 			},
 			fail() {
 				wx.showToast({
-					title: '链接复制失败',
+					title: `${msg}复制失败`,
 					icon: 'none',
 					duration: 2000,
 				})

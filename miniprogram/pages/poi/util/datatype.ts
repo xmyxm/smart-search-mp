@@ -20,4 +20,5 @@ export interface PoiStateType {
 	poiPathHistoryList: PoiPathHistoryInfoType[]
 	showModal: boolean
 	modalContent: string
+	modalAppId: string
 }

@@ -54,7 +54,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		name: '购物',
 		showType: 'shopping',
 		cate: 0,
-		dpPath: 'packages/detail/pages/detail/detail?mode=subpackage&shopUuid=[id]&shopId=[id]',
+		dpPath: 'packages/detail/pages/detail/detail?shopUuid=[id]&shopId=[id]',
 		dpRegex: 'shopshare\\/([a-zA-Z0-9]+)\\?',
 		mtPath: 'index/pages/poi/poi?showtype=shopping&cate=0&id=[id]',
 		mtRegex: 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
