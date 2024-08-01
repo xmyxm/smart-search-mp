@@ -1,3 +1,19 @@
+.container {
+	padding: 30rpx;
+}
+
+.logs .title {
+	font-size: 28rpx;
+}
+
+.log-list {
+	margin-top: 30rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: center;
+}
+
 .version {
 	margin-top: 900rpx;
 	width: 100%;

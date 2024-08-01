@@ -1,6 +1,19 @@
 <navigation-bar title="关于我们" back="{{ false }}" color="black" background="#FFF" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
+		<view class="logs">
+			<view class="title">更新日志</view>
+			<view class="log-list">
+				<view
+					class="log-content"
+					wx:for="{{ appConfig.APP_UPDATE_LOGS }}"
+					wx:for-item="item"
+					wx:key="{{ item.time }}"
+				>
+					{{item.time + ': ' +item.msg}}
+				</view>
+			</view>
+		</view>
 		<view class="version" bindtap="bindVersionTap">版本号：{{appConfig.APP_VERSION}}</view>
 	</view>
 </scroll-view>
