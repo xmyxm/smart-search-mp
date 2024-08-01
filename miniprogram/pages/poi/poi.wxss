@@ -82,7 +82,8 @@
 	padding: 30rpx 0;
 }
 
-.btn-use, .dialog-btn-use {
+.btn-use,
+.dialog-btn-use {
 	line-height: 80rpx;
 	color: #ffffff;
 	background-color: #1aad19;
