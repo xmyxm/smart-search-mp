@@ -1,11 +1,11 @@
 {
 	"pages": [
 		"pages/index/index",
+		"pages/about/about",
 		"pages/webview/webview",
 		"pages/poi/poi",
 		"pages/tool/tool",
-		"pages/life/life",
-		"pages/about/about"
+		"pages/life/life"
 	],
 	"subPackages": [
 		{
@@ -26,14 +26,8 @@
 				"selectedIconPath": "./images/bar/index-color.png"
 			},
 			{
-				"pagePath": "pages/tool/tool",
-				"text": "开发工具箱",
-				"iconPath": "./images/bar/tool.png",
-				"selectedIconPath": "./images/bar/tool-color.png"
-			},
-			{
-				"pagePath": "pages/life/life",
-				"text": "学习博客",
+				"pagePath": "pages/about/about",
+				"text": "关于",
 				"iconPath": "./images/bar/life.png",
 				"selectedIconPath": "./images/bar/life-color.png"
 			}
