@@ -12,7 +12,8 @@ Page({
 		imgInfoMap: WEBVIEW_POI_IMAGE_ICON,
 		placeholderText: defaultPlaceholderText,
 		platformInfoList,
-		poiTypeInfoList,
+		poiTypeInfoList: [],
+		isDP: true,
 		selectPoiTypeInfo: poiTypeInfoList[0],
 		content: defaultCopyContent,
 		poiPathHistoryList: [],
@@ -35,9 +36,9 @@ Page({
 				}
 			},
 		)
-
+		const poiTypeList = poiTypeInfoList.filter(({ dpPath, mtPath }) => !!(this.data.isDP ? dpPath : mtPath))
 		const content = wx.getStorageSync(STORAGE_KEY.POI_URL_INPUT_CONTENT) || ''
-		this.setData({ poiPathHistoryList: historyList, content })
+		this.setData({ poiPathHistoryList: historyList, poiTypeInfoList: poiTypeList, content })
 	},
 	onShow() {
 		// 页面显示/切入前台时触发。
@@ -106,11 +107,13 @@ Page({
 	bindSelectPlatformTap(event: any) {
 		const { appid } = event.currentTarget.dataset
 		if (appid) {
+			const isDP = appid === APPID_KEY.DIANPING_MP_MAIN
 			const list: PlatformInfoType[] = this.data.platformInfoList.map((item: any) => ({
 				...item,
 				select: item.appid === appid,
 			}))
-			this.setData({ platformInfoList: list })
+			const poiTypeList = poiTypeInfoList.filter(({ dpPath, mtPath }) => !!(isDP ? dpPath : mtPath))
+			this.setData({ platformInfoList: list, isDP, poiTypeInfoList: poiTypeList })
 		}
 	},
 	radioChange(event: any) {
@@ -148,7 +151,7 @@ Page({
 		})
 	},
 	bindCreatePoiPathTap() {
-		const { content } = this.data
+		const { content, isDP } = this.data
 		if (content) {
 			const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
 			const {
@@ -157,7 +160,6 @@ Page({
 				dpRegex = 'shopshare\\/([a-zA-Z0-9]+)\\?',
 				mtRegex = 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
 			} = this.data.selectPoiTypeInfo
-			const isDP = appid === APPID_KEY.DIANPING_MP_MAIN
 			const path = isDP ? dpPath : mtPath
 			const regex = new RegExp(isDP ? dpRegex : mtRegex)
 			// 使用正则表达式进行匹配

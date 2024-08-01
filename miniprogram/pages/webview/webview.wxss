@@ -58,7 +58,8 @@
 	align-items: center;
 }
 
-.appid-name, .appid-content {
+.appid-name,
+.appid-content {
 	font-size: 28rpx;
 }
 

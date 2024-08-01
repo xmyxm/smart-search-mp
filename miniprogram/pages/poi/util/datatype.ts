@@ -15,6 +15,7 @@ export interface PoiStateType {
 	placeholderText: string
 	platformInfoList: PlatformInfoType[]
 	poiTypeInfoList: poiTypeInfoType[]
+	isDP: boolean
 	selectPoiTypeInfo: poiTypeInfoType
 	content: string
 	poiPathHistoryList: PoiPathHistoryInfoType[]
