@@ -14,6 +14,7 @@ Page({
 		mpUrlHistoryList: [],
 		showModal: false,
 		modalContent: '',
+		modalAppId: '',
 	} as WebviewStateType,
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
@@ -195,7 +196,7 @@ Page({
 	bindCopyTap(event: any) {
 		const { mpurl } = event.currentTarget.dataset
 		if (mpurl) {
-			this.copyURL(mpurl)
+			this.copyURL(mpurl, '链接')
 		}
 	},
 	openOtherMiniProgram(event: any) {
@@ -239,8 +240,9 @@ Page({
 		})
 	},
 	bindmpUrlTap(event: any) {
-		const { mpurl } = event.currentTarget.dataset
+		const { mpurl, appid } = event.currentTarget.dataset
 		this.setData({
+			modalAppId: appid,
 			modalContent: mpurl,
 			showModal: true,
 		})
@@ -258,22 +260,24 @@ Page({
 		})
 	},
 	bindCopyModalContentTap() {
-		this.copyURL(this.data.modalContent)
+		const { modalContent, modalAppId } = this.data
+		const text = `appid: ${modalAppId}、path: ${modalContent}`
+		this.copyURL(text, 'appid&路径')
 		this.bindModalTap()
 	},
-	copyURL(mpurl: string) {
+	copyURL(mpurl: string, msg: string) {
 		wx.setClipboardData({
 			data: mpurl,
 			success() {
 				wx.showToast({
-					title: '链接复制成功',
+					title: `${msg}复制成功`,
 					icon: 'success',
 					duration: 2000,
 				})
 			},
 			fail() {
 				wx.showToast({
-					title: '链接复制失败',
+					title: `${msg}复制成功`,
 					icon: 'none',
 					duration: 2000,
 				})

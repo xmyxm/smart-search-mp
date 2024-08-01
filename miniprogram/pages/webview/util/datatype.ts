@@ -17,4 +17,5 @@ export interface WebviewStateType {
 	mpUrlHistoryList: MpUrlHistoryInfoType[]
 	showModal: boolean
 	modalContent: string
+	modalAppId: string
 }
