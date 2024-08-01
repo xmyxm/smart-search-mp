@@ -44,7 +44,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		name: '旅游',
 		showType: 'travel',
 		cate: [78, 195],
-		dpPath: 'packages/trip/mpvue-pages/pages/poi/poi?mode=subpackage&shopuuid=[id]&poiId=[id]',
+		dpPath: 'packages/trip/mpvue-pages/pages/poi/poi?shopuuid=[id]&poiId=[id]',
 		dpRegex: 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
 		mtPath: 'index/pages/poi/poi?showtype=travel&cate=78&id=[id]',
 		mtRegex: 'dpurl\\.cn\\/([a-zA-Z0-9]+)',
