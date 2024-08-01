@@ -1,15 +1,19 @@
 // index.ts
 // 获取应用实例
 const app = getApp<IAppOption>()
-const defaultAvatarUrl =
-	'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 
 Page({
 	data: {
-		userInfo: {
-			avatarUrl: defaultAvatarUrl,
-			nickName: '',
-		},
+		openLinkList: [
+			{
+				name: '小程序跳转链接生成工具',
+				path: 'pages/webview/webview',
+			},
+			{
+				name: '小程序商户链接生成工具',
+				path: 'pages/poi/poi',
+			},
+		],
 	},
 	onLoad() {
 		console.log(app)
@@ -45,8 +49,7 @@ Page({
 		return {
 			title: '微智搜',
 			path: '/pages/index/index', // 分享路径
-			imageUrl:
-				'https://wx.qlogo.cn/mmhead/wzJhLVPsrd0K5G3fPwK6u4dIqicJwATDGUayslsgeeMr3cDibkSoMZms9jAkiaaG3FplBdWJO8ViaTU/0', // 自定义分享图片
+			imageUrl: 'https://p1.meituan.net/travelcube/cb57f3010eb5cd0f5175b7bc1eb771213226.png', // 自定义分享图片
 			success() {
 				wx.showToast({
 					title: '分享成功',
@@ -64,37 +67,18 @@ Page({
 		}
 	},
 	// 事件处理函数
-	bindViewTap() {
-		wx.navigateTo({
-			// url: '../logs/logs',
-			// url: '../tool/tool',
-			// url: '/pages/tool/tool',
-			url: '/pages/webview/webview',
-			// url: '/packages/qrcode/pages/index/index',
-			success() {
-				console.log('navigateTo success')
-			},
-			fail(error) {
-				console.log('navigateTo fail', error)
-			},
-		})
-	},
-	onChooseAvatar(e: any) {
-		const { avatarUrl } = e.detail
-		this.setData({
-			'userInfo.avatarUrl': avatarUrl,
-		})
-	},
-	getUserProfile() {
-		// 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-		wx.getUserProfile({
-			desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-			success: res => {
-				console.log(res)
-				this.setData({
-					'userInfo.nickName': res.userInfo.nickName,
-				})
-			},
-		})
+	bindViewTap(event: any) {
+		const { path } = event.currentTarget.dataset
+		if (path) {
+			wx.navigateTo({
+				url: path,
+				success() {
+					console.log('navigateTo success')
+				},
+				fail(error) {
+					console.log('navigateTo fail', error)
+				},
+			})
+		}
 	},
 })

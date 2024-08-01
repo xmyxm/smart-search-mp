@@ -1,11 +1,11 @@
 {
 	"pages": [
+		"pages/index/index",
 		"pages/webview/webview",
 		"pages/poi/poi",
 		"pages/tool/tool",
 		"pages/life/life",
-		"pages/index/index",
-		"pages/logs/logs"
+		"pages/about/about"
 	],
 	"subPackages": [
 		{

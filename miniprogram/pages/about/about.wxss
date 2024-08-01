@@ -1,0 +1,6 @@
+.version {
+	margin-top: 900rpx;
+	width: 100%;
+	line-height: 80rpx;
+	text-align: center;
+}

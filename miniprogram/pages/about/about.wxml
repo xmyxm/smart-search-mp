@@ -1,0 +1,6 @@
+<navigation-bar title="关于我们" back="{{ false }}" color="black" background="#FFF" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<view class="version" bindtap="bindVersionTap">版本号：{{appConfig.APP_VERSION}}</view>
+	</view>
+</scroll-view>

@@ -1,18 +1,15 @@
 <navigation-bar title="微智搜" back="{{ false }}" color="black" background="#FFF" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
-		<view class="userinfo">
-			<block>
-				<image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" mode="cover" />
-				<text class="userinfo-nickname">{{ userInfo.nickName }}</text>
-			</block>
-			<block>
-				<button class="btn-color" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-					点击选取头像
-				</button>
-				<button class="btn-color" bindtap="getUserProfile">点击获取昵称</button>
-			</block>
+		<view
+			class="menu-list"
+			wx:for="{{ openLinkList }}"
+			wx:for-item="item"
+			wx:key="{{ item.name }}"
+			data-path="{{ item.path }}"
+			bindtap="bindViewTap"
+		>
+			<view class="btn-color">{{item.name}}</view>
 		</view>
-		<view class="usermotto"><text class="user-motto" bindtap="bindViewTap">生成二维码</text></view>
 	</view>
 </scroll-view>
