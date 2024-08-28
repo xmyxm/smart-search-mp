@@ -1,5 +1,6 @@
 {
 	"pages": [
+		"pages/wxcode/wxcode",
 		"pages/index/index",
 		"pages/about/about",
 		"pages/webview/webview",

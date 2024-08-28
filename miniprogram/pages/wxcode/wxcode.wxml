@@ -1,0 +1,77 @@
+<navigation-bar title="小程序二维码生成工具" back="{{ false }}" color="black" background="#f1f1f1" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<block wx:if="{{ platformInfoList && platformInfoList.length > 0 }}">
+			<view class="title">选择生成小程序二维码的平台：</view>
+			<view class="platform">
+				<view
+					wx:for="{{ platformInfoList }}"
+					class="{{ 'platform-box' + (item.select ? ' box-select' : '') }}"
+					wx:for-item="item"
+					wx:key="{{ item.appid }}"
+					data-appid="{{ item.appid }}"
+					bindtap="bindSelectPlatformTap"
+				>
+					<image class="platform-icon" src="{{ item.icon }}" mode="cover" />
+					<text class="platform-name">{{ item.name }}</text>
+				</view>
+			</view>
+		</block>
+
+		<textarea
+			class="user-content"
+			auto-focus
+			auto-height
+			maxlength="500"
+			placeholder="{{placeholderText}}"
+			bindinput="handleInput"
+			value="{{content}}"
+		/>
+		<view class="btn-list">
+			<view class="btn-use" bindtap="bindClearTap">清空文本</view>
+			<view class="btn-use" bindtap="bindCopyClipboardTap">粘贴地址</view>
+			<view class="btn-use" bindtap="bindCreateWxCodeTap">生成小程序码</view>
+		</view>
+		<block wx:if="{{ mpUrlHistoryList && mpUrlHistoryList.length > 0 }}">
+			<view class="option-box">
+				<text class="option-title">URL 生成历史：</text>
+				<text class="option-icon" bindtap="bindClearChacheDataTap">清除历史</text>
+			</view>
+			<view class="urllist">
+				<view wx:for="{{ mpUrlHistoryList }}" class="urllist-box" wx:for-item="item" wx:key="{{ item.appid }}">
+					<image class="urllist-icon" src="{{ item.icon }}" mode="cover" />
+					<text class="urllist-url">{{ item.mpUrl }}</text>
+					<text class="urllist-time">{{ item.time }}</text>
+					<image
+						class="btn-icon"
+						data-mpurl="{{ item.mpUrl }}"
+						data-appid="{{ item.appid }}"
+						data-base64="{{ item.base64 }}"
+						bindtap="openImageDialog"
+						title="打开"
+						src="{{imgInfoMap.BTN_LINK}}"
+						mode="cover"
+					/>
+				</view>
+			</view>
+		</block>
+	</view>
+</scroll-view>
+<modal-container wx:if="{{showModal}}" name="webview" bind:bindModalTap="bindModalTap">
+	<view class="modal-main">
+		<view class="modal-title">生成链接</view>
+		<textarea
+			wx:if="{{ modalPath }}"
+			class="user-content"
+			maxlength="500"
+			auto-focus
+			auto-height
+			value="{{ modalPath }}"
+		/>
+		<image wx:if="{{ modalContent }}" class="user-image" src="{{ modalContent }}" mode="cover" />
+		<view class="btn-list">
+			<view class="dialog-btn-use" bindtap="bindDowloadImageTap">复制链接</view>
+			<view class="dialog-btn-use" bindtap="bindModalTap">关闭弹窗</view>
+		</view>
+	</view>
+</modal-container>

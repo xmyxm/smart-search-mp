@@ -1,0 +1,159 @@
+.container {
+	padding: 30rpx;
+}
+
+.title {
+	font-size: 14px;
+}
+
+.platform {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 30rpx;
+}
+
+.platform-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 160rpx;
+	border-radius: 20rpx;
+	padding: 20rpx;
+}
+
+.box-select {
+	background-color: #e1e1e1;
+}
+
+.platform-icon {
+	overflow: hidden;
+	width: 68rpx;
+	height: 68rpx;
+	border-radius: 50%;
+}
+
+.platform-name {
+	font-size: 28rpx;
+	line-height: 36rpx;
+	height: 36rpx;
+	margin-top: 6rpx;
+}
+
+.user-content {
+	margin-top: 30rpx;
+	min-height: 300rpx;
+	width: 100%;
+	background-color: #e1e1e1;
+	border-radius: 16rpx;
+	padding: 20rpx;
+	color: #515151;
+}
+
+.btn-list {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30rpx 0;
+}
+
+.btn-use,
+.dialog-btn-use {
+	line-height: 80rpx;
+	color: #ffffff;
+	background-color: #1aad19;
+	border-radius: 8rpx;
+	text-align: center;
+}
+
+.btn-use {
+	width: 30%;
+}
+
+.dialog-btn-use {
+	width: 45%;
+}
+
+.option-box {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.option-name {
+	font-size: 14px;
+}
+
+.option-icon {
+	font-size: 12rpx;
+	border-radius: 8rpx;
+	background-color: #e1e1e1;
+	padding: 8rpx 12rpx;
+}
+
+.urllist {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30rpx;
+}
+
+.urllist-box {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	white-space: nowrap;
+	padding-bottom: 20rpx;
+	padding-top: 20rpx;
+	border-top: 1px solid #f1f1f1;
+}
+
+.urllist-icon {
+	overflow: hidden;
+	width: 36rpx;
+	height: 36rpx;
+	border-radius: 50%;
+	margin-right: 10rpx;
+}
+
+.urllist-url {
+	font-size: 36rpx;
+	flex: 1;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-right: 10rpx;
+}
+
+.urllist-time {
+	font-size: 36rpx;
+}
+
+.btn-icon {
+	overflow: hidden;
+	width: 56rpx;
+	height: 56rpx;
+	border-radius: 50%;
+	margin-left: 14rpx;
+}
+
+.modal-main {
+	background-color: #fff;
+	padding: 30rpx 40rpx 10rpx;
+	border-radius: 30rpx;
+}
+
+.modal-title {
+	width: 100%;
+	font-size: 40rpx;
+	text-align: center;
+	font-weight: 600;
+}
+
+.user-image {
+	width: 860rpx;
+	height: 860rpx;
+}
