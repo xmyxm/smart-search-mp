@@ -2,10 +2,10 @@
 // https://developers.weixin.qq.com/minigame/dev/api-backend/open-api/qr-code/wxacode.get.html
 // https://developers.weixin.qq.com/minigame/dev/api-backend/open-api/qr-code/wxacode.getUnlimited.html
 
+// https://developers.weixin.qq.com/miniprogram/dev/reference/scene-list.html
+
 const AppID = 'wx734c1ad7b3562129'
 const AppSecret = 'd9d441e619c080bd71cd4d033374a1b5'
-
-let accessToken: string = ''
 
 function getAccessToken(): Promise<string> {
 	return new Promise(resolve => {
@@ -17,52 +17,64 @@ function getAccessToken(): Promise<string> {
 				'content-type': 'application/json', // 默认值
 			},
 			success: (res: any) => {
-				const token: string = res.data.access_token
-				resolve(token)
-			},
-			fail: err => {
-				console.error(err)
-				resolve('')
-			},
-		})
-	})
-}
-
-function getMiniProgramCode(path: string = '', scene: string = '', page: string = ''): Promise<string> {
-	return new Promise(resolve => {
-		let url = `https://qqweb.top/api/`
-		if (scene) {
-			url += `wxcodeunlimit?access_token=${accessToken}&scene=${scene}&page=${page}&width=430`
-		} else {
-			url += `wxcode?access_token=${accessToken}&path=${path}&width=430`
-		}
-		wx.request({
-			url,
-			method: 'GET',
-			success: (res: any) => {
-				if (res.statusCode === 200) {
-					if (res.data.data.imageUrl) {
-						resolve(res.data.data.imageUrl)
-					} else {
-						console.error('获取图片失败1', res)
-					}
+				if (res.data.data) {
+					const token: string = res.data.data.access_token
+					resolve(token)
 				} else {
-					console.error('获取图片失败2', res)
+					console.error('获取 access_token 失败', res)
+					resolve('')
 				}
 			},
 			fail: err => {
-				console.error(err)
+				console.error('获取 access_token 异常', err)
 				resolve('')
 			},
 		})
 	})
 }
 
-export async function createWxCode(path: string): Promise<string> {
-	if (!accessToken) {
-		accessToken = await getAccessToken()
-	}
-	return getMiniProgramCode(path)
+function getMiniProgramCode(
+	accessToken: string,
+	path: string = '',
+	scene: string = '',
+	page: string = '',
+): Promise<string> {
+	return new Promise(resolve => {
+		if (accessToken) {
+			let url = `https://qqweb.top/api/`
+			if (scene) {
+				url += `wxcodeunlimit?access_token=${accessToken}&scene=${scene}&page=${page}&width=430`
+			} else {
+				url += `wxcode?access_token=${accessToken}&path=${path}&width=430`
+			}
+			wx.request({
+				url,
+				method: 'GET',
+				success: (res: any) => {
+					if (res.statusCode === 200) {
+						if (res.data.data.imageUrl) {
+							resolve(res.data.data.imageUrl)
+						} else {
+							console.error('生成小程序二维码失败', res)
+						}
+					} else {
+						console.error('生成小程序二维码接口异常', res)
+					}
+				},
+				fail: err => {
+					console.error('生成小程序二维码代码异常', err)
+					resolve('')
+				},
+			})
+		} else {
+			console.error('缺少生成小程序二维码的必要 accessToken')
+			resolve('')
+		}
+	})
+}
+
+export function createWxCode(path: string): Promise<string> {
+	return getAccessToken().then((accessToken: string) => getMiniProgramCode(accessToken, path))
 }
 
 export function saveImageToPhotosAlbum(imageUrl: string): void {

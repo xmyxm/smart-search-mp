@@ -152,43 +152,51 @@ Page({
 				})
 			} else {
 				createWxCode(content).then((imgbase: string) => {
-					const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
-						(item: MpUrlHistoryInfoType) => {
-							return !(item.appid === appid && item.mpUrl === content)
-						},
-					)
-					const currentTime = Date.now()
-					historyList.unshift({
-						icon,
-						appid,
-						mpUrl: content,
-						base64: imgbase,
-						timeStamp: `${currentTime}`,
-						time: formatMiniTime(new Date(currentTime)),
-					})
-					if (historyList.length > 500) {
-						historyList.length = 500
+					if (imgbase) {
+						const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
+							(item: MpUrlHistoryInfoType) => {
+								return !(item.appid === appid && item.mpUrl === content)
+							},
+						)
+						const currentTime = Date.now()
+						historyList.unshift({
+							icon,
+							appid,
+							mpUrl: content,
+							base64: imgbase,
+							timeStamp: `${currentTime}`,
+							time: formatMiniTime(new Date(currentTime)),
+						})
+						if (historyList.length > 500) {
+							historyList.length = 500
+						}
+						this.setData({
+							mpUrlHistoryList: historyList,
+						})
+						const historyListCacheData = historyList.map((item: MpUrlHistoryInfoType) => ({
+							appid: item.appid,
+							mpUrl: item.mpUrl,
+							base64: item.base64,
+							timeStamp: item.timeStamp,
+						}))
+						wx.setStorage({
+							key: STORAGE_KEY.WXCODE_HISTORY_LIST,
+							data: historyListCacheData,
+							success() {
+								console.log('更新链接缓存成功', historyListCacheData)
+							},
+							fail(err) {
+								console.error('更新链接缓存失败', err)
+							},
+						})
+						this.setData({ showModal: true, modalContent: imgbase })
+					} else {
+						wx.showToast({
+							title: '生成小程序码失败',
+							icon: 'none',
+							duration: 2000,
+						})
 					}
-					this.setData({
-						mpUrlHistoryList: historyList,
-					})
-					const historyListCacheData = historyList.map((item: MpUrlHistoryInfoType) => ({
-						appid: item.appid,
-						mpUrl: item.mpUrl,
-						base64: item.base64,
-						timeStamp: item.timeStamp,
-					}))
-					wx.setStorage({
-						key: STORAGE_KEY.WXCODE_HISTORY_LIST,
-						data: historyListCacheData,
-						success() {
-							console.log('更新链接缓存成功', historyListCacheData)
-						},
-						fail(err) {
-							console.error('更新链接缓存失败', err)
-						},
-					})
-					this.setData({ showModal: true, modalContent: imgbase })
 				})
 			}
 		} else {

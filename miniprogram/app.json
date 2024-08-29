@@ -1,12 +1,12 @@
 {
 	"pages": [
-		"pages/wxcode/wxcode",
 		"pages/index/index",
 		"pages/about/about",
 		"pages/webview/webview",
 		"pages/poi/poi",
 		"pages/tool/tool",
-		"pages/life/life"
+		"pages/life/life",
+		"pages/wxcode/wxcode"
 	],
 	"subPackages": [
 		{

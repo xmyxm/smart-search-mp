@@ -13,6 +13,10 @@ Page({
 				name: '小程序商户链接生成工具',
 				path: 'pages/poi/poi',
 			},
+			{
+				name: '小程序二维码生成工具',
+				path: 'pages/wxcode/wxcode',
+			},
 		],
 	},
 	onLoad() {
