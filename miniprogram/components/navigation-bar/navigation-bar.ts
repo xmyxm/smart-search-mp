@@ -93,7 +93,7 @@ Component({
 				displayStyle,
 			})
 		},
-		back() {
+		backTap() {
 			const { data } = this
 			if (data.delta) {
 				const isGoHome = getCurrentPages().length === data.delta

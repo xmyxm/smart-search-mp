@@ -7,15 +7,15 @@ Page({
 		openLinkList: [
 			{
 				name: '小程序跳转链接生成工具',
-				path: 'pages/webview/webview',
+				path: '/pages/webview/webview',
 			},
 			{
 				name: '小程序商户链接生成工具',
-				path: 'pages/poi/poi',
+				path: '/pages/poi/poi',
 			},
 			{
 				name: '小程序二维码生成工具',
-				path: 'pages/wxcode/wxcode',
+				path: '/pages/wxcode/wxcode',
 			},
 		],
 	},

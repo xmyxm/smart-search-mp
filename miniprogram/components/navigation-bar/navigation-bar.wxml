@@ -15,7 +15,7 @@
 							hover-stay-time="100"
 							aria-role="button"
 							aria-label="返回"
-							bindtap="back"
+							bindtap="backTap"
 						>
 							<view class="weui-navigation-bar__button weui-navigation-bar__btn_goback" />
 						</view>

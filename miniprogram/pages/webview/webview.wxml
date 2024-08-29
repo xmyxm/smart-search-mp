@@ -1,4 +1,4 @@
-<navigation-bar title="小程序跳转链接生成工具" back="{{ false }}" color="black" background="#f1f1f1" />
+<navigation-bar title="小程序跳转链接生成工具" back="{{ true }}" color="black" background="#f1f1f1" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
 		<block wx:if="{{ platformInfoList && platformInfoList.length > 0 }}">
