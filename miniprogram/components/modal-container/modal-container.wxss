@@ -16,7 +16,6 @@
 	z-index: 1;
 	border-radius: 10rpx;
 	width: 560rpx;
-	height: 800rpx;
 }
 
 .modal-mask .modal-image {

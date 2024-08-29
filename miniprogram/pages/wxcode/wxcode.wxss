@@ -154,6 +154,7 @@
 }
 
 .user-image {
-	width: 860rpx;
-	height: 860rpx;
+	margin-top: 20rpx;
+	width: 484rpx;
+	height: 484rpx;
 }
