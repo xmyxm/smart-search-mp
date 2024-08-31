@@ -59,7 +59,7 @@
 <modal-container wx:if="{{showModal}}" name="webview" bind:bindModalTap="bindModalTap">
 	<view class="modal-main">
 		<view class="modal-title">生成小程序二维码</view>
-		<view wx:if="{{ modalPath }}" class="modal-path">小程序路径: {{ modalPath }}</view>
+		<textarea wx:if="{{ modalPath }}" class="modal-content" value="{{ '小程序路径: ' +  modalPath }}"></textarea>
 		<image wx:if="{{ modalContent }}" class="user-image" src="{{ modalContent }}" mode="cover" />
 		<view class="btn-list">
 			<view class="dialog-btn-use" bindtap="bindDowloadImageTap">下载二维码</view>

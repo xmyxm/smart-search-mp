@@ -169,3 +169,13 @@
 	text-align: center;
 	font-weight: 600;
 }
+
+.modal-content {
+	margin-top: 30rpx;
+	min-height: 300rpx;
+	width: 100%;
+	background-color: #f8f8f8;
+	border-radius: 16rpx;
+	padding: 20rpx;
+	color: #515151;
+}

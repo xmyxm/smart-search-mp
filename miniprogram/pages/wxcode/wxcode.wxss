@@ -160,7 +160,12 @@
 	height: 484rpx;
 }
 
-.modal-path {
-	font-size: 24rpx;
-	margin-top: 20rpx;
+.modal-content {
+	margin-top: 30rpx;
+	width: 100%;
+	background-color: #f8f8f8;
+	border-radius: 16rpx;
+	padding: 20rpx;
+	color: #515151;
+	max-height: 180rpx;
 }

@@ -97,7 +97,7 @@
 	<view class="modal-main">
 		<view class="modal-title">生成链接</view>
 		<textarea
-			class="user-content"
+			class="modal-content"
 			bindinput="handleModalInput"
 			maxlength="500"
 			auto-focus
