@@ -18,7 +18,7 @@
 			</view>
 		</block>
 		<block wx:if="{{ poiTypeInfoList && poiTypeInfoList.length > 0 }}">
-			<view class="title mt30">选择商户类型：</view>
+			<view class="title mt40">选择商户类型：</view>
 			<radio-group class="poi-type" bindchange="radioChange">
 				<view
 					wx:for="{{ poiTypeInfoList }}"

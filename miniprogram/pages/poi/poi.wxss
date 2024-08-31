@@ -6,11 +6,12 @@
 	font-size: 14px;
 }
 
-.mt30 {
-	margin-top: 30rpx;
+.mt40 {
+	margin-top: 40rpx;
 }
 
 .poi-type {
+	margin-top: 40rpx;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -23,7 +24,6 @@
 	align-items: center;
 	white-space: nowrap;
 	padding-right: 24rpx;
-	padding-top: 20rpx;
 }
 
 .poi-name {
@@ -34,7 +34,7 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	margin-top: 30rpx;
+	margin-top: 40rpx;
 }
 
 .platform-box {
@@ -66,7 +66,7 @@
 }
 
 .user-content {
-	margin-top: 30rpx;
+	margin-top: 40rpx;
 	min-height: 300rpx;
 	width: 100%;
 	background-color: #e1e1e1;
@@ -92,10 +92,10 @@
 }
 
 .btn-list {
+	margin-top: 40rpx;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 30rpx 0;
 }
 
 .btn-use,
@@ -116,6 +116,7 @@
 }
 
 .option-box {
+	margin-top: 40rpx;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -137,7 +138,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-top: 30rpx;
+	margin-top: 40rpx;
 }
 
 .urllist-box {
@@ -146,8 +147,8 @@
 	align-items: center;
 	width: 100%;
 	white-space: nowrap;
-	padding-bottom: 20rpx;
-	padding-top: 20rpx;
+	padding-bottom: 24rpx;
+	padding-top: 24rpx;
 	border-top: 1px solid #f1f1f1;
 }
 
@@ -182,7 +183,7 @@
 
 .modal-main {
 	background-color: #fff;
-	padding: 30rpx 40rpx 10rpx;
+	padding: 40rpx;
 	border-radius: 30rpx;
 }
 
