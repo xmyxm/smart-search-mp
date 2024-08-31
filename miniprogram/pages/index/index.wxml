@@ -9,7 +9,8 @@
 			data-path="{{ item.path }}"
 			bindtap="bindViewTap"
 		>
-			<view class="btn-color">{{item.name}}</view>
+			<view class="item-name">{{item.name}}</view>
+			<image class="item-icon" src="{{item.icon}}" mode="cover" />
 		</view>
 	</view>
 </scroll-view>

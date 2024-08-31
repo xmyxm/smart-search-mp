@@ -8,14 +8,17 @@ Page({
 			{
 				name: '小程序跳转链接生成工具',
 				path: '/pages/webview/webview',
+				icon: 'https://p0.meituan.net/travelcube/80fa62e2a72d945e5183d2d061edd7262251.png',
 			},
 			{
 				name: '小程序商户链接生成工具',
 				path: '/pages/poi/poi',
+				icon: 'https://p0.meituan.net/travelcube/054a593bfee33ead7e0ccab925c1c99b1351.png',
 			},
 			{
 				name: '小程序二维码生成工具',
 				path: '/pages/wxcode/wxcode',
+				icon: 'https://p1.meituan.net/travelcube/20e860f5d799a1fd972ae9a30e6fcc241021.png',
 			},
 		],
 	},
