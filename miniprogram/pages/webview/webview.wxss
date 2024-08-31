@@ -2,7 +2,8 @@
 	padding: 30rpx;
 }
 
-.title, .option-title {
+.title,
+.option-title {
 	font-size: 28rpx;
 }
 
