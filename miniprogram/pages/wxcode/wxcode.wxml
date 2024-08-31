@@ -27,7 +27,7 @@
 			value="{{content}}"
 		/>
 		<view class="btn-list">
-			<view class="btn-use" bindtap="bindClearTap">清空文本</view>
+			<view class="btn-use" bindtap="bindOpenMiniProgram">打开小程序</view>
 			<view class="btn-use" bindtap="bindCopyClipboardTap">粘贴地址</view>
 			<view class="btn-use" bindtap="bindCreateWxCodeTap">生成小程序码</view>
 		</view>
@@ -48,7 +48,7 @@
 						data-base64="{{ item.base64 }}"
 						bindtap="openImageDialog"
 						title="打开"
-						src="{{imgInfoMap.BTN_LINK}}"
+						src="{{imgInfoMap.BTN_DETAIL}}"
 						mode="cover"
 					/>
 				</view>

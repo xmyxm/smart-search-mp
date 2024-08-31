@@ -114,6 +114,64 @@ Page({
 	bindClearTap() {
 		this.handleInput('')
 	},
+	verifyPath(suscallback: Function) {
+		const content = this.data.content.trim()
+		if (content) {
+			let errMsg = ''
+			if (content.indexOf('/') === 0) {
+				errMsg = '小程序路径不可以/开头'
+			}
+			const pathRegex = /^(?!\/)([a-zA-Z0-9_]+\/)+[a-zA-Z0-9_]+$/
+			if (!pathRegex.test(content)) {
+				errMsg = '小程序路径不符合规则'
+			}
+			if (errMsg) {
+				wx.showToast({
+					title: errMsg,
+					icon: 'none',
+					duration: 2000,
+				})
+			} else if (suscallback) {
+				suscallback(content)
+			}
+		} else {
+			wx.showToast({
+				title: '请输入小程序路径',
+				icon: 'none',
+				duration: 2000,
+			})
+		}
+	},
+	bindOpenMiniProgram() {
+		this.verifyPath((content: string) => {
+			const { appid = '' } = this.data.platformInfoList.find(item => item.select) || {}
+			if (appid && content) {
+				wx.navigateToMiniProgram({
+					appId: appid,
+					path: content,
+					extraData: {},
+					envVersion: 'release', // 可选
+					success(res) {
+						console.log('打开成功', res)
+					},
+					fail(err) {
+						console.error('打开失败', err)
+						wx.showToast({
+							title: `打开失败`,
+							icon: 'none',
+							duration: 2000,
+						})
+					},
+				})
+			} else {
+				wx.showToast({
+					title: '参数不完整，无法完成跳转',
+					icon: 'none',
+					duration: 2000,
+				})
+			}
+		})
+	},
 	bindCopyClipboardTap() {
 		const that = this
 		wx.getClipboardData({
@@ -131,16 +189,7 @@ Page({
 		})
 	},
 	bindCreateWxCodeTap() {
-		const content = this.data.content.trim()
-		if (content) {
-			if (content.indexOf('/') === 0) {
-				wx.showToast({
-					title: '小程序路径不可以/开头',
-					icon: 'none',
-					duration: 2000,
-				})
-				return
-			}
+		this.verifyPath((content: string) => {
 			const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
 			const wxCodeInfo = this.data.mpUrlHistoryList.find((item: MpUrlHistoryInfoType) => {
 				return item.appid === appid && item.mpUrl === content
@@ -199,13 +248,7 @@ Page({
 					}
 				})
 			}
-		} else {
-			wx.showToast({
-				title: '请输入小程序路径',
-				icon: 'none',
-				duration: 2000,
-			})
-		}
+		})
 	},
 	openImageDialog(event: any) {
 		const { appid, base64, mpurl } = event.currentTarget.dataset

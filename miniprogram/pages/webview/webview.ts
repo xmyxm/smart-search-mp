@@ -214,6 +214,11 @@ Page({
 				},
 				fail(err) {
 					console.error('打开失败', err)
+					wx.showToast({
+						title: `打开失败`,
+						icon: 'none',
+						duration: 2000,
+					})
 				},
 			})
 		} else {
