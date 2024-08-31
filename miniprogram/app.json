@@ -23,14 +23,14 @@
 			{
 				"pagePath": "pages/index/index",
 				"text": "首页",
-				"iconPath": "./images/bar/index.png",
-				"selectedIconPath": "./images/bar/index-color.png"
+				"iconPath": "./images/bar/home.png",
+				"selectedIconPath": "./images/bar/home.png"
 			},
 			{
 				"pagePath": "pages/about/about",
 				"text": "关于",
-				"iconPath": "./images/bar/life.png",
-				"selectedIconPath": "./images/bar/life-color.png"
+				"iconPath": "./images/bar/history.png",
+				"selectedIconPath": "./images/bar/history.png"
 			}
 		]
 	},

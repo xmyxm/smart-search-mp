@@ -10,7 +10,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 30rpx;
+	margin-top: 40rpx;
 }
 
 .platform-box {
@@ -42,7 +42,7 @@
 }
 
 .user-content {
-	margin-top: 30rpx;
+	margin-top: 40rpx;
 	min-height: 300rpx;
 	width: 100%;
 	background-color: #e1e1e1;
@@ -71,7 +71,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 30rpx 0;
+	margin-top: 40rpx;
 }
 
 .btn-use,
@@ -92,6 +92,7 @@
 }
 
 .option-box {
+	margin-top: 40rpx;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -113,7 +114,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-top: 30rpx;
+	margin-top: 40rpx;
 }
 
 .urllist-box {
@@ -122,9 +123,9 @@
 	align-items: center;
 	width: 100%;
 	white-space: nowrap;
-	padding-bottom: 20rpx;
-	padding-top: 20rpx;
-	border-top: 1px solid #f1f1f1;
+	padding-bottom: 24rpx;
+	padding-top: 24rpx;
+	border-top: 1px solid #e8e8e8;
 }
 
 .urllist-icon {
@@ -158,7 +159,7 @@
 
 .modal-main {
 	background-color: #fff;
-	padding: 30rpx 40rpx 10rpx;
+	padding: 40rpx;
 	border-radius: 30rpx;
 }
 
