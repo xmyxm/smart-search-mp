@@ -1,5 +1,7 @@
 .container {
 	padding: 30rpx;
+	justify-content: space-between;
+	height: 88vh;
 }
 
 .logs .title {
@@ -14,8 +16,24 @@
 	align-content: center;
 }
 
+.log-item {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	font-size: 24rpx;
+}
+
+.time {
+	width: 160rpx;
+}
+
+.content {
+	flex: 1;
+	line-height: 80rpx;
+	border-bottom: 1rpx solid #e1e1e1;
+}
+
 .version {
-	margin-top: 900rpx;
 	width: 100%;
 	line-height: 80rpx;
 	text-align: center;

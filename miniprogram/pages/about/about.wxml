@@ -2,15 +2,16 @@
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
 		<view class="logs">
-			<view class="title">更新日志</view>
+			<view class="title">更新记录</view>
 			<view class="log-list">
 				<view
-					class="log-content"
+					class="log-item"
 					wx:for="{{ appConfig.APP_UPDATE_LOGS }}"
 					wx:for-item="item"
 					wx:key="{{ item.time }}"
 				>
-					{{item.time + ': ' +item.msg}}
+					<view class="time">{{item.time + ':'}}</view>
+					<view class="content">{{item.msg}}</view>
 				</view>
 			</view>
 		</view>

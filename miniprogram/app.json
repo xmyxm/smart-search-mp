@@ -22,7 +22,7 @@
 		"list": [
 			{
 				"pagePath": "pages/index/index",
-				"text": "微智搜",
+				"text": "首页",
 				"iconPath": "./images/bar/index.png",
 				"selectedIconPath": "./images/bar/index-color.png"
 			},
