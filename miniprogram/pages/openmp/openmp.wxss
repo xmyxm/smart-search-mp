@@ -1,0 +1,110 @@
+.container {
+	padding: 30rpx 30rpx 30rpx 30rpx;
+}
+
+.title,
+.option-title {
+	font-size: 28rpx;
+}
+
+.user-input {
+	margin-top: 20rpx;
+	font-size: 32rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	background-color: #fff;
+	color: #515151;
+	border: 1rpx solid #e1e1e1;
+	border-radius: 8rpx;
+	padding: 20rpx;
+	box-sizing: border-box;
+}
+
+.user-textarea {
+	margin-top: 30rpx;
+	font-size: 32rpx;
+	width: 100%;
+	height: 200rpx;
+	padding: 20rpx;
+	min-height: 200rpx;
+	color: #515151;
+	background-color: #fff;
+	border: 1rpx solid #e1e1e1;
+	border-radius: 8rpx;
+	box-sizing: border-box;
+}
+
+.btn-open-mp {
+	margin-top: 40rpx;
+	line-height: 80rpx;
+	color: #ffffff;
+	background-color: #1aad19;
+	border-radius: 8rpx;
+	text-align: center;
+}
+
+.option-box {
+	margin-top: 100rpx;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.option-name {
+	font-size: 14px;
+}
+
+.option-icon {
+	font-size: 12rpx;
+	border-radius: 8rpx;
+	background-color: #e1e1e1;
+	padding: 8rpx 12rpx;
+}
+
+.urllist {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40rpx;
+}
+
+.urllist-box {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	white-space: nowrap;
+	padding-bottom: 24rpx;
+	padding-top: 24rpx;
+	border-top: 1px solid #e8e8e8;
+}
+
+.urllist-icon {
+	overflow: hidden;
+	width: 36rpx;
+	height: 36rpx;
+	border-radius: 50%;
+	margin-right: 10rpx;
+}
+
+.urllist-url {
+	font-size: 36rpx;
+	flex: 1;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-right: 10rpx;
+}
+
+.urllist-time {
+	font-size: 36rpx;
+}
+
+.btn-icon {
+	overflow: hidden;
+	width: 56rpx;
+	height: 56rpx;
+	border-radius: 50%;
+	margin-left: 14rpx;
+}

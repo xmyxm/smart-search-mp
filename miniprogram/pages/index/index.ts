@@ -6,9 +6,14 @@ Page({
 	data: {
 		openLinkList: [
 			{
+				name: '跳转任意小程序页面',
+				path: '/pages/openmp/openmp',
+				icon: 'https://p0.meituan.net/travelcube/26901b7a81a1be9047f8bc87c01ef3376020.png',
+			},
+			{
 				name: '小程序 Webview 链接生成工具',
 				path: '/pages/webview/webview',
-				icon: 'https://p1.meituan.net/travelcube/ebf13a89e841657c42227f0138e7703e2187.png',
+				icon: 'https://p0.meituan.net/travelcube/6c684c00868675f1cb5c55d72065c8fa4613.png',
 			},
 			{
 				name: '小程序商详页地址生成工具',

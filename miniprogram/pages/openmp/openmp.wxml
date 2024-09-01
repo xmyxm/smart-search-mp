@@ -1,0 +1,54 @@
+<navigation-bar title="跳转任意小程序页面" back="{{ true }}" color="black" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<input
+			class="user-input"
+			auto-focus
+			auto-height
+			maxlength="500"
+			placeholder="{{appIdPlaceholderText}}"
+			bindinput="handleInput"
+			value="{{appid}}"
+		/>
+		<textarea
+			class="user-textarea"
+			auto-focus
+			auto-height
+			maxlength="500"
+			placeholder="{{pathPlaceholderText}}"
+			bindinput="handleTextarea"
+			value="{{path}}"
+		/>
+		<view class="btn-open-mp" bindtap="bindOpenMPURLTap">打开小程序页面</view>
+		<block wx:if="{{ mpUrlHistoryList && mpUrlHistoryList.length > 0 }}">
+			<view class="option-box">
+				<text class="option-title">URL 生成历史：</text>
+				<text class="option-icon" bindtap="bindClearChacheDataTap">清除历史</text>
+			</view>
+			<view class="urllist">
+				<view wx:for="{{ mpUrlHistoryList }}" class="urllist-box" wx:for-item="item" wx:key="{{ item.appid }}">
+					<text class="urllist-url">{{ item.appid }}</text>
+					<text class="urllist-url">{{ item.mpUrl }}</text>
+					<image
+						class="btn-icon"
+						data-mpurl="{{ item.mpUrl }}"
+						data-appid="{{ item.appid }}"
+						bindtap="bindCopyTap"
+						title="复制"
+						src="{{imgInfoMap.BTN_COPY}}"
+						mode="cover"
+					/>
+					<image
+						class="btn-icon"
+						data-mpurl="{{ item.mpUrl }}"
+						data-appid="{{ item.appid }}"
+						bindtap="openOtherMiniProgram"
+						title="打开"
+						src="{{imgInfoMap.BTN_LINK}}"
+						mode="cover"
+					/>
+				</view>
+			</view>
+		</block>
+	</view>
+</scroll-view>

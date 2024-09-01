@@ -5,7 +5,7 @@
 		"pages/webview/webview",
 		"pages/poi/poi",
 		"pages/tool/tool",
-		"pages/life/life",
+		"pages/openmp/openmp",
 		"pages/wxcode/wxcode"
 	],
 	"subPackages": [
