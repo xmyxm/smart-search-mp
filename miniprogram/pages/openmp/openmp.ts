@@ -91,19 +91,19 @@ Page({
 	},
 	bindOpenMPURLTap() {
 		const { appid, path } = this.data
+		const url = path.trim().replace(/^\//, '')
 		if (appid) {
-			const pathRegex = /^(?!\/)([a-zA-Z0-9_]+\/)+[a-zA-Z0-9_]+$/
-			if (pathRegex.test(path)) {
-				this.openMiniProgram(appid, path, () => {
+			if (url) {
+				this.openMiniProgram(appid, url, () => {
 					const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
 						(item: MpUrlHistoryInfoType) => {
-							return !(item.mpUrl === path && item.appid === appid)
+							return !(item.mpUrl === url && item.appid === appid)
 						},
 					)
 					const currentTime = Date.now()
 					historyList.unshift({
 						appid,
-						mpUrl: path,
+						mpUrl: url,
 						timeStamp: `${currentTime}`,
 						time: formatMiniTime(new Date(currentTime)),
 					})
@@ -131,7 +131,7 @@ Page({
 				})
 			} else {
 				wx.showToast({
-					title: '小程序路径不符合规则，也不可以/开头',
+					title: '请输入正确的小程序路径',
 					icon: 'none',
 					duration: 2000,
 				})
