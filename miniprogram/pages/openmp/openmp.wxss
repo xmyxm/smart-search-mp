@@ -7,8 +7,57 @@
 	font-size: 28rpx;
 }
 
+.platform {
+	height: 160rpx;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: 40rpx;
+	overflow-x: auto; /* 启用水平滚动 */
+	white-space: nowrap; /* 防止子元素换行 */
+}
+
+/* 隐藏滚动条 */
+.scroll-view::-webkit-scrollbar {
+	display: none;
+}
+
+.platform-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 160rpx;
+	border-radius: 20rpx;
+	padding: 20rpx;
+	box-sizing: border-box;
+	flex: 0 0 auto; /* 子元素不会缩放或扩展 */
+}
+
+.platform-box:nth-child(n + 2) {
+	margin-left: 20rpx;
+}
+
+.box-select {
+	background-color: #e1e1e1;
+}
+
+.platform-icon {
+	overflow: hidden;
+	width: 68rpx;
+	height: 68rpx;
+	border-radius: 50%;
+}
+
+.platform-name {
+	font-size: 28rpx;
+	line-height: 36rpx;
+	height: 36rpx;
+	margin-top: 6rpx;
+}
+
 .user-input {
-	margin-top: 20rpx;
+	margin-top: 40rpx;
 	font-size: 32rpx;
 	height: 100rpx;
 	line-height: 100rpx;

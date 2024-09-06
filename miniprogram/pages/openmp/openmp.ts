@@ -1,4 +1,5 @@
 import { defaultAppIdPlaceholderText, defaultPathPlaceholderText } from './util/default'
+import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { OpenMPStateType, MpUrlHistoryInfoType } from './util/datatype'
 import { WEBVIEW_POI_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
@@ -7,6 +8,7 @@ import { formatMiniTime } from '../../utils/util'
 Page({
 	data: {
 		imgInfoMap: WEBVIEW_POI_IMAGE_ICON,
+		platformInfoList,
 		appIdPlaceholderText: defaultAppIdPlaceholderText,
 		pathPlaceholderText: defaultPathPlaceholderText,
 		appid: '',
@@ -18,7 +20,9 @@ Page({
 		const historyList: MpUrlHistoryInfoType[] = (wx.getStorageSync(STORAGE_KEY.OPENMP_HISTORY_LIST) || []).map(
 			({ appid, mpUrl, timeStamp }: MpUrlHistoryInfoType) => {
 				const time = formatMiniTime(new Date(Number(timeStamp)))
+				const icon = (platformInfoList.find((item: PlatformInfoType) => item.appid === appid) || {}).icon || ''
 				return {
+					icon,
 					appid,
 					mpUrl,
 					timeStamp,
@@ -27,7 +31,8 @@ Page({
 			},
 		)
 
-		this.setData({ mpUrlHistoryList: historyList })
+		const { appid } = this.data.platformInfoList[0]
+		this.setData({ mpUrlHistoryList: historyList, appid })
 	},
 	onShow() {
 		// 页面显示/切入前台时触发。
@@ -76,6 +81,14 @@ Page({
 			},
 		}
 	},
+	bindSelectPlatformTap(event: any) {
+		const { appid } = event.currentTarget.dataset
+		const list: PlatformInfoType[] = this.data.platformInfoList.map((item: any) => ({
+			...item,
+			select: item.appid === appid,
+		}))
+		this.setData({ platformInfoList: list, appid })
+	},
 	// 处理 textarea 输入事件
 	handleInput(event: any) {
 		const appid = typeof event === 'object' ? event.detail.value.trim() : event
@@ -95,6 +108,7 @@ Page({
 		if (appid) {
 			if (url) {
 				this.openMiniProgram(appid, url, () => {
+					const { icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
 					const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
 						(item: MpUrlHistoryInfoType) => {
 							return !(item.mpUrl === url && item.appid === appid)
@@ -102,6 +116,7 @@ Page({
 					)
 					const currentTime = Date.now()
 					historyList.unshift({
+						icon,
 						appid,
 						mpUrl: url,
 						timeStamp: `${currentTime}`,
