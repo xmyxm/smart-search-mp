@@ -1,27 +1,55 @@
 {
   "appid": "wxddad6eb2e48f7db3",
-  "name": "",
-  "env": "dev",
-  "env_desc": "开发版",
-  "version": "0.0.20",
-  "desc": "up",
-  "robot": 1,
+  "projectname": "smart-search-mp",
+  "description": "项目配置文件",
+  "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
-  "libVersion": "3.6.3",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
   "setting": {
-    "ignoreUploadUnusedFiles": true,
+    "useCompilerPlugins": [
+      "typescript"
+    ],
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "coverView": false,
+    "postcss": false,
+    "minified": false,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": false,
+    "ignoreUploadUnusedFiles": true,
+    "compileHotReLoad": false,
+    "skylineRenderEnable": true,
+    "es6": true,
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./miniprogram/"
+      }
+    ]
   },
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {},
+  "srcMiniprogramRoot": "miniprogram/",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
+  },
+  "libVersion": "trial",
+  "packOptions": {
+    "ignore": [
+      {
+        "value": "node_modules",
+        "type": "folder"
+      },
+      {
+        "value": ".gitignore",
+        "type": "file"
+      }
+    ],
+    "include": []
   }
 }

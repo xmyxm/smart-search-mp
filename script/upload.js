@@ -1,7 +1,8 @@
 const project_config = require("../project.config.json");
+const package_config = require("../package.json");
+const inquirerPrompt = require("@inquirer/prompts");
 const child_process = require("child_process");
 const ci = require("miniprogram-ci");
-const inquirerPrompt = require("@inquirer/prompts");
 const request = require("request");
 const fse = require("fs-extra");
 const util = require("util");
@@ -29,7 +30,7 @@ class appletCI {
     async init() {
         const result_data = await this.inquirer(project_config);
         this.config = await this.update_config(result_data);
-        this.fs_rewrite_config();
+        // this.fs_rewrite_config();
         await this.upload(result_data);
     }
     // 问答：选择环境、版本号、描述
@@ -55,9 +56,10 @@ class appletCI {
     async update_config(user_info) {
         const env = user_info.env.split("-")[1];
         const env_desc = user_info.env.split("-")[0];
+        const { appid, projectname } = project_config
         const config = {
-            appid: "",  // 小程序的appid
-            name: "",  // 小程序的名字
+            appid,  // 小程序的appid
+            name: projectname,  // 小程序的名字
             env,
             env_desc,
             version: user_info.version,
@@ -69,18 +71,19 @@ class appletCI {
                         ? example.robot_2
                         : example.robot_1,
         };
-
         return config;
     }
-    // 重写配置文件
+    // 重写 package.json 版本号
     fs_rewrite_config() {
+        const { version } = this.config
+        package_config.version = version
         fs.writeFileSync(
-            "./project.config.json",
-            JSON.stringify(this.config),
+            "./package.json",
+            JSON.stringify(package_config),
             (err) => {
                 if (err) {
                     console.log(
-                        "自动写入 project.config.json 文件失败，请手动填写，并检查错误！"
+                        "自动写入 package.json 文件失败，请手动填写，并检查错误！"
                     );
                 }
             }
