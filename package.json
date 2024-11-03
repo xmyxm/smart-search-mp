@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "@babel/parser": "^7.24.8",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.4.0",
@@ -34,11 +36,13 @@
     "glob": "^10.4.5",
     "husky": "^9.1.1",
     "lint-staged": "^12.3.4",
-    "miniprogram-api-typings": "^2.8.3-1",
+    "miniprogram-api-typings": "^4.0.1",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.9",
-    "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "@typescript-eslint/parser": "^7.16.1",
     "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "js-base64": "^3.7.7",
+    "urijs": "^1.19.11"
   }
 }

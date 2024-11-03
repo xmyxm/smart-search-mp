@@ -1333,6 +1333,11 @@ jackspeak@^3.1.2:
   optionalDependencies:
     "@pkgjs/parseargs" "^0.11.0"
 
+js-base64@^3.7.7:
+  version "3.7.7"
+  resolved "http://r.npm.sankuai.com/js-base64/download/js-base64-3.7.7.tgz#e51b84bf78fbf5702b9541e2cb7bfcb893b43e79"
+  integrity sha1-5RuEv3j79XArlUHiy3v8uJO0Pnk=
+
 js-yaml@^4.1.0:
   version "4.1.0"
   resolved "http://r.npm.sankuai.com/js-yaml/download/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
@@ -1526,10 +1531,10 @@ minipass@^4.2.4:
   resolved "http://r.npm.sankuai.com/minipass/download/minipass-7.1.2.tgz#93a9626ce5e5e66bd4db86849e7515e92340a707"
   integrity sha1-k6libOXl5mvU24aEnnUV6SNApwc=
 
-miniprogram-api-typings@^2.8.3-1:
-  version "2.12.0"
-  resolved "http://r.npm.sankuai.com/miniprogram-api-typings/download/miniprogram-api-typings-2.12.0.tgz#7a29c90f3e5efa36588422d1f01e22d3394aaaa1"
-  integrity sha1-einJDz5e+jZYhCLR8B4i0zlKqqE=
+miniprogram-api-typings@^4.0.1:
+  version "4.0.1"
+  resolved "http://r.npm.sankuai.com/miniprogram-api-typings/download/miniprogram-api-typings-4.0.1.tgz#14933639f710647e1a6102614ee3d49ab90f9be8"
+  integrity sha1-FJM2OfcQZH4aYQJhTuPUmrkPm+g=
 
 ms@2.1.2:
   version "2.1.2"
@@ -1938,7 +1943,16 @@ string-argv@^0.3.1:
   resolved "http://r.npm.sankuai.com/string-argv/download/string-argv-0.3.2.tgz#2b6d0ef24b656274d957d54e0a4bbf6153dc02b6"
   integrity sha1-K20O8ktlYnTZV9VOCku/YVPcArY=
 
-"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0:
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "http://r.npm.sankuai.com/string-width/download/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha1-JpxxF9J7Ba0uU2gwqOyJXvnG0BA=
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+string-width@^4.1.0, string-width@^4.2.0:
   version "4.2.3"
   resolved "http://r.npm.sankuai.com/string-width/download/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha1-JpxxF9J7Ba0uU2gwqOyJXvnG0BA=
@@ -1984,7 +1998,14 @@ string.prototype.trimstart@^1.0.8:
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "http://r.npm.sankuai.com/strip-ansi/download/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha1-nibGPTD1NEPpSJSVshBdN7Z6hdk=
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "http://r.npm.sankuai.com/strip-ansi/download/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha1-nibGPTD1NEPpSJSVshBdN7Z6hdk=
@@ -2157,6 +2178,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+urijs@^1.19.11:
+  version "1.19.11"
+  resolved "http://r.npm.sankuai.com/urijs/download/urijs-1.19.11.tgz#204b0d6b605ae80bea54bea39280cdb7c9f923cc"
+  integrity sha1-IEsNa2Ba6AvqVL6jkoDNt8n5I8w=
+
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
   resolved "http://r.npm.sankuai.com/which-boxed-primitive/download/which-boxed-primitive-1.0.2.tgz#13757bc89b209b049fe5d86430e21cf40a89a8e6"
@@ -2191,7 +2217,7 @@ word-wrap@^1.2.5:
   resolved "http://r.npm.sankuai.com/word-wrap/download/word-wrap-1.2.5.tgz#d2c45c6dd4fbce621a66f136cbe328afd0410b34"
   integrity sha1-0sRcbdT7zmIaZvE2y+Mor9BBCzQ=
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
   resolved "http://r.npm.sankuai.com/wrap-ansi/download/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha1-Z+FFz/UQpqaYS98RUpEdadLrnkM=
@@ -2204,6 +2230,15 @@ wrap-ansi@^6.2.0:
   version "6.2.0"
   resolved "http://r.npm.sankuai.com/wrap-ansi/download/wrap-ansi-6.2.0.tgz#e9393ba07102e6c91a3b221478f0257cd2856e53"
   integrity sha1-6Tk7oHEC5skaOyIUePAlfNKFblM=
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "http://r.npm.sankuai.com/wrap-ansi/download/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha1-Z+FFz/UQpqaYS98RUpEdadLrnkM=
   dependencies:
     ansi-styles "^4.0.0"
     string-width "^4.1.0"
