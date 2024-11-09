@@ -6,7 +6,8 @@
   "compileType": "miniprogram",
   "setting": {
     "useCompilerPlugins": [
-      "typescript"
+      "typescript",
+      "sass"
     ],
     "babelSetting": {
       "ignore": [],
