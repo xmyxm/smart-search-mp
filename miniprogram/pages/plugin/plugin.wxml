@@ -1,14 +1,12 @@
-<navigation-bar title="微智搜" back="{{ false }}" color="black" />
+<navigation-bar title="插件列表" back="{{ true }}" color="black" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
 		<view
 			class="menu-list"
-			wx:for="{{ openLinkList }}"
+			wx:for="{{ pluginInfoList }}"
 			wx:for-item="item"
-			wx:key="{{ item.name }}"
+			wx:key="{{ item.path }}"
 			data-path="{{ item.path }}"
-			data-type="{{ item.type }}"
-			data-appid="{{ item.appid || '' }}"
 			bindtap="bindViewTap"
 		>
 			<view class="item-name">{{item.name}}</view>
