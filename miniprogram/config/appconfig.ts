@@ -1,9 +1,11 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
-	APP_VERSION: '0.0.19',
+	APP_VERSION: '0.0.20',
 	APP_UPDATE_TIME: '2024/08/01',
 	APP_UPDATE_LOGS: [
+		{ time: '2024/11/10', msg: '增加拉起半屏小程序体验' },
+		{ time: '2024/11/09', msg: '增加跳转小程序插件体验' },
 		{ time: '2024/09/06', msg: '增加挑转小程序appid自动填入能力' },
 		{ time: '2024/09/05', msg: '修复跳转小程序的路径判断逻辑' },
 		{ time: '2024/09/01', msg: '新增跳转小程序页面' },

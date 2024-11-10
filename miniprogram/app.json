@@ -63,9 +63,6 @@
 			"provider": "wx9ad912bf20548d92"
 		}
   	},
-	"requiredPrivateInfos" : [
-   		"getFuzzyLocation"
-  	],
 	"permission": {
 		"scope.userFuzzyLocation": {
 			"desc": "你的位置信息将用于小程序定位"
