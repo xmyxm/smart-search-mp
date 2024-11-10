@@ -1,7 +1,7 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
-	APP_VERSION: '0.0.20',
+	APP_VERSION: '0.0.21',
 	APP_UPDATE_TIME: '2024/08/01',
 	APP_UPDATE_LOGS: [
 		{ time: '2024/11/10', msg: '增加拉起半屏小程序体验' },
