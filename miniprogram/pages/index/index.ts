@@ -27,7 +27,7 @@ Page({
 				type: 1,
 				name: '小程序团详地址生成工具',
 				path: '/pages/tuan/tuan',
-				icon: 'https://p0.meituan.net/travelcube/9e49e371cebbc9f3843f481a975d17472690.png',
+				icon: 'https://p0.meituan.net/travelcube/482672b224c4ed58cdc11f882e41c5dc3523.png',
 			},
 			{
 				type: 1,
