@@ -39,7 +39,7 @@ Page({
 				type: 3,
 				name: '拉起半屏小程序体验',
 				appid: 'wx734c1ad7b3562129',
-				path: '/pages/plugin/plugin',
+				path: '/pages/home/home',
 				icon: 'https://p0.meituan.net/travelcube/b28a6ce5dab0a43d560fc5a12edc26461934.png',
 			},
 		],
