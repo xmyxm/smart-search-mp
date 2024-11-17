@@ -1,0 +1,116 @@
+<navigation-bar title="小程序商户链接生成工具" back="{{ true }}" color="black" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<block wx:if="{{ platformInfoList && platformInfoList.length > 0 }}">
+			<view class="title">选择生成商户链接的平台：</view>
+			<view class="platform">
+				<view
+					wx:for="{{ platformInfoList }}"
+					class="{{ 'platform-box' + (item.select ? ' box-select' : '') }}"
+					wx:for-item="item"
+					wx:key="{{ item.appid }}"
+					data-appid="{{ item.appid }}"
+					bindtap="bindSelectPlatformTap"
+				>
+					<image class="platform-icon" src="{{ item.icon }}" mode="cover" />
+					<text class="platform-name">{{ item.name }}</text>
+				</view>
+			</view>
+		</block>
+		<block wx:if="{{ poiTypeInfoList && poiTypeInfoList.length > 0 }}">
+			<view class="title mt40">选择商户类型：</view>
+			<radio-group class="poi-type" bindchange="radioChange">
+				<view
+					wx:for="{{ poiTypeInfoList }}"
+					class="{{ 'poi-box' }}"
+					wx:for-item="item"
+					wx:key="{{ item.showType }}"
+					data-showType="{{ item.showType }}"
+				>
+					<radio class="poi-rad" value="{{item.showType}}" checked="{{item.checked}}" />
+					<text class="poi-name">{{ item.name }}</text>
+				</view>
+			</radio-group>
+		</block>
+		<textarea
+			class="user-content"
+			auto-focus
+			auto-height
+			maxlength="500"
+			placeholder="{{placeholderText}}"
+			bindinput="handleInput"
+			value="{{content}}"
+		/>
+		<view class="btn-list">
+			<view class="btn-use" bindtap="bindClearTap">清空文本</view>
+			<view class="btn-use" bindtap="bindCopyClipboardTap">粘贴剪切板</view>
+			<view class="btn-use" bindtap="bindCreatePoiPathTap">生成链接</view>
+		</view>
+		<block wx:if="{{ poiPathHistoryList && poiPathHistoryList.length > 0 }}">
+			<view class="option-box">
+				<text class="option-title">URL 生成历史：</text>
+				<text class="option-icon" bindtap="bindClearChacheDataTap">清除历史</text>
+			</view>
+			<view class="urllist">
+				<view
+					wx:for="{{ poiPathHistoryList }}"
+					class="urllist-box"
+					wx:for-item="item"
+					wx:key="{{ item.appid }}"
+				>
+					<image class="urllist-icon" src="{{ item.icon }}" mode="cover" />
+					<text class="urllist-url">{{ item.poiPath }}</text>
+					<text class="urllist-time">{{ item.time }}</text>
+					<image
+						class="btn-icon"
+						data-poipath="{{ item.poiPath }}"
+						data-appid="{{ item.appid }}"
+						bindtap="bindmpUrlTap"
+						title="明细"
+						src="{{imgInfoMap.BTN_DETAIL}}"
+						mode="cover"
+					/>
+					<image
+						class="btn-icon"
+						data-poipath="{{ item.poiPath }}"
+						bindtap="bindCopyTap"
+						title="复制"
+						src="{{imgInfoMap.BTN_COPY}}"
+						mode="cover"
+					/>
+
+					<image
+						class="btn-icon"
+						data-poipath="{{ item.poiPath }}"
+						data-appid="{{ item.appid }}"
+						bindtap="openOtherMiniProgram"
+						title="打开"
+						src="{{imgInfoMap.BTN_LINK}}"
+						mode="cover"
+					/>
+				</view>
+			</view>
+		</block>
+	</view>
+</scroll-view>
+<modal-container wx:if="{{showModal}}" name="webview" bind:bindModalTap="bindModalTap">
+	<view class="modal-main">
+		<view class="modal-title">生成链接</view>
+		<textarea
+			class="modal-content"
+			bindinput="handleModalInput"
+			maxlength="500"
+			auto-focus
+			auto-height
+			value="{{modalContent}}"
+		/>
+		<view class="app-content">
+			<text class="appid-name">AppId:</text>
+			<text class="appid-content">{{modalAppId}}</text>
+		</view>
+		<view class="btn-list">
+			<view class="dialog-btn-use" bindtap="bindCopyModalContentTap">复制全部</view>
+			<view class="dialog-btn-use" bindtap="bindModalTap">关闭弹窗</view>
+		</view>
+	</view>
+</modal-container>

@@ -25,6 +25,12 @@ Page({
 			},
 			{
 				type: 1,
+				name: '小程序团详地址生成工具',
+				path: '/pages/tuan/tuan',
+				icon: 'https://p0.meituan.net/travelcube/9e49e371cebbc9f3843f481a975d17472690.png',
+			},
+			{
+				type: 1,
 				name: '小程序页面路径二维码生成工具',
 				path: '/pages/wxcode/wxcode',
 				icon: 'https://p1.meituan.net/travelcube/20e860f5d799a1fd972ae9a30e6fcc241021.png',
