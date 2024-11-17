@@ -68,7 +68,7 @@ Page({
 	onShareAppMessage() {
 		// 监听用户点击页面内转发按钮（button 组件 open-type="share"）或右上角菜单“转发”按钮的行为，并自定义转发内容。
 		return {
-			title: '小程序团单链接生成工具',
+			title: '小程序团详链接生成工具',
 			path: 'pages/poi/poi', // 分享路径
 			imageUrl: 'https://p1.meituan.net/travelcube/22dd461137b5560e7544045e66f416d025980.jpg', // 自定义分享图片，尺寸 500px*400px，官方要求 5:4
 			success() {
@@ -172,7 +172,7 @@ Page({
 				//@ts-ignore
 				const shareId = urlParams?.share_id || ''
 				//@ts-ignore
-				const shopid = urlParams?.shopid || ''
+				const shopid = urlParams?.shopId || ''
 				const currentPoiPath = `${path}?nsrc=2&dealid=${dealId}&share_id=${shareId}&source=poi_page&shopid=${shopid}`
 				const historyList: PoiPathHistoryInfoType[] = this.data.poiPathHistoryList.filter(
 					(item: PoiPathHistoryInfoType) => {

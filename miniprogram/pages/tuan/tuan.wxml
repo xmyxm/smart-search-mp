@@ -1,8 +1,8 @@
-<navigation-bar title="小程序商户链接生成工具" back="{{ true }}" color="black" />
+<navigation-bar title="小程序团详链接生成工具" back="{{ true }}" color="black" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
 		<block wx:if="{{ platformInfoList && platformInfoList.length > 0 }}">
-			<view class="title">选择生成商户链接的平台：</view>
+			<view class="title">选择生成团详链接的平台：</view>
 			<view class="platform">
 				<view
 					wx:for="{{ platformInfoList }}"
