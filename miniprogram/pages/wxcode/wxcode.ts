@@ -121,7 +121,7 @@ Page({
 			if (content.indexOf('/') === 0) {
 				errMsg = '小程序路径不可以/开头'
 			}
-			const pathRegex = /^(?!\/)([a-zA-Z0-9_]+\/)+[a-zA-Z0-9_]+$/
+			const pathRegex = /^(?!\/)([a-zA-Z0-9_]+\/)+[a-zA-Z0-9_]+/
 			if (!pathRegex.test(content)) {
 				errMsg = '小程序路径不符合规则'
 			}

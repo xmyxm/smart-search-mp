@@ -155,6 +155,7 @@ Page({
 		if (content) {
 			const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
 			const {
+				showType = '',
 				dpPath = '',
 				mtPath = '',
 				dpRegex = 'shopshare\\/([a-zA-Z0-9]+)\\?',
@@ -170,10 +171,19 @@ Page({
 				const dealId = matchId && matchId[1] ? matchId[1] : '0'
 				const urlParams = parseUrlParams(url)
 				//@ts-ignore
-				const shareId = urlParams?.share_id || ''
-				//@ts-ignore
 				const shopid = urlParams?.shopId || ''
-				const currentPoiPath = `${path}?nsrc=2&dealid=${dealId}&share_id=${shareId}&source=poi_page&shopid=${shopid}`
+				let currentPoiPath = ''
+				if (showType === 'dc') {
+					//@ts-ignore
+					const utm_source = urlParams?.utm_source || ''
+					currentPoiPath = `${path}?shopuuid=&utm_source=${utm_source}&shopId=${shopid}&dealGroupId=${dealId}`
+				} else {
+					//@ts-ignore
+					const share_id = urlParams?.share_id || ''
+					//@ts-ignore
+					const source = urlParams?.source || ''
+					currentPoiPath = `${path}?nsrc=2&dealid=${dealId}&share_id=${share_id}&source=${source}&shopid=${shopid}`
+				}
 				const historyList: PoiPathHistoryInfoType[] = this.data.poiPathHistoryList.filter(
 					(item: PoiPathHistoryInfoType) => {
 						return !(item.appid === appid && item.poiPath === currentPoiPath)
