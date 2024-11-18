@@ -1,7 +1,7 @@
 .container {
 	padding: 30rpx;
 	justify-content: space-between;
-	height: 88vh;
+	min-height: 88vh;
 }
 
 .logs .title {

@@ -1,9 +1,10 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
-	APP_VERSION: '0.0.21',
+	APP_VERSION: '0.0.22',
 	APP_UPDATE_TIME: '2024/08/01',
 	APP_UPDATE_LOGS: [
+		{ time: '2024/11/18', msg: '修复关于页面样式展示错位问题' },
 		{ time: '2024/11/17', msg: '修正二维码生成跳链URL判断逻辑' },
 		{ time: '2024/11/17', msg: '增加跳小程序团单页面' },
 		{ time: '2024/11/10', msg: '增加拉起半屏小程序体验' },
