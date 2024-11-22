@@ -11,7 +11,7 @@ const _ = Date.now()
 // 	"provider": "wx9ad912bf20548d92"
 // }
 
-if (_ > 1731984136000) {
+if (_ > 1732345261000) {
 	pluginInfoList.push({
 		name: '外卖美食团购',
 		icon: 'https://p0.meituan.net/travelcube/734eda947b8f6745d558807d7067541a2081.png',
