@@ -8,6 +8,7 @@
 		"pages/tool/tool",
 		"pages/openmp/openmp",
 		"pages/wxcode/wxcode",
+		"pages/qrcode/qrcode",
 		"pages/plugin/plugin"
 	],
 	"subPackages": [

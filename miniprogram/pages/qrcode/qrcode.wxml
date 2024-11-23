@@ -1,0 +1,61 @@
+<navigation-bar title="生成二维码" back="{{ true }}" color="black" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<textarea
+			class="user-content"
+			auto-focus
+			auto-height
+			maxlength="500"
+			placeholder="{{placeholderText}}"
+			bindinput="handleInput"
+			value="{{content}}"
+		/>
+		<view class="btn-list">
+			<view class="btn-use" bindtap="bindClearTap">清空文本</view>
+			<view class="btn-use" bindtap="bindCopyClipboardTap">粘贴剪切板</view>
+			<view class="btn-use" bindtap="bindCreateQrcodeTap">生成二维码</view>
+		</view>
+		<block wx:if="{{ urlHistoryList && urlHistoryList.length > 0 }}">
+			<view class="option-box">
+				<text class="option-title">URL 生成历史：</text>
+				<text class="option-icon" bindtap="bindClearChacheDataTap">清除历史</text>
+			</view>
+			<view class="urllist">
+				<view
+					wx:for="{{ urlHistoryList }}"
+					class="urllist-box"
+					wx:for-item="item"
+					wx:for-index="index"
+					wx:key="{{ item.url }}"
+				>
+					<text class="urllist-url">{{ (index + 1) + '. ' + item.url }}</text>
+					<text class="urllist-time">{{ item.time }}</text>
+					<image
+						class="btn-icon"
+						data-url="{{ item.url }}"
+						bindtap="bindUrlDetailTap"
+						title="明细"
+						src="{{imgInfoMap.BTN_DETAIL}}"
+						mode="cover"
+					/>
+				</view>
+			</view>
+		</block>
+	</view>
+</scroll-view>
+<modal-container wx:if="{{showModal}}" name="webview" bind:bindModalTap="bindModalTap">
+	<view class="modal-main">
+		<view class="modal-title">二维码图片</view>
+		<image
+			class="modal-base64img"
+			bindtap="bindCopyTap"
+			title="base64"
+			src="{{modalImgBase64Url}}"
+			mode="cover"
+		/>
+		<view class="btn-list">
+			<view class="dialog-btn-use" bindtap="bindCopyModalContentTap">下载二维码</view>
+			<view class="dialog-btn-use" bindtap="bindModalTap">关闭弹窗</view>
+		</view>
+	</view>
+</modal-container>

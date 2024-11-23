@@ -80,7 +80,7 @@ export function createWxCode(path: string): Promise<string> {
 export function saveImageToPhotosAlbum(imageUrl: string): void {
 	// 将 Base64 编码的图片数据转换为临时文件
 	const fsm = wx.getFileSystemManager()
-	const FILE_BASE_NAME = 'tmp_base64src' // 临时文件名
+	const FILE_BASE_NAME = `tmp_wxcode_base64_${Date.now()}` // 临时文件名
 	const [, format, bodyData] = /data:image\/(\w+);base64,(.*)/.exec(imageUrl) || []
 	if (!format) {
 		console.error('ERROR_BASE64SRC_PARSE')

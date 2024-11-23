@@ -1,7 +1,7 @@
 import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { PoiStateType, PoiPathHistoryInfoType } from './util/datatype'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
-import { poiTypeInfoList, poiTypeInfoType } from './util/poitype'
+import { poiTypeInfoList } from './util/poitype'
 import { WEBVIEW_TUAN_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime, parseUrlParams } from '../../utils/util'
@@ -120,16 +120,6 @@ Page({
 		console.log('选中的值为:', event.detail.value)
 		const selectPoiTypeInfo = this.data.poiTypeInfoList.find(item => item.showType === event.detail.value)
 		this.setData({ selectPoiTypeInfo })
-	},
-	bindSelectPoiTypeTap(event: any) {
-		const { showType } = event.currentTarget.dataset
-		if (showType) {
-			const list: poiTypeInfoType[] = this.data.poiTypeInfoList.map((item: any) => ({
-				...item,
-				checked: item.showType === showType,
-			}))
-			this.setData({ poiTypeInfoList: list })
-		}
 	},
 	bindClearTap() {
 		this.handleInput('')

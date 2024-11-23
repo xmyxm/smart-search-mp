@@ -23,6 +23,12 @@ export const openLinkList: openLinkInfoType[] = [
     },
     {
         type: PathType.MiniProgramPath,
+        name: 'http链接生成网页二维码',
+        path: '/pages/qrcode/qrcode',
+        icon: 'https://p1.meituan.net/travelcube/7b3e4f470bcce5666643da1af631b47e4814.png',
+    },
+    {
+        type: PathType.MiniProgramPath,
         name: '小程序 Webview 链接生成工具',
         path: '/pages/webview/webview',
         icon: 'https://p0.meituan.net/travelcube/6c684c00868675f1cb5c55d72065c8fa4613.png',
@@ -47,7 +53,7 @@ export const openLinkList: openLinkInfoType[] = [
         icon: 'https://p0.meituan.net/travelcube/b28a6ce5dab0a43d560fc5a12edc26461934.png',
     },
     {
-        type: PathType.MiniProgramPath,
+        type: PathType.MiniProgramApp,
         name: '小程序插件体验',
         path: '/pages/plugin/plugin',
         icon: 'https://p0.meituan.net/travelcube/e4737f1059f1c7a184ba36064444ecfe3515.png',
