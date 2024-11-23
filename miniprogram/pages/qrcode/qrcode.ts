@@ -78,16 +78,30 @@ Page({
 			},
 		}
 	},
+	handleInput(event: any) {
+		const content = typeof event === 'object' ? event.detail.value.trim() : event
+		this.setData({
+			content,
+		})
+		wx.setStorage({
+			key: STORAGE_KEY.QRCODE_URL_INPUT_CONTENT,
+			data: content,
+			success() {
+				console.log('更新输入记录缓存成功')
+			},
+			fail(err) {
+				console.error('更新输入记录缓存失败', err)
+			},
+		})
+	},
 	bindClearTap() {
-		this.setData({ content: '' })
+		this.handleInput('')
 	},
 	bindCopyClipboardTap() {
 		const that = this
 		wx.getClipboardData({
 			success(res) {
-				that.setData({
-					content: res.data,
-				})
+				that.handleInput(res.data)
 				console.log('剪切板内容:', res.data)
 			},
 			fail(err: any) {
@@ -100,71 +114,70 @@ Page({
 		})
 	},
 	createQrcode(url: string) {
-		try{
-			var typeNumber = 20;
+		let imgBase64Url = ''
+		try {
+			var typeNumber = 6;
 			var errorCorrectionLevel = 'L';
-			var qr = Qrcode();
+			var qr = Qrcode(typeNumber, errorCorrectionLevel);
 			qr.addData(url);
 			qr.make();
-			const imgBase64Url = qr.createDataURL(8, 25)
-			return imgBase64Url
-		} catch(err: any) {
+			imgBase64Url = qr.createDataURL(8, 25)
+		} catch (err: any) {
 			wx.showToast({
 				title: err.message,
 				icon: 'none',
 				duration: 2000,
 			})
 		}
-		return ''
+		return imgBase64Url
 	},
 	bindCreateQrcodeTap() {
 		const { content } = this.data
 		if (content) {
+			console.log('生成二维码的 url', content)
 			const url = content
 			const imgBase64Url = this.createQrcode(content)
-			const historyList: UrlHistoryInfoType[] = this.data.urlHistoryList.filter(
-				(item: UrlHistoryInfoType) => {
-					return !(item.url === url)
+			if (imgBase64Url) {
+				const historyList: UrlHistoryInfoType[] = this.data.urlHistoryList.filter(
+					(item: UrlHistoryInfoType) => {
+						return !(item.url === url)
+					}
+				)
+				const currentTime = Date.now()
+				historyList.unshift({
+					url,
+					timeStamp: `${currentTime}`,
+					time: formatMiniTime(new Date(currentTime)),
+				})
+				if (historyList.length > 50) {
+					historyList.length = 50
 				}
-			)
-			const currentTime = Date.now()
-			historyList.unshift({
-				url,
-				timeStamp: `${currentTime}`,
-				time: formatMiniTime(new Date(currentTime)),
-			})
-			if (historyList.length > 50) {
-				historyList.length = 50
+				this.setData({
+					showModal: true,
+					modalImgBase64Url: imgBase64Url,
+					urlHistoryList: historyList,
+				})
+				const historyListCacheData = historyList.map((item: UrlHistoryInfoType) => ({
+					url: item.url,
+					timeStamp: item.timeStamp,
+				}))
+				wx.setStorage({
+					key: STORAGE_KEY.QRCODE_URL_HISTORY_LIST,
+					data: historyListCacheData,
+					success() {
+						console.log('更新链接缓存成功', historyListCacheData)
+					},
+					fail(err) {
+						console.error('更新链接缓存失败', err)
+					},
+				})
+			} else {
+				wx.showToast({
+					title: '二维码生成失败',
+					icon: 'none',
+					duration: 2000,
+				})
 			}
-			this.setData({
-				showModal: true,
-				modalImgBase64Url: imgBase64Url,
-				urlHistoryList: historyList,
-			})
-			const historyListCacheData = historyList.map((item: UrlHistoryInfoType) => ({
-				url: item.url,
-				timeStamp: item.timeStamp,
-			}))
-			wx.setStorage({
-				key: STORAGE_KEY.QRCODE_URL_HISTORY_LIST,
-				data: historyListCacheData,
-				success() {
-					console.log('更新链接缓存成功', historyListCacheData)
-				},
-				fail(err) {
-					console.error('更新链接缓存失败', err)
-				},
-			})
-			wx.setStorage({
-				key: STORAGE_KEY.QRCODE_URL_INPUT_CONTENT,
-				data: content,
-				success() {
-					console.log('更新输入记录缓存成功')
-				},
-				fail(err) {
-					console.error('更新输入记录缓存失败', err)
-				},
-			})
 		} else {
 			wx.showToast({
 				title: '请贴入http链接',

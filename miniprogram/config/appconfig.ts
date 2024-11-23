@@ -1,7 +1,7 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
-	APP_VERSION: '0.0.22',
+	APP_VERSION: '0.0.23',
 	APP_UPDATE_TIME: '2024/11/23',
 	APP_UPDATE_LOGS: [
 		{ time: '2024/11/23', msg: '新增生成二维码功能' },
