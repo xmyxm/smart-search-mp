@@ -78,31 +78,16 @@ Page({
 			},
 		}
 	},
-	// 处理 textarea 输入事件
-	handleInput(event: any) {
-		const content = typeof event === 'object' ? event.detail.value.trim() : event
-		this.setData({
-			content,
-		})
-		wx.setStorage({
-			key: STORAGE_KEY.QRCODE_URL_INPUT_CONTENT,
-			data: content,
-			success() {
-				console.log('更新输入记录缓存成功')
-			},
-			fail(err) {
-				console.error('更新输入记录缓存失败', err)
-			},
-		})
-	},
 	bindClearTap() {
-		this.handleInput('')
+		this.setData({ content: '' })
 	},
 	bindCopyClipboardTap() {
 		const that = this
 		wx.getClipboardData({
 			success(res) {
-				that.handleInput(res.data)
+				that.setData({
+					content: res.data,
+				})
 				console.log('剪切板内容:', res.data)
 			},
 			fail(err: any) {
@@ -115,13 +100,22 @@ Page({
 		})
 	},
 	createQrcode(url: string) {
-		var typeNumber = 4;
-		var errorCorrectionLevel = 'L';
-		var qr = Qrcode(typeNumber, errorCorrectionLevel);
-		qr.addData(url);
-		qr.make();
-		const imgBase64Url = qr.createDataURL(8, 25)
-		return imgBase64Url
+		try{
+			var typeNumber = 20;
+			var errorCorrectionLevel = 'L';
+			var qr = Qrcode();
+			qr.addData(url);
+			qr.make();
+			const imgBase64Url = qr.createDataURL(8, 25)
+			return imgBase64Url
+		} catch(err: any) {
+			wx.showToast({
+				title: err.message,
+				icon: 'none',
+				duration: 2000,
+			})
+		}
+		return ''
 	},
 	bindCreateQrcodeTap() {
 		const { content } = this.data
@@ -161,7 +155,16 @@ Page({
 					console.error('更新链接缓存失败', err)
 				},
 			})
-
+			wx.setStorage({
+				key: STORAGE_KEY.QRCODE_URL_INPUT_CONTENT,
+				data: content,
+				success() {
+					console.log('更新输入记录缓存成功')
+				},
+				fail(err) {
+					console.error('更新输入记录缓存失败', err)
+				},
+			})
 		} else {
 			wx.showToast({
 				title: '请贴入http链接',

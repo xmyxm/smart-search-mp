@@ -7,7 +7,6 @@
 			auto-height
 			maxlength="500"
 			placeholder="{{placeholderText}}"
-			bindinput="handleInput"
 			value="{{content}}"
 		/>
 		<view class="btn-list">
