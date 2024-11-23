@@ -23,7 +23,7 @@ export const openLinkList: openLinkInfoType[] = [
     },
     {
         type: PathType.MiniProgramPath,
-        name: 'http链接生成网页二维码',
+        name: '页面链接或文本生成二维码',
         path: '/pages/qrcode/qrcode',
         icon: 'https://p1.meituan.net/travelcube/7b3e4f470bcce5666643da1af631b47e4814.png',
     },
