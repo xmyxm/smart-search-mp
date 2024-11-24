@@ -1,9 +1,9 @@
-import { QrcodeStateType, UrlHistoryInfoType } from './util/datatype'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
+import { QrcodeStateType, UrlHistoryInfoType } from './util/datatype'
 import { WEBVIEW_TUAN_IMAGE_ICON } from '../../enum/img'
+import { createQrcode } from '../../utils/qrcode/index'
 import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
-import Qrcode from './util/qrcode'
 
 Page({
 	data: {
@@ -113,30 +113,12 @@ Page({
 			},
 		})
 	},
-	createQrcode(url: string) {
-		let imgBase64Url = ''
-		try {
-			var typeNumber = 6
-			var errorCorrectionLevel = 'L'
-			var qr = Qrcode(typeNumber, errorCorrectionLevel)
-			qr.addData(url)
-			qr.make()
-			imgBase64Url = qr.createDataURL(8, 25)
-		} catch (err: any) {
-			wx.showToast({
-				title: err.message,
-				icon: 'none',
-				duration: 2000,
-			})
-		}
-		return imgBase64Url
-	},
 	bindCreateQrcodeTap() {
 		const { content } = this.data
 		if (content) {
 			console.log('生成二维码的 url', content)
 			const url = content
-			const imgBase64Url = this.createQrcode(content)
+			const imgBase64Url = createQrcode(content)
 			if (imgBase64Url) {
 				const historyList: UrlHistoryInfoType[] = this.data.urlHistoryList.filter(
 					(item: UrlHistoryInfoType) => {
@@ -172,11 +154,11 @@ Page({
 					},
 				})
 			} else {
-				wx.showToast({
-					title: '二维码生成失败',
-					icon: 'none',
-					duration: 2000,
-				})
+				// wx.showToast({
+				// 	title: '二维码生成失败',
+				// 	icon: 'none',
+				// 	duration: 2000,
+				// })
 			}
 		} else {
 			wx.showToast({
@@ -203,7 +185,7 @@ Page({
 	},
 	bindUrlDetailTap(event: any) {
 		const { url } = event.currentTarget.dataset
-		const imgBase64Url = this.createQrcode(url)
+		const imgBase64Url = createQrcode(url)
 		this.setData({
 			showModal: true,
 			modalImgBase64Url: imgBase64Url,
