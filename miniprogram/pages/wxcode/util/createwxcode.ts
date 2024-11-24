@@ -89,25 +89,50 @@ export function saveImageToPhotosAlbum(imageUrl: string): void {
 	const filePath = `${wx.env.USER_DATA_PATH}/${FILE_BASE_NAME}.${format}`
 	const buffer = wx.base64ToArrayBuffer(bodyData)
 
+	function saveImage(filePath: string) {
+		// 调用保存到相册的 API
+		wx.saveImageToPhotosAlbum({
+			filePath,
+			success: () => {
+				wx.showToast({
+					title: '保存成功',
+					icon: 'success',
+				})
+			},
+			fail: err => {
+				console.error('保存失败', err)
+				wx.showToast({
+					title: err.errMsg,
+					icon: 'none',
+				})
+			},
+		})
+	}
+
 	fsm.writeFile({
 		filePath,
 		data: buffer,
 		encoding: 'binary',
 		success: () => {
-			// 调用保存到相册的 API
-			wx.saveImageToPhotosAlbum({
-				filePath,
-				success: () => {
-					wx.showToast({
-						title: '保存成功',
-						icon: 'success',
-					})
+			wx.authorize({
+				scope: 'scope.writePhotosAlbum',
+				success() {
+					// 用户已经授权
+					saveImage(filePath) // 调用保存图片的函数
 				},
-				fail: err => {
-					console.error('保存失败', err)
-					wx.showToast({
-						title: '保存失败',
-						icon: 'none',
+				fail() {
+					// 引导用户到设置页面进行授权
+					wx.openSetting({
+						success(settingData) {
+							if (settingData.authSetting['scope.writePhotosAlbum']) {
+								saveImage(filePath) // 调用保存图片的函数
+							} else {
+								wx.showToast({
+									title: '需要相册权限',
+									icon: 'none',
+								})
+							}
+						},
 					})
 				},
 			})

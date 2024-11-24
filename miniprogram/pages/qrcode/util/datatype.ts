@@ -12,6 +12,6 @@ export interface QrcodeStateType {
 	content: string
 	urlHistoryList: UrlHistoryInfoType[]
 	showModal: boolean
-	modalImgBase64Url: string
+	modalImgUrl: string
 	modalUrl: string
 }

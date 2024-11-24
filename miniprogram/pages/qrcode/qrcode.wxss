@@ -162,11 +162,15 @@
 	background-color: #fff;
 	padding: 40rpx;
 	border-radius: 30rpx;
+	display: flex;
+	flex-direction: column;
 }
 
-.modal-base64img {
+.modal-imgurl {
+	flex: 1;
+	margin-top: 30rpx;
 	width: 480rpx;
-	height: 480rpx;
+	height: auto;
 }
 
 .modal-title {

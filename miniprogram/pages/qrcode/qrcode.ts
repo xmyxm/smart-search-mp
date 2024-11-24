@@ -12,7 +12,7 @@ Page({
 		content: defaultCopyContent,
 		urlHistoryList: [],
 		showModal: false,
-		modalImgBase64Url: '',
+		modalImgUrl: '',
 		modalUrl: '',
 	} as QrcodeStateType,
 	onLoad() {
@@ -118,48 +118,43 @@ Page({
 		if (content) {
 			console.log('生成二维码的 url', content)
 			const url = content
-			const imgBase64Url = createQrcode(content)
-			if (imgBase64Url) {
-				const historyList: UrlHistoryInfoType[] = this.data.urlHistoryList.filter(
-					(item: UrlHistoryInfoType) => {
-						return !(item.url === url)
-					},
-				)
-				const currentTime = Date.now()
-				historyList.unshift({
-					url,
-					timeStamp: `${currentTime}`,
-					time: formatMiniTime(new Date(currentTime)),
-				})
-				if (historyList.length > 50) {
-					historyList.length = 50
+			createQrcode(content).then((imgUrl: any) => {
+				if (imgUrl) {
+					const historyList: UrlHistoryInfoType[] = this.data.urlHistoryList.filter(
+						(item: UrlHistoryInfoType) => {
+							return !(item.url === url)
+						},
+					)
+					const currentTime = Date.now()
+					historyList.unshift({
+						url,
+						timeStamp: `${currentTime}`,
+						time: formatMiniTime(new Date(currentTime)),
+					})
+					if (historyList.length > 50) {
+						historyList.length = 50
+					}
+					this.setData({
+						showModal: true,
+						modalImgUrl: imgUrl,
+						urlHistoryList: historyList,
+					})
+					const historyListCacheData = historyList.map((item: UrlHistoryInfoType) => ({
+						url: item.url,
+						timeStamp: item.timeStamp,
+					}))
+					wx.setStorage({
+						key: STORAGE_KEY.QRCODE_URL_HISTORY_LIST,
+						data: historyListCacheData,
+						success() {
+							console.log('更新链接缓存成功', historyListCacheData)
+						},
+						fail(err) {
+							console.error('更新链接缓存失败', err)
+						},
+					})
 				}
-				this.setData({
-					showModal: true,
-					modalImgBase64Url: imgBase64Url,
-					urlHistoryList: historyList,
-				})
-				const historyListCacheData = historyList.map((item: UrlHistoryInfoType) => ({
-					url: item.url,
-					timeStamp: item.timeStamp,
-				}))
-				wx.setStorage({
-					key: STORAGE_KEY.QRCODE_URL_HISTORY_LIST,
-					data: historyListCacheData,
-					success() {
-						console.log('更新链接缓存成功', historyListCacheData)
-					},
-					fail(err) {
-						console.error('更新链接缓存失败', err)
-					},
-				})
-			} else {
-				// wx.showToast({
-				// 	title: '二维码生成失败',
-				// 	icon: 'none',
-				// 	duration: 2000,
-				// })
-			}
+			})
 		} else {
 			wx.showToast({
 				title: '请贴入http链接',
@@ -185,11 +180,12 @@ Page({
 	},
 	bindUrlDetailTap(event: any) {
 		const { url } = event.currentTarget.dataset
-		const imgBase64Url = createQrcode(url)
-		this.setData({
-			showModal: true,
-			modalImgBase64Url: imgBase64Url,
-			modalUrl: url,
+		createQrcode(url).then((imgUrl: any) => {
+			this.setData({
+				showModal: true,
+				modalImgUrl: imgUrl,
+				modalUrl: url,
+			})
 		})
 	},
 	bindModalTap() {
@@ -198,42 +194,45 @@ Page({
 		})
 	},
 	bindCopyModalContentTap() {
-		const { modalImgBase64Url } = this.data
-		// 将 Base64 编码的图片数据转换为临时文件
-		const fsm = wx.getFileSystemManager()
-		const FILE_BASE_NAME = `tmp_qrcode_base64_${Date.now()}` // 临时文件名
-		const [, format, bodyData] = /data:image\/(\w+);base64,(.*)/.exec(modalImgBase64Url) || []
-		if (!format) {
-			console.error('ERROR_BASE64SRC_PARSE')
-			return
+		const { modalImgUrl } = this.data
+		function saveImage(modalImgUrl: string) {
+			wx.saveImageToPhotosAlbum({
+				filePath: modalImgUrl,
+				success() {
+					wx.showToast({
+						title: '保存成功',
+						icon: 'success',
+					})
+				},
+				fail(err) {
+					console.error('保存失败:', err)
+					wx.showToast({
+						title: '保存失败',
+						icon: 'none',
+					})
+				},
+			})
 		}
-		const filePath = `${wx.env.USER_DATA_PATH}/${FILE_BASE_NAME}.${format}`
-
-		fsm.writeFile({
-			filePath,
-			data: bodyData,
-			encoding: 'binary',
-			success: () => {
-				// 调用保存到相册的 API
-				wx.saveImageToPhotosAlbum({
-					filePath,
-					success: () => {
-						wx.showToast({
-							title: '保存成功',
-							icon: 'success',
-						})
-					},
-					fail: err => {
-						console.error('保存失败', err)
-						wx.showToast({
-							title: '保存失败',
-							icon: 'none',
-						})
+		wx.authorize({
+			scope: 'scope.writePhotosAlbum',
+			success() {
+				// 用户已经授权
+				saveImage(modalImgUrl) // 调用保存图片的函数
+			},
+			fail() {
+				// 引导用户到设置页面进行授权
+				wx.openSetting({
+					success(settingData) {
+						if (settingData.authSetting['scope.writePhotosAlbum']) {
+							saveImage(modalImgUrl) // 调用保存图片的函数
+						} else {
+							wx.showToast({
+								title: '需要相册权限',
+								icon: 'none',
+							})
+						}
 					},
 				})
-			},
-			fail: err => {
-				console.error('写文件失败', err)
 			},
 		})
 	},

@@ -1,22 +1,46 @@
 import Qrcode from './qrcode'
 
 export function createQrcode(text: string, n: number = 0) {
-	let imgBase64Url = ''
-	try {
-		const errorCorrectionLevel = 'L'
-		const typeNumber = n || getTypeNumber(text) || n
-		const qr = Qrcode(typeNumber, errorCorrectionLevel)
-		qr.addData(text)
-		qr.make()
-		imgBase64Url = qr.createDataURL(8, 25)
-	} catch (errmsg: any) {
-		wx.showToast({
-			title: errmsg,
-			icon: 'none',
-			duration: 2000,
-		})
-	}
-	return imgBase64Url
+	return new Promise(resolve => {
+		try {
+			const size = 240 // 假设二维码大小为240x240
+			// 创建离屏 Canvas
+			const offscreenCanvas = wx.createOffscreenCanvas({ type: '2d', width: size, height: size })
+			const ctx = offscreenCanvas.getContext('2d')
+
+			offscreenCanvas.width = size
+			offscreenCanvas.height = size
+
+			// 使用 qrcode.js 绘制二维码
+			const errorCorrectionLevel = 'L'
+			const typeNumber = n || getTypeNumber(text) || n
+			const qr = Qrcode(typeNumber, errorCorrectionLevel)
+			qr.addData(text)
+			qr.make()
+
+			// 计算模块大小
+			const qrSize = qr.getModuleCount() // 获取二维码模块数
+			console.log(`qrSize: ${qrSize}`)
+			const cellSize = 240 / qrSize
+			// 绘制到离屏 canvas 上
+			qr.renderTo2dContext(ctx, cellSize)
+
+			// 导出为 PNG 格式的 Data URL
+			wx.canvasToTempFilePath({
+				canvas: offscreenCanvas,
+				success: res => {
+					resolve(res.tempFilePath)
+				},
+			})
+		} catch (errmsg: any) {
+			wx.showToast({
+				title: errmsg,
+				icon: 'none',
+				duration: 2000,
+			})
+			resolve('')
+		}
+	})
 }
 
 export function testqrcode() {
