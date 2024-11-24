@@ -1,5 +1,5 @@
 import { openLinkList } from './util/config'
-
+import { PathType } from './util/pathtype'
 // index.ts
 // 获取应用实例
 const app = getApp<IAppOption>()
@@ -63,7 +63,7 @@ Page({
 	bindViewTap(event: any) {
 		const { path, type, appid } = event.currentTarget.dataset
 		if (path) {
-			if (type === 1) {
+			if (type === PathType.MiniProgramPath) {
 				wx.navigateTo({
 					url: path,
 					success() {
@@ -73,7 +73,7 @@ Page({
 						console.log('navigateTo fail', error)
 					},
 				})
-			} else if (type === 3) {
+			} else if (type === PathType.MiniProgramApp) {
 				const options = {
 					appId: appid,
 					path: path,

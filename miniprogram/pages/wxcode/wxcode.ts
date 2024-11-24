@@ -277,6 +277,31 @@ Page({
 			},
 		})
 	},
+	bindCopyTap(event: any) {
+		const { mpurl } = event.currentTarget.dataset
+		if (mpurl) {
+			this.copyURL(mpurl, '路径')
+		}
+	},
+	copyURL(poipath: string, msg: string) {
+		wx.setClipboardData({
+			data: poipath,
+			success() {
+				wx.showToast({
+					title: `${msg}复制成功`,
+					icon: 'success',
+					duration: 2000,
+				})
+			},
+			fail() {
+				wx.showToast({
+					title: `${msg}复制失败`,
+					icon: 'none',
+					duration: 2000,
+				})
+			},
+		})
+	},
 	bindModalTap() {
 		this.setData({
 			showModal: false,

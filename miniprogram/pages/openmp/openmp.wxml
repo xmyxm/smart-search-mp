@@ -36,7 +36,10 @@
 			bindinput="handleTextarea"
 			value="{{path}}"
 		/>
-		<view class="btn-open-mp" bindtap="bindOpenMPURLTap">打开小程序页面</view>
+		<view class="btn-list">
+			<view class="btn-use" bindtap="bindCopyClipboardTap">粘贴剪切板</view>
+			<view class="btn-use" bindtap="bindOpenMPURLTap">打开小程序页面</view>
+		</view>
 		<block wx:if="{{ mpUrlHistoryList && mpUrlHistoryList.length > 0 }}">
 			<view class="option-box">
 				<text class="option-title">URL 生成历史：</text>

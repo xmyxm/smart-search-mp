@@ -81,6 +81,22 @@ Page({
 			},
 		}
 	},
+	bindCopyClipboardTap() {
+		const that = this
+		wx.getClipboardData({
+			success(res) {
+				that.setData({ path: res.data })
+				console.log('剪切板内容:', res.data)
+			},
+			fail(err: any) {
+				wx.showToast({
+					title: `读取剪切板失败: ${err.message || '剪切板无内容'}`,
+					icon: 'none',
+					duration: 2000,
+				})
+			},
+		})
+	},
 	bindSelectPlatformTap(event: any) {
 		const { appid } = event.currentTarget.dataset
 		const list: PlatformInfoType[] = this.data.platformInfoList.map((item: any) => ({

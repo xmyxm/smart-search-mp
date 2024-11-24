@@ -46,14 +46,14 @@ export const openLinkList: openLinkInfoType[] = [
 		icon: 'https://p0.meituan.net/travelcube/26901b7a81a1be9047f8bc87c01ef3376020.png',
 	},
 	{
-		type: PathType.MiniProgramPath,
+		type: PathType.MiniProgramApp,
 		name: '拉起半屏小程序体验',
 		appid: 'wx734c1ad7b3562129',
 		path: '/pages/home/home',
 		icon: 'https://p0.meituan.net/travelcube/b28a6ce5dab0a43d560fc5a12edc26461934.png',
 	},
 	{
-		type: PathType.MiniProgramApp,
+		type: PathType.MiniProgramPath,
 		name: '小程序插件体验',
 		path: '/pages/plugin/plugin',
 		icon: 'https://p0.meituan.net/travelcube/e4737f1059f1c7a184ba36064444ecfe3515.png',
