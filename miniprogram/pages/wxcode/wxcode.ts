@@ -2,13 +2,13 @@ import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
 import { WxcodeStateType, MpUrlHistoryInfoType } from './util/datatype'
 import { createWxCode, saveImageToPhotosAlbum } from './util/createwxcode'
-import { WEBVIEW_POI_IMAGE_ICON } from '../../enum/img'
+import { HISTORY_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 
 Page({
 	data: {
-		imgInfoMap: WEBVIEW_POI_IMAGE_ICON,
+		imgInfoMap: HISTORY_IMAGE_ICON,
 		placeholderText: defaultPlaceholderText,
 		platformInfoList,
 		content: defaultCopyContent,

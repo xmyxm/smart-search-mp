@@ -1,13 +1,13 @@
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
 import { QrcodeStateType, UrlHistoryInfoType } from './util/datatype'
-import { WEBVIEW_TUAN_IMAGE_ICON } from '../../enum/img'
+import { HISTORY_IMAGE_ICON } from '../../enum/img'
 import { createQrcode } from '../../utils/qrcode/index'
 import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 
 Page({
 	data: {
-		imgInfoMap: WEBVIEW_TUAN_IMAGE_ICON,
+		imgInfoMap: HISTORY_IMAGE_ICON,
 		placeholderText: defaultPlaceholderText,
 		content: defaultCopyContent,
 		urlHistoryList: [],

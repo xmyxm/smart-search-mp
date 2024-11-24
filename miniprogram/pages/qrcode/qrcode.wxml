@@ -5,7 +5,7 @@
 			class="user-content"
 			auto-focus
 			auto-height
-			maxlength="500"
+			maxlength="3000"
 			placeholder="{{placeholderText}}"
 			bindinput="handleInput"
 			value="{{content}}"

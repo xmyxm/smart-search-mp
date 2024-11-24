@@ -1,11 +1,11 @@
 import Qrcode from './qrcode'
 
-export function createQrcode(text: string) {
+export function createQrcode(text: string, n: number = 0) {
 	let imgBase64Url = ''
 	try {
-		var typeNumber = getTypeNumber(text)
-		var errorCorrectionLevel = 'L'
-		var qr = Qrcode(typeNumber, errorCorrectionLevel)
+		const errorCorrectionLevel = 'L'
+		const typeNumber = n || getTypeNumber(text) || n
+		const qr = Qrcode(typeNumber, errorCorrectionLevel)
 		qr.addData(text)
 		qr.make()
 		imgBase64Url = qr.createDataURL(8, 25)
@@ -19,47 +19,74 @@ export function createQrcode(text: string) {
 	return imgBase64Url
 }
 
-function getTypeNumber(text: string) {
+export function testqrcode() {
+	const testList: any[] = []
+	let count = 0
+	for (var n = 1; n < 41; n++) {
+		for (var i = count; i < 5001; i++) {
+			const letter = 'A' // 你想要填充的字母
+			const repeatedString = letter.repeat(i)
+			const code = createQrcode(repeatedString, n)
+			if (!code) {
+				count = i
+				const result = { n, maxlength: i }
+				console.log('测试日志：', result)
+				testList.push(result)
+				break
+			}
+		}
+	}
+	console.log('测试结果：', testList)
+}
+
+const typeNumberInfoList = [
+	{ typeNumber: 1, maxlength: 18 },
+	{ typeNumber: 2, maxlength: 33 },
+	{ typeNumber: 3, maxlength: 54 },
+	{ typeNumber: 4, maxlength: 79 },
+	{ typeNumber: 5, maxlength: 107 },
+	{ typeNumber: 6, maxlength: 135 },
+	{ typeNumber: 7, maxlength: 155 },
+	{ typeNumber: 8, maxlength: 193 },
+	{ typeNumber: 9, maxlength: 231 },
+	{ typeNumber: 10, maxlength: 272 },
+	{ typeNumber: 11, maxlength: 322 },
+	{ typeNumber: 12, maxlength: 368 },
+	{ typeNumber: 13, maxlength: 426 },
+	{ typeNumber: 14, maxlength: 459 },
+	{ typeNumber: 15, maxlength: 521 },
+	{ typeNumber: 16, maxlength: 587 },
+	{ typeNumber: 17, maxlength: 645 },
+	{ typeNumber: 18, maxlength: 719 },
+	{ typeNumber: 19, maxlength: 793 },
+	{ typeNumber: 20, maxlength: 859 },
+	{ typeNumber: 21, maxlength: 930 },
+	{ typeNumber: 22, maxlength: 1004 },
+	{ typeNumber: 23, maxlength: 1092 },
+	{ typeNumber: 24, maxlength: 1172 },
+	{ typeNumber: 25, maxlength: 1274 },
+	{ typeNumber: 26, maxlength: 1368 },
+	{ typeNumber: 27, maxlength: 1466 },
+	{ typeNumber: 28, maxlength: 1529 },
+	{ typeNumber: 29, maxlength: 1629 },
+	{ typeNumber: 30, maxlength: 1733 },
+	{ typeNumber: 31, maxlength: 1841 },
+	{ typeNumber: 32, maxlength: 1953 },
+	{ typeNumber: 33, maxlength: 2069 },
+	{ typeNumber: 34, maxlength: 2189 },
+	{ typeNumber: 35, maxlength: 2304 },
+	{ typeNumber: 36, maxlength: 2432 },
+	{ typeNumber: 37, maxlength: 2564 },
+	{ typeNumber: 38, maxlength: 2700 },
+	{ typeNumber: 39, maxlength: 2810 },
+	{ typeNumber: 40, maxlength: 2954 },
+]
+export function getTypeNumber(text: string) {
 	const length = text.length
-	if (length <= 25) return 1
-	if (length <= 47) return 2
-	if (length <= 77) return 3
-	if (length <= 114) return 4
-	if (length <= 154) return 5
-	if (length <= 195) return 6
-	if (length <= 224) return 7
-	if (length <= 279) return 8
-	if (length <= 335) return 9
-	if (length <= 395) return 10
-	if (length <= 468) return 11
-	if (length <= 535) return 12
-	if (length <= 619) return 13
-	if (length <= 667) return 14
-	if (length <= 758) return 15
-	if (length <= 854) return 16
-	if (length <= 938) return 17
-	if (length <= 1046) return 18
-	if (length <= 1153) return 19
-	if (length <= 1249) return 20
-	if (length <= 1352) return 21
-	if (length <= 1460) return 22
-	if (length <= 1588) return 23
-	if (length <= 1704) return 24
-	if (length <= 1853) return 25
-	if (length <= 1990) return 26
-	if (length <= 2132) return 27
-	if (length <= 2223) return 28
-	if (length <= 2369) return 29
-	if (length <= 2520) return 30
-	if (length <= 2677) return 31
-	if (length <= 2840) return 32
-	if (length <= 3009) return 33
-	if (length <= 3183) return 34
-	if (length <= 3351) return 35
-	if (length <= 3537) return 36
-	if (length <= 3729) return 37
-	if (length <= 3927) return 38
-	if (length <= 4087) return 39
-	if (length <= 4296) return 40
-	throw new Error('文本过长，无法生成二维码')
+	const typeNumberInfo = typeNumberInfoList.find(({ maxlength }) => length < maxlength)
+	if (typeNumberInfo) {
+		return typeNumberInfo.typeNumber
+	} else {
+		throw new Error('文本过长，无法生成二维码')
+	}
 }
