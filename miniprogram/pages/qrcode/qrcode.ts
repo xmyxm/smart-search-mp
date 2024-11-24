@@ -106,7 +106,7 @@ Page({
 			},
 			fail(err: any) {
 				wx.showToast({
-					title: `读取剪切板失败: ${err.message}`,
+					title: `读取剪切板失败: ${err.message || '剪切板无内容'}`,
 					icon: 'none',
 					duration: 2000,
 				})
@@ -116,11 +116,11 @@ Page({
 	createQrcode(url: string) {
 		let imgBase64Url = ''
 		try {
-			var typeNumber = 6;
-			var errorCorrectionLevel = 'L';
-			var qr = Qrcode(typeNumber, errorCorrectionLevel);
-			qr.addData(url);
-			qr.make();
+			var typeNumber = 6
+			var errorCorrectionLevel = 'L'
+			var qr = Qrcode(typeNumber, errorCorrectionLevel)
+			qr.addData(url)
+			qr.make()
 			imgBase64Url = qr.createDataURL(8, 25)
 		} catch (err: any) {
 			wx.showToast({
@@ -141,7 +141,7 @@ Page({
 				const historyList: UrlHistoryInfoType[] = this.data.urlHistoryList.filter(
 					(item: UrlHistoryInfoType) => {
 						return !(item.url === url)
-					}
+					},
 				)
 				const currentTime = Date.now()
 				historyList.unshift({

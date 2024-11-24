@@ -165,8 +165,8 @@
 }
 
 .modal-base64img {
-    width: 480rpx;
-    height: 480rpx;
+	width: 480rpx;
+	height: 480rpx;
 }
 
 .modal-title {
@@ -185,4 +185,3 @@
 	padding: 20rpx;
 	color: #515151;
 }
-

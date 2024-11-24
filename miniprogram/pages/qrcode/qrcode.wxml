@@ -46,13 +46,7 @@
 <modal-container wx:if="{{showModal}}" name="webview" bind:bindModalTap="bindModalTap">
 	<view class="modal-main">
 		<view class="modal-title">二维码图片</view>
-		<image
-			class="modal-base64img"
-			bindtap="bindCopyTap"
-			title="base64"
-			src="{{modalImgBase64Url}}"
-			mode="cover"
-		/>
+		<image class="modal-base64img" bindtap="bindCopyTap" title="base64" src="{{modalImgBase64Url}}" mode="cover" />
 		<view class="btn-list">
 			<view class="dialog-btn-use" bindtap="bindCopyModalContentTap">下载二维码</view>
 			<view class="dialog-btn-use" bindtap="bindModalTap">关闭弹窗</view>

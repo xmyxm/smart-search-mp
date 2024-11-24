@@ -6,7 +6,7 @@ const app = getApp<IAppOption>()
 
 Page({
 	data: {
-		openLinkList
+		openLinkList,
 	},
 	onLoad() {
 		console.log(app)

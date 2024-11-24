@@ -181,7 +181,7 @@ Page({
 			},
 			fail(err: any) {
 				wx.showToast({
-					title: `读取剪切板失败: ${err.message}`,
+					title: `读取剪切板失败: ${err.message || '剪切板无内容'}`,
 					icon: 'none',
 					duration: 2000,
 				})

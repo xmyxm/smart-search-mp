@@ -39,18 +39,18 @@ export const formatMiniTime = (date: Date) => {
 }
 
 export function parseUrlParams(url: string) {
-	const params = {};
+	const params = {}
 	// 找到问号后面的查询字符串
-	const queryString = url.split('?')[1];
+	const queryString = url.split('?')[1]
 	if (queryString) {
-	  // 将查询字符串按 & 分割成键值对
-	  const pairs = queryString.split('&');
-	  pairs.forEach(pair => {
-		const [key, value] = pair.split('=');
-		if (key) {
-		  (params as Record<string, string>)[decodeURIComponent(key)] = decodeURIComponent(value || '');
-		}
-	  });
+		// 将查询字符串按 & 分割成键值对
+		const pairs = queryString.split('&')
+		pairs.forEach(pair => {
+			const [key, value] = pair.split('=')
+			if (key) {
+				;(params as Record<string, string>)[decodeURIComponent(key)] = decodeURIComponent(value || '')
+			}
+		})
 	}
-	return params;
+	return params
 }
