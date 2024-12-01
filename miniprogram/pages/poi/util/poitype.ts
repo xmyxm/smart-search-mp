@@ -11,7 +11,7 @@ export interface poiTypeInfoType {
 
 export const poiTypeInfoList: poiTypeInfoType[] = [
 	{
-		name: '美食',
+		name: '到餐/到综',
 		showType: 'food',
 		cate: 1,
 		dpPath: 'pages/poi/poi?utm_source=smartsearchmp&shopUuid=[id]',

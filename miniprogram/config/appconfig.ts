@@ -1,9 +1,10 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
-	APP_VERSION: '0.0.24',
-	APP_UPDATE_TIME: '2024/11/24',
+	APP_VERSION: '0.0.25',
+	APP_UPDATE_TIME: '2024/12/01',
 	APP_UPDATE_LOGS: [
+		{ time: '2024/12/01', msg: '修改商详页商户生成规则描述' },
 		{ time: '2024/11/24', msg: '整体体验优化、以及拓展支持 2954 位长度的字符生成二维码功能' },
 		{ time: '2024/11/23', msg: '新增生成二维码功能' },
 		{ time: '2024/11/22', msg: '生成POI商户链接增加 utm_source=smartsearchmp' },
