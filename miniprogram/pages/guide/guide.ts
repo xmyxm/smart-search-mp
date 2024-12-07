@@ -6,7 +6,7 @@ Component({
 	},
 	methods: {
 		onLoad(options: any) {
-			const { id } = options.query || {}
+			const { id } = options || {}
 			if (id) {
 				const info = guideList.find(item => item.id === id)
 				if (info) {

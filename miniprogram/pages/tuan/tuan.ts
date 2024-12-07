@@ -314,4 +314,18 @@ Page({
 			},
 		})
 	},
+	bindGoGuidePage(event: any) {
+		const { path } = event.currentTarget.dataset
+		if (path) {
+			wx.navigateTo({
+				url: path,
+				success() {
+					console.log('navigateTo success')
+				},
+				fail(error) {
+					console.log('navigateTo fail', error)
+				},
+			})
+		}
+	},
 })
