@@ -1,0 +1,60 @@
+.container {
+	padding: 30rpx;
+	justify-content: space-between;
+	min-height: 88vh;
+}
+
+.step-box {
+	width: 100%;
+}
+
+.step-box .title {
+	font-size: 28rpx;
+	margin-bottom: 30rpx;
+}
+
+.step-subtitle {
+	font-weight: 600;
+	word-wrap: break-word; /* 在单词边界处换行 */
+	word-break: break-all; /* 在任何地方换行 */
+	white-space: normal; /* 正常的空白处理 */
+	width: 100%;
+}
+
+.step-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: center;
+	width: 100%;
+}
+
+.step-item {
+	margin-bottom: 60rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+	font-size: 24rpx;
+}
+
+.content {
+	flex: 1;
+	line-height: 28rpx;
+	padding: 16rpx 0 10rpx;
+}
+
+.img-list {
+	display: flex;
+	justify-content: start;
+	align-items: start;
+}
+
+.img-item {
+	max-width: 300rpx;
+	height: auto;
+}
+
+.img-item:not(:first-child) {
+	margin-left: 10rpx;
+}

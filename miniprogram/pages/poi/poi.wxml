@@ -1,4 +1,5 @@
 <navigation-bar title="小程序商户链接生成工具" back="{{ true }}" color="black" />
+<view class="floating-window" data-path="/pages/guide/guide?id=0" bindtap="bindGoGuidePage">使用指南</view>
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
 		<block wx:if="{{ platformInfoList && platformInfoList.length > 0 }}">

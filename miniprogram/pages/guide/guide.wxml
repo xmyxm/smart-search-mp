@@ -1,0 +1,31 @@
+<navigation-bar title="使用指南" back="{{ true }}" color="black" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<view class="step-box">
+			<view class="title">操作步骤</view>
+			<view wx:if="{{guideInfo}}" class="step-list">
+				<view
+					class="step-item"
+					wx:for="{{ guideInfo.stepList }}"
+					wx:for-index="index"
+					wx:for-item="item"
+					wx:key="{{ item.title }}"
+				>
+					<view class="step-subtitle">{{(index + 1) + '. ' + item.title}}</view>
+					<view class="content">{{item.content}}</view>
+					<view wx:if="{{item.imgUrlList}}" class="img-list">
+						<image
+							class="img-item"
+							wx:for="{{ item.imgUrlList }}"
+							wx:for-item="url"
+							wx:key="{{ url }}"
+							wx:if="{{url}}"
+							src="{{ url }}"
+							mode="widthFix"
+						/>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>

@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/guide/guide",
+          "pathName": "pages/guide/guide",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/about/about",
           "pathName": "pages/about/about",
           "query": "",

@@ -4,14 +4,6 @@ Component({
 	data: {
 		appConfig,
 	},
-	lifetimes: {
-		created() {
-			console.log('created')
-		},
-		attached() {
-			console.log('attached')
-		},
-	},
 	methods: {
 		// 事件处理函数
 		bindVersionTap() {

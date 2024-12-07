@@ -9,7 +9,8 @@
 		"pages/openmp/openmp",
 		"pages/wxcode/wxcode",
 		"pages/qrcode/qrcode",
-		"pages/plugin/plugin"
+		"pages/plugin/plugin",
+		"pages/guide/guide"
 	],
 	"subPackages": [
 		{
