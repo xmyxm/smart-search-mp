@@ -98,12 +98,12 @@ Page({
 		})
 	},
 	bindSelectPlatformTap(event: any) {
-		const { appid } = event.currentTarget.dataset
+		const { appid, defaultpath } = event.currentTarget.dataset
 		const list: PlatformInfoType[] = this.data.platformInfoList.map((item: any) => ({
 			...item,
 			select: item.appid === appid,
 		}))
-		this.setData({ platformInfoList: list, appid })
+		this.setData({ platformInfoList: list, appid, path: defaultpath })
 	},
 	// 处理 textarea 输入事件
 	handleInput(event: any) {

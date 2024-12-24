@@ -10,6 +10,7 @@
 					wx:for-item="item"
 					wx:key="{{ item.appid }}"
 					data-appid="{{ item.appid }}"
+					data-defaultpath="{{ item.defaultPath }}"
 					bindtap="bindSelectPlatformTap"
 				>
 					<image class="platform-icon" src="{{ item.icon }}" mode="cover" />
