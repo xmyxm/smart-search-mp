@@ -83,6 +83,30 @@
 	box-sizing: border-box;
 }
 
+.mt40 {
+	margin-top: 40rpx;
+}
+
+.env-type {
+	margin-top: 30rpx;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.env-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	white-space: nowrap;
+	padding-right: 24rpx;
+}
+
+.env-name {
+	margin-left: 4rpx;
+}
+
 .btn-list {
 	margin-top: 40rpx;
 	display: flex;

@@ -37,6 +37,21 @@
 			bindinput="handleTextarea"
 			value="{{path}}"
 		/>
+		<block wx:if="{{ envVersionList && envVersionList.length > 0 }}">
+			<view class="title mt40">选择要打开的小程序版本：</view>
+			<radio-group class="env-type" bindchange="radioChange">
+				<view
+					wx:for="{{ envVersionList }}"
+					class="{{ 'env-box' }}"
+					wx:for-item="item"
+					wx:key="{{ item.envVersion }}"
+					data-envversion="{{ item.envVersion }}"
+				>
+					<radio class="env-rad" value="{{item.envVersion}}" checked="{{item.checked}}" />
+					<text class="env-name">{{ item.name }}</text>
+				</view>
+			</radio-group>
+		</block>
 		<view class="btn-list">
 			<view class="btn-use" bindtap="bindCopyClipboardTap">粘贴剪切板</view>
 			<view class="btn-use" bindtap="bindOpenMPURLTap">打开小程序页面</view>
@@ -64,6 +79,7 @@
 						class="btn-icon"
 						data-mpurl="{{ item.mpUrl }}"
 						data-appid="{{ item.appid }}"
+						data-envversion="{{ item.envVersion }}"
 						bindtap="openOtherMiniProgram"
 						title="打开"
 						src="{{imgInfoMap.BTN_LINK}}"

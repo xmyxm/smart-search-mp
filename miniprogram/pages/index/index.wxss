@@ -22,7 +22,12 @@
 	flex: 1;
 }
 
+.item-name {
+	margin-right: 20rpx;
+}
+
 .item-icon {
+	flex-shrink: 0;
 	width: 80rpx;
 	height: 80rpx;
 }

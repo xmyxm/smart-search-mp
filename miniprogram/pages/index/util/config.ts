@@ -10,6 +10,13 @@ interface openLinkInfoType {
 
 export const openLinkList: openLinkInfoType[] = [
 	{
+		type: PathType.MiniProgramApp,
+		name: '大众点评微信小程序打包版本(需申请体验或开发权限)',
+		appid: 'wxcff7381e631cf54e',
+		path: '/pages/version/version.html?canUsePayAnalysis=1&appName=%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84%E7%BE%8E%E9%A3%9F%E7%94%B5%E5%BD%B1%E8%BF%90%E5%8A%A8%E6%97%85%E6%B8%B8%E9%97%A8%E7%A5%A8&role=%7B%22role%22%3A1024%2C%22isAdmin%22%3A1024%2C%22isExperience%22%3A0%2C%22isExperienceDev%22%3A0%2C%22isSensitiveData%22%3A0%2C%22isData%22%3A0%2C%22isDevelop%22%3A0%2C%22isOperator%22%3A0%2C%22isOnlyExperience%22%3Afalse%2C%22time%22%3A1735116301228%7D',
+		icon: 'https://img.meituan.net/dpmobile/b8141ca00c8d0ea727ad01f4e3ed5fd85153.png.webp',
+	},
+	{
 		type: PathType.MiniProgramPath,
 		name: '小程序商详页地址生成工具',
 		path: '/pages/poi/poi',
@@ -46,7 +53,7 @@ export const openLinkList: openLinkInfoType[] = [
 		icon: 'https://p0.meituan.net/travelcube/26901b7a81a1be9047f8bc87c01ef3376020.png',
 	},
 	{
-		type: PathType.MiniProgramApp,
+		type: PathType.MiniProgramEmbeddedApp,
 		name: '拉起半屏小程序体验',
 		appid: 'wx734c1ad7b3562129',
 		path: '/pages/home/home',

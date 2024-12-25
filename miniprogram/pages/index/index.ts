@@ -78,6 +78,18 @@ Page({
 					appId: appid,
 					path: path,
 					success() {
+						console.log('navigateToMiniProgram success')
+					},
+					fail(error: any) {
+						console.log('navigateToMiniProgram fail', error)
+					},
+				}
+				wx.navigateToMiniProgram(options)
+			} else if (type === PathType.MiniProgramEmbeddedApp) {
+				const options = {
+					appId: appid,
+					path: path,
+					success() {
 						console.log('openEmbeddedMiniProgram success')
 					},
 					fail(error: any) {

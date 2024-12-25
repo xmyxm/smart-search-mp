@@ -1,5 +1,5 @@
 import { defaultAppIdPlaceholderText, defaultPathPlaceholderText } from './util/default'
-import { platformInfoList, PlatformInfoType } from './util/platformdata'
+import { platformInfoList, PlatformInfoType, envVersionList } from './util/platformdata'
 import { OpenMPStateType, MpUrlHistoryInfoType } from './util/datatype'
 import { HISTORY_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
@@ -8,6 +8,8 @@ import { formatMiniTime } from '../../utils/util'
 Page({
 	data: {
 		imgInfoMap: HISTORY_IMAGE_ICON,
+		envVersionList,
+		envVersionInfo: envVersionList[0],
 		platformInfoList,
 		appIdPlaceholderText: defaultAppIdPlaceholderText,
 		pathPlaceholderText: defaultPathPlaceholderText,
@@ -18,13 +20,14 @@ Page({
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
 		const historyList: MpUrlHistoryInfoType[] = (wx.getStorageSync(STORAGE_KEY.OPENMP_HISTORY_LIST) || []).map(
-			({ appid, mpUrl, timeStamp }: MpUrlHistoryInfoType) => {
+			({ appid, mpUrl, envVersion, timeStamp }: MpUrlHistoryInfoType) => {
 				const time = formatMiniTime(new Date(Number(timeStamp)))
 				const icon = (platformInfoList.find((item: PlatformInfoType) => item.appid === appid) || {}).icon || ''
 				return {
 					icon,
 					appid,
 					mpUrl,
+					envVersion,
 					timeStamp,
 					time,
 				}
@@ -118,12 +121,21 @@ Page({
 			path,
 		})
 	},
+	radioChange(event: any) {
+		console.log('选中的值为:', event.detail.value)
+		const envVersionInfo = this.data.envVersionList.find(item => item.envVersion === event.detail.value)
+		this.setData({ envVersionInfo })
+	},
 	bindOpenMPURLTap() {
-		const { appid, path } = this.data
+		const {
+			appid,
+			path,
+			envVersionInfo: { envVersion },
+		} = this.data
 		const url = path.trim().replace(/^\//, '')
 		if (appid) {
 			if (url) {
-				this.openMiniProgram(appid, url, () => {
+				this.openMiniProgram(appid, url, envVersion, () => {
 					const { icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
 					const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
 						(item: MpUrlHistoryInfoType) => {
@@ -135,6 +147,7 @@ Page({
 						icon,
 						appid,
 						mpUrl: url,
+						envVersion,
 						timeStamp: `${currentTime}`,
 						time: formatMiniTime(new Date(currentTime)),
 					})
@@ -182,9 +195,9 @@ Page({
 		}
 	},
 	openOtherMiniProgram(event: any) {
-		const { mpurl, appid } = event.currentTarget.dataset
+		const { mpurl, appid, envversion } = event.currentTarget.dataset
 		if (appid && mpurl) {
-			this.openMiniProgram(appid, mpurl)
+			this.openMiniProgram(appid, mpurl, envversion)
 		} else {
 			wx.showToast({
 				title: '参数不完整，无法完成跳转',
@@ -194,12 +207,13 @@ Page({
 		}
 	},
 
-	openMiniProgram(appId: string, path: string, suscallback?: Function) {
+	openMiniProgram(appId: string, path: string, envVersion: string = 'release', suscallback?: Function) {
 		wx.navigateToMiniProgram({
 			appId,
 			path,
 			extraData: {},
-			envVersion: 'release', // 可选
+			// @ts-ignore
+			envVersion, // 可选
 			success(res) {
 				console.log('打开成功', res)
 				if (suscallback) {

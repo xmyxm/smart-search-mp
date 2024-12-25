@@ -45,3 +45,27 @@ export const platformInfoList: PlatformInfoType[] = [
 		select: false,
 	},
 ]
+
+export interface EnvVersionInfoType {
+	name: string
+	envVersion: string
+	checked: boolean
+}
+
+export const envVersionList: EnvVersionInfoType[] = [
+	{
+		name: '正式版',
+		envVersion: 'release',
+		checked: true,
+	},
+	{
+		name: '体验版',
+		envVersion: 'trial',
+		checked: false,
+	},
+	{
+		name: '	开发版',
+		envVersion: 'develop',
+		checked: false,
+	},
+]
