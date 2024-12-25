@@ -1,9 +1,10 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
-	APP_VERSION: '0.0.27',
-	APP_UPDATE_TIME: '2024/12/24',
+	APP_VERSION: '0.0.28',
+	APP_UPDATE_TIME: '2024/12/25',
 	APP_UPDATE_LOGS: [
+		{ time: '2024/12/25', msg: '支持跳转小程序助手' },
 		{ time: '2024/12/24', msg: '跳转小程序增加示例路径' },
 		{ time: '2024/12/07', msg: '增加使用指南' },
 		{ time: '2024/12/01', msg: '修改商详页商户生成规则描述' },
