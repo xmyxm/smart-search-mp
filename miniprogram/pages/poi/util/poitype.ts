@@ -14,7 +14,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		name: '到餐/到综',
 		showType: 'food',
 		cate: 1,
-		dpPath: 'pages/poi/poi?utm_source=smartsearchmp&shopUuid=[id]',
+		dpPath: 'pages/poi/poi?shopUuid=[id]&utm_source=smartsearchmp',
 		dpRegex: 'shopshare\\/([a-zA-Z0-9]+)\\?',
 		mtPath: 'index/pages/poi/poi?utm_source=smartsearchmp&showtype=food&cate=1&id=[id]',
 		mtRegex: 'dpurl\\.cn\\/([a-zA-Z0-9]+)',

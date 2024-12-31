@@ -115,13 +115,13 @@ Page({
 		this.handleInput('')
 	},
 	verifyPath(suscallback: Function) {
-		const content = this.data.content.trim()
+		let content = this.data.content.trim()
 		if (content) {
 			let errMsg = ''
-			if (content.indexOf('/') === 0) {
-				errMsg = '小程序路径不可以/开头'
+			if (content.startsWith('/')) {
+				content = content.slice(1);
 			}
-			const pathRegex = /^(?!\/)([a-zA-Z0-9_]+\/)+[a-zA-Z0-9_]+/
+			const pathRegex = /^([a-zA-Z0-9_]+\/)+[a-zA-Z0-9_]+/
 			if (!pathRegex.test(content)) {
 				errMsg = '小程序路径不符合规则'
 			}
