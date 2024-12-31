@@ -315,4 +315,28 @@ Page({
 		saveImageToPhotosAlbum(modalContent)
 		this.bindModalTap()
 	},
+
+	openOtherMiniProgram(event: any) {
+		const { mpurl, appid } = event.currentTarget.dataset
+		if (mpurl && appid) {
+			wx.navigateToMiniProgram({
+				appId: appid,
+				path: mpurl,
+				extraData: {},
+				envVersion: 'release', // 可选
+				success(res) {
+					console.log('打开成功', res)
+				},
+				fail(err) {
+					console.error('打开失败', err)
+					wx.showToast({
+						title: `打开失败`,
+						icon: 'none',
+						duration: 2000,
+					})
+				},
+			})
+		}
+	}
 })
+
