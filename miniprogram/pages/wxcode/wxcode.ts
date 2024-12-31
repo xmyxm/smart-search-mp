@@ -65,7 +65,7 @@ Page({
 	onShareAppMessage() {
 		// 监听用户点击页面内转发按钮（button 组件 open-type="share"）或右上角菜单“转发”按钮的行为，并自定义转发内容。
 		return {
-			title: '小程序二维码生成工具',
+			title: '小程序码生成工具',
 			path: 'pages/wxcode/wxcode', // 分享路径
 			imageUrl: 'https://p1.meituan.net/travelcube/22dd461137b5560e7544045e66f416d025980.jpg', // 自定义分享图片，尺寸 500px*400px，官方要求 5:4
 			success() {

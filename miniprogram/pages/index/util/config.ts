@@ -24,7 +24,7 @@ export const openLinkList: openLinkInfoType[] = [
 	},
 	{
 		type: PathType.MiniProgramPath,
-		name: '微信小程序二维码生成工具',
+		name: '微信小程序码生成工具',
 		path: '/pages/wxcode/wxcode',
 		icon: 'https://p0.meituan.net/travelcube/422caf7cda2547fb68db21e63d6af27d7070.png',
 	},
