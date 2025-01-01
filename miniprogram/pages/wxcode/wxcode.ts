@@ -119,7 +119,7 @@ Page({
 		if (content) {
 			let errMsg = ''
 			if (content.startsWith('/')) {
-				content = content.slice(1);
+				content = content.slice(1)
 			}
 			const pathRegex = /^([a-zA-Z0-9_]+\/)+[a-zA-Z0-9_]+/
 			if (!pathRegex.test(content)) {
@@ -337,6 +337,5 @@ Page({
 				},
 			})
 		}
-	}
+	},
 })
-
