@@ -50,6 +50,7 @@ export interface EnvVersionInfoType {
 	name: string
 	envVersion: string
 	checked: boolean
+	disabled: boolean
 }
 
 export const envVersionList: EnvVersionInfoType[] = [
@@ -57,15 +58,18 @@ export const envVersionList: EnvVersionInfoType[] = [
 		name: '正式版',
 		envVersion: 'release',
 		checked: true,
+		disabled: false,
 	},
 	{
 		name: '体验版',
 		envVersion: 'trial',
 		checked: false,
+		disabled: true,
 	},
 	{
 		name: '	开发版',
 		envVersion: 'develop',
 		checked: false,
+		disabled: true,
 	},
 ]

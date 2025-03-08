@@ -51,7 +51,7 @@ export const poiTypeInfoList: poiTypeInfoType[] = [
 		checked: false,
 	},
 	{
-		name: '购物',
+		name: '商场',
 		showType: 'shopping',
 		cate: 0,
 		dpPath: 'packages/detail/pages/detail/detail?shopUuid=[id]&shopId=[id]',

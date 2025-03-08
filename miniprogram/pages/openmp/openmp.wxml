@@ -47,7 +47,12 @@
 					wx:key="{{ item.envVersion }}"
 					data-envversion="{{ item.envVersion }}"
 				>
-					<radio class="env-rad" value="{{item.envVersion}}" checked="{{item.checked}}" />
+					<radio
+						class="env-rad"
+						value="{{item.envVersion}}"
+						disabled="{{item.disabled}}"
+						checked="{{item.checked}}"
+					/>
 					<text class="env-name">{{ item.name }}</text>
 				</view>
 			</radio-group>

@@ -135,52 +135,52 @@ perfPage({
 		} = this.data
 		const url = path.trim().replace(/^\//, '')
 		if (appid) {
-			if (url) {
-				this.openMiniProgram(appid, url, envVersion, () => {
-					const { icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
-					const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
-						(item: MpUrlHistoryInfoType) => {
-							return !(item.mpUrl === url && item.appid === appid)
-						},
-					)
-					const currentTime = Date.now()
-					historyList.unshift({
-						icon,
-						appid,
-						mpUrl: url,
-						envVersion,
-						timeStamp: `${currentTime}`,
-						time: formatMiniTime(new Date(currentTime)),
-					})
-					if (historyList.length > 100) {
-						historyList.length = 100
-					}
-					this.setData({
-						mpUrlHistoryList: historyList,
-					})
-					const historyListCacheData = historyList.map((item: MpUrlHistoryInfoType) => ({
-						appid: item.appid,
-						mpUrl: item.mpUrl,
-						timeStamp: item.timeStamp,
-					}))
-					wx.setStorage({
-						key: STORAGE_KEY.OPENMP_HISTORY_LIST,
-						data: historyListCacheData,
-						success() {
-							console.log('更新链接缓存成功', historyListCacheData)
-						},
-						fail(err) {
-							console.error('更新链接缓存失败', err)
-						},
-					})
+			// if (url) {
+			this.openMiniProgram(appid, url, envVersion, () => {
+				const { icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
+				const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
+					(item: MpUrlHistoryInfoType) => {
+						return !(item.mpUrl === url && item.appid === appid)
+					},
+				)
+				const currentTime = Date.now()
+				historyList.unshift({
+					icon,
+					appid,
+					mpUrl: url,
+					envVersion,
+					timeStamp: `${currentTime}`,
+					time: formatMiniTime(new Date(currentTime)),
 				})
-			} else {
-				wx.showToast({
-					title: '请输入正确的小程序路径',
-					icon: 'none',
-					duration: 2000,
+				if (historyList.length > 100) {
+					historyList.length = 100
+				}
+				this.setData({
+					mpUrlHistoryList: historyList,
 				})
-			}
+				const historyListCacheData = historyList.map((item: MpUrlHistoryInfoType) => ({
+					appid: item.appid,
+					mpUrl: item.mpUrl,
+					timeStamp: item.timeStamp,
+				}))
+				wx.setStorage({
+					key: STORAGE_KEY.OPENMP_HISTORY_LIST,
+					data: historyListCacheData,
+					success() {
+						console.log('更新链接缓存成功', historyListCacheData)
+					},
+					fail(err) {
+						console.error('更新链接缓存失败', err)
+					},
+				})
+			})
+			// } else {
+			// 	wx.showToast({
+			// 		title: '请输入正确的小程序路径',
+			// 		icon: 'none',
+			// 		duration: 2000,
+			// 	})
+			// }
 		} else {
 			wx.showToast({
 				title: '请输入AppId',
