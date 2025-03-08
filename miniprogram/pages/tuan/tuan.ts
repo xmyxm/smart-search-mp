@@ -1,13 +1,14 @@
 import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { PoiStateType, PoiPathHistoryInfoType } from './util/datatype'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
-import { poiTypeInfoList } from './util/poitype'
+import { formatMiniTime, parseUrlParams } from '../../utils/util'
+import { perfPage } from '../../miniprogram_npm/log-pf/index'
 import { HISTORY_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
-import { formatMiniTime, parseUrlParams } from '../../utils/util'
+import { poiTypeInfoList } from './util/poitype'
 import { APPID_KEY } from '../../enum/appid'
 
-Page({
+perfPage({
 	data: {
 		imgInfoMap: HISTORY_IMAGE_ICON,
 		placeholderText: defaultPlaceholderText,

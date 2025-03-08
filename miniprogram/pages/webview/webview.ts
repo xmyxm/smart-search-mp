@@ -1,11 +1,12 @@
 import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
 import { WebviewStateType, MpUrlHistoryInfoType } from './util/datatype'
+import { perfPage } from '../../miniprogram_npm/log-pf/index'
 import { HISTORY_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 
-Page({
+perfPage({
 	data: {
 		imgInfoMap: HISTORY_IMAGE_ICON,
 		placeholderText: defaultPlaceholderText,

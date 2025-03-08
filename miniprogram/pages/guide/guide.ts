@@ -1,6 +1,7 @@
+import { perfComponent } from '../../miniprogram_npm/log-pf/index'
 import guideList from './util/dataconfig'
 
-Component({
+perfComponent({
 	data: {
 		guideInfo: guideList[0],
 	},

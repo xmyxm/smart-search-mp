@@ -1,11 +1,12 @@
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
 import { QrcodeStateType, UrlHistoryInfoType } from './util/datatype'
-import { HISTORY_IMAGE_ICON } from '../../enum/img'
+import { perfPage } from '../../miniprogram_npm/log-pf/index'
 import { createQrcode } from '../../utils/qrcode/index'
+import { HISTORY_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 
-Page({
+perfPage({
 	data: {
 		imgInfoMap: HISTORY_IMAGE_ICON,
 		placeholderText: defaultPlaceholderText,

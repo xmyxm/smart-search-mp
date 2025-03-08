@@ -1,6 +1,7 @@
+import { perfPage } from '../../miniprogram_npm/log-pf/index'
 import { pluginInfoList } from './util/config'
 
-Page({
+perfPage({
 	data: {
 		pluginInfoList,
 	},

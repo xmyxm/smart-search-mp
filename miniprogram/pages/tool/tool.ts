@@ -1,6 +1,7 @@
+import { perfComponent } from '../../miniprogram_npm/log-pf/index'
 import { toolList } from '../../config/toolsdata'
 
-Component({
+perfComponent({
 	data: {
 		toolList,
 	},

@@ -1,6 +1,7 @@
+import { perfComponent } from '../../miniprogram_npm/log-pf/index'
 import appConfig from '../../config/appconfig'
 
-Component({
+perfComponent({
 	data: {
 		appConfig,
 	},

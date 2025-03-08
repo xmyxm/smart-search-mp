@@ -2,12 +2,13 @@ import { platformInfoList, PlatformInfoType } from './util/platformdata'
 import { PoiStateType, PoiPathHistoryInfoType } from './util/datatype'
 import { defaultCopyContent, defaultPlaceholderText } from './util/default'
 import { poiTypeInfoList, poiTypeInfoType } from './util/poitype'
+import { perfPage } from '../../miniprogram_npm/log-pf/index'
 import { HISTORY_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
 import { formatMiniTime } from '../../utils/util'
 import { APPID_KEY } from '../../enum/appid'
 
-Page({
+perfPage({
 	data: {
 		imgInfoMap: HISTORY_IMAGE_ICON,
 		placeholderText: defaultPlaceholderText,
@@ -45,6 +46,7 @@ Page({
 	},
 	onReady() {
 		// 页面初次渲染完成时触发。一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互。
+		this.perfFMP()
 	},
 	onHide() {
 		// 页面隐藏/切入后台时触发。 如 wx.navigateTo 或底部 tab 切换到其他页面，小程序切入后台等。

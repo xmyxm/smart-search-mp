@@ -1,10 +1,11 @@
+import { perfPage } from '../../miniprogram_npm/log-pf/index'
 import { openLinkList } from './util/config'
 import { PathType } from './util/pathtype'
 // index.ts
 // 获取应用实例
 const app = getApp<IAppOption>()
 
-Page({
+perfPage({
 	data: {
 		openLinkList,
 	},
@@ -17,6 +18,7 @@ Page({
 	},
 	onReady() {
 		// 页面初次渲染完成时触发。一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互。
+		this.perfFMP()
 	},
 	onHide() {
 		// 页面隐藏/切入后台时触发。 如 wx.navigateTo 或底部 tab 切换到其他页面，小程序切入后台等。
