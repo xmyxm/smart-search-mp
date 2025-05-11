@@ -23,8 +23,9 @@
   },
   "include": [
     "./**/*.ts"
-, "miniprogram/miniprogram_npm/log-pf/core/container.js"  ],
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "miniprogram_npm"
   ]
 }
