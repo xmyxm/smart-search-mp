@@ -124,7 +124,7 @@ perfPage({
 	},
 	radioChange(event: any) {
 		console.log('选中的值为:', event.detail.value)
-		const envVersionInfo = this.data.envVersionList.find(item => item.envVersion === event.detail.value)
+		const envVersionInfo = this.data.envVersionList.find((item: { envVersion: any }) => item.envVersion === event.detail.value)
 		this.setData({ envVersionInfo })
 	},
 	bindOpenMPURLTap() {
@@ -137,7 +137,7 @@ perfPage({
 		if (appid) {
 			// if (url) {
 			this.openMiniProgram(appid, url, envVersion, () => {
-				const { icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
+				const { icon = '' } = this.data.platformInfoList.find((item: { select: any }) => item.select) || {}
 				const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
 					(item: MpUrlHistoryInfoType) => {
 						return !(item.mpUrl === url && item.appid === appid)

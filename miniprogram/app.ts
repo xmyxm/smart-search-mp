@@ -8,7 +8,7 @@ perf.init({
 })
 
 // app.ts
-perfApp<IAppOption>({
+perfApp({
 	globalData: {},
 	onLaunch() {
 		console.log('加密文本测试:', Base64.encode('加密文本测试'))
