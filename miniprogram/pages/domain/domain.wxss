@@ -1,0 +1,44 @@
+.container {
+	padding: 30rpx;
+	justify-content: space-between;
+	min-height: 88vh;
+}
+
+.logs .title {
+	font-size: 28rpx;
+	font-weight: 600;
+}
+
+.log-list {
+	margin-top: 20rpx;
+	margin-bottom: 60rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: center;
+}
+
+.log-item {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	font-size: 24rpx;
+}
+
+.time {
+	padding-left: 10rpx;
+	width: 50rpx;
+}
+
+.content {
+	flex: 1;
+	line-height: 28rpx;
+	border-bottom: 1rpx solid #e1e1e1;
+	padding: 20rpx 0;
+}
+
+.version {
+	width: 100%;
+	line-height: 80rpx;
+	text-align: center;
+}

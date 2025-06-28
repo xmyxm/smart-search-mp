@@ -1,0 +1,73 @@
+<navigation-bar title="点评微信小程序开放域名" back="{{ false }}" color="black" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<view class="logs">
+			<view class="title">request 合法域名: </view>
+			<view class="log-list">
+				<view
+					class="log-item"
+					wx:for="{{ dpdomainInfo.request_domain }}"
+					wx:for-item="item"
+					wx:key="{{ item.url }}"
+					wx:index="index"
+				>
+					<view class="time">{{index + 1}}.</view>
+					<view class="content">{{item.url}}</view>
+				</view>
+			</view>
+			<view class="title">socket 合法域名: </view>
+			<view class="log-list">
+				<view
+					class="log-item"
+					wx:for="{{ dpdomainInfo.ws_request_domain }}"
+					wx:for-item="item"
+					wx:key="{{ item.url }}"
+					wx:index="index"
+				>
+					<view class="time">{{index + 1}}.</view>
+					<view class="content">{{item.url}}</view>
+				</view>
+			</view>
+			<view class="title">uploadFile 合法域名: </view>
+			<view class="log-list">
+				<view
+					class="log-item"
+					wx:for="{{ dpdomainInfo.upload_domain }}"
+					wx:for-item="item"
+					wx:key="{{ item.url }}"
+					wx:index="index"
+				>
+					<view class="time">{{index + 1}}.</view>
+					<view class="content">{{item.url}}</view>
+				</view>
+			</view>
+			<view class="title">downloadFile 合法域名: </view>
+			<view class="log-list">
+				<view
+					class="log-item"
+					wx:for="{{ dpdomainInfo.download_domain }}"
+					wx:for-item="item"
+					wx:key="{{ item.url }}"
+					wx:index="index"
+				>
+					<view class="time">{{index + 1}}.</view>
+					<view class="content">{{item.url}}</view>
+				</view>
+			</view>
+			<view class="title">Webview 合法域名: </view>
+			<view class="log-list">
+				<view
+					class="log-item"
+					wx:for="{{ dpdomainInfo.biz_domain }}"
+					wx:for-item="item"
+					wx:key="{{ item.url }}"
+					wx:index="index"
+				>
+					<view class="time">{{index + 1}}.</view>
+					<view class="content">{{item.url}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="version" bindtap="bindVersionTap">更新时间：2025/06/28</view>
+	</view>
+</scroll-view>

@@ -65,4 +65,10 @@ export const openLinkList: openLinkInfoType[] = [
 		path: '/pages/plugin/plugin',
 		icon: 'https://p0.meituan.net/travelcube/e4737f1059f1c7a184ba36064444ecfe3515.png',
 	},
+	{
+		type: PathType.MiniProgramPath,
+		name: '点评微信小程序开放域名',
+		path: '/pages/domain/domain',
+		icon: 'https://img.meituan.net/dpmobile/b94f8ad06c42415e7fd73d4b3ba7eaf71975.png.webp',
+	},
 ]

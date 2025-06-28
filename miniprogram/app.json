@@ -10,7 +10,8 @@
 		"pages/wxcode/wxcode",
 		"pages/qrcode/qrcode",
 		"pages/plugin/plugin",
-		"pages/guide/guide"
+		"pages/guide/guide",
+		"pages/domain/domain"
 	],
 	"subPackages": [
 		{
@@ -19,8 +20,8 @@
 		}
 	],
 	"tabBar": {
-		"color": "#000000",
-		"selectedColor": "#4CAF50",
+		"color": "#7b7f89",
+		"selectedColor": "#07C160",
 		"backgroundColor": "#ffffff",
 		"borderStyle": "black",
 		"list": [
@@ -28,13 +29,13 @@
 				"pagePath": "pages/index/index",
 				"text": "首页",
 				"iconPath": "./images/bar/home.png",
-				"selectedIconPath": "./images/bar/home.png"
+				"selectedIconPath": "./images/bar/shome.png"
 			},
 			{
 				"pagePath": "pages/about/about",
 				"text": "关于",
-				"iconPath": "./images/bar/history.png",
-				"selectedIconPath": "./images/bar/history.png"
+				"iconPath": "./images/bar/about.png",
+				"selectedIconPath": "./images/bar/sabout.png"
 			}
 		]
 	},
