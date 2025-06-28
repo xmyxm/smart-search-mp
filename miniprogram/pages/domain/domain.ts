@@ -7,8 +7,6 @@ perfComponent({
 	},
 	methods: {
 		// 事件处理函数
-		bindVersionTap() {
-			
-		},
+		bindVersionTap() {},
 	},
 })
