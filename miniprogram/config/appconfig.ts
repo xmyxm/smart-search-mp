@@ -4,7 +4,7 @@ export default {
 	APP_VERSION: '0.0.31',
 	APP_UPDATE_TIME: '2025/06/28',
 	APP_UPDATE_LOGS: [
-		{ time: '2025/06/28', msg: '优化 Webview 链接默认参数生成逻辑' },
+		{ time: '2025/06/28', msg: '优化 Webview 链接默认参数生成逻辑&增加小程序开放域名名单展示' },
 		{ time: '2025/03/08', msg: '修改跳转其它小程序path必填限制' },
 		{ time: '2024/12/31', msg: '修复生成小程序码功能' },
 		{ time: '2024/12/25', msg: '支持跳转小程序助手' },
