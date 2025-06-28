@@ -4,7 +4,7 @@ import { WebviewStateType, MpUrlHistoryInfoType } from './util/datatype'
 import { perfPage } from '../../miniprogram_npm/log-pf/index'
 import { HISTORY_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
-import { formatMiniTime } from '../../utils/util'
+import { formatMiniTime, addParamsToUrl } from '../../utils/util'
 
 perfPage({
 	data: {
@@ -140,10 +140,8 @@ perfPage({
 					icon = '',
 					pathCP = '',
 					urlCP = '',
-				} = this.data.platformInfoList.find(item => item.select) || {}
-				if (urlCP) {
-					content = content + (content.indexOf('?') > -1 ? '&' : '?') + urlCP
-				}
+				} = this.data.platformInfoList.find((item: any) => item.select) || {}
+				content = addParamsToUrl(content, urlCP)
 				const currentMpUrl = `${path}${encodeURIComponent(content)}${pathCP}`
 				const historyList: MpUrlHistoryInfoType[] = this.data.mpUrlHistoryList.filter(
 					(item: MpUrlHistoryInfoType) => {

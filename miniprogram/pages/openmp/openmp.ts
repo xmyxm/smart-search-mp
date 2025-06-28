@@ -124,7 +124,9 @@ perfPage({
 	},
 	radioChange(event: any) {
 		console.log('选中的值为:', event.detail.value)
-		const envVersionInfo = this.data.envVersionList.find((item: { envVersion: any }) => item.envVersion === event.detail.value)
+		const envVersionInfo = this.data.envVersionList.find(
+			(item: { envVersion: any }) => item.envVersion === event.detail.value,
+		)
 		this.setData({ envVersionInfo })
 	},
 	bindOpenMPURLTap() {
