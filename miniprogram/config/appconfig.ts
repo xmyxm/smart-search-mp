@@ -1,7 +1,7 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
-	APP_VERSION: '0.0.31',
+	APP_VERSION: '0.0.32',
 	APP_UPDATE_TIME: '2025/07/13',
 	APP_UPDATE_LOGS: [
 		{ time: '2025/07/13', msg: '增加跳转任意小程序的默认名单' },
