@@ -54,6 +54,11 @@
 	line-height: 36rpx;
 	height: 36rpx;
 	margin-top: 6rpx;
+	white-space: nowrap; /* 强制文本不换行 */
+	overflow: hidden; /* 隐藏超出部分 */
+	text-overflow: ellipsis; /* 显示省略号 */
+	width: 100%;
+	text-align: center;
 }
 
 .user-input {
