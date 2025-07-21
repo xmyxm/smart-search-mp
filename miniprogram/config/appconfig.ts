@@ -1,9 +1,10 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
-	APP_VERSION: '0.0.32',
-	APP_UPDATE_TIME: '2025/07/13',
+	APP_VERSION: '0.0.33',
+	APP_UPDATE_TIME: '2025/07/20',
 	APP_UPDATE_LOGS: [
+		{ time: '2025/07/20', msg: '生成活动链接去前后空格' },
 		{ time: '2025/07/13', msg: '增加跳转任意小程序的默认名单' },
 		{ time: '2025/06/28', msg: '优化 Webview 链接默认参数生成逻辑&增加小程序开放域名名单展示' },
 		{ time: '2025/03/08', msg: '修改跳转其它小程序path必填限制' },

@@ -131,6 +131,7 @@ perfPage({
 	},
 	bindCreateMPURLTap() {
 		let { content } = this.data
+		content = content.trim()
 		if (content) {
 			const urlPattern = /^(https?:\/\/)?([^\s$.?#].[^\s]*)$/i
 			if (urlPattern.test(content)) {
