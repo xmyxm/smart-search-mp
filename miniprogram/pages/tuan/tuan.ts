@@ -5,7 +5,7 @@ import { formatMiniTime, parseUrlParams } from '../../utils/util'
 import { perfPage } from '../../miniprogram_npm/log-pf/index'
 import { HISTORY_IMAGE_ICON } from '../../enum/img'
 import { STORAGE_KEY } from '../../enum/storagekey'
-import { poiTypeInfoList } from './util/poitype'
+import { poiTypeInfoList, poiTypeInfoType } from './util/poitype'
 import { APPID_KEY } from '../../enum/appid'
 
 perfPage({
@@ -119,7 +119,9 @@ perfPage({
 	},
 	radioChange(event: any) {
 		console.log('选中的值为:', event.detail.value)
-		const selectPoiTypeInfo = this.data.poiTypeInfoList.find(item => item.showType === event.detail.value)
+		const selectPoiTypeInfo = this.data.poiTypeInfoList.find(
+			(item: poiTypeInfoType) => item.showType === event.detail.value,
+		)
 		this.setData({ selectPoiTypeInfo })
 	},
 	bindClearTap() {
@@ -144,7 +146,8 @@ perfPage({
 	bindCreatePoiPathTap() {
 		const { content, isDP } = this.data
 		if (content) {
-			const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
+			const { appid = '', icon = '' } =
+				this.data.platformInfoList.find((item: PlatformInfoType) => item.select) || {}
 			const {
 				showType = '',
 				dpPath = '',

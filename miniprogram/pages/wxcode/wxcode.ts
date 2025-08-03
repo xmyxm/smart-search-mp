@@ -145,7 +145,7 @@ perfPage({
 	},
 	bindOpenMiniProgram() {
 		this.verifyPath((content: string) => {
-			const { appid = '' } = this.data.platformInfoList.find(item => item.select) || {}
+			const { appid = '' } = this.data.platformInfoList.find((item: PlatformInfoType) => item.select) || {}
 			if (appid && content) {
 				wx.navigateToMiniProgram({
 					appId: appid,
@@ -191,7 +191,8 @@ perfPage({
 	},
 	bindCreateWxCodeTap() {
 		this.verifyPath((content: string) => {
-			const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
+			const { appid = '', icon = '' } =
+				this.data.platformInfoList.find((item: PlatformInfoType) => item.select) || {}
 			const wxCodeInfo = this.data.mpUrlHistoryList.find((item: MpUrlHistoryInfoType) => {
 				return item.appid === appid && item.mpUrl === content
 			})

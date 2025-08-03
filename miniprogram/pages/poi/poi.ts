@@ -110,7 +110,7 @@ perfPage({
 		const { appid } = event.currentTarget.dataset
 		if (appid) {
 			const isDP = appid === APPID_KEY.DIANPING_MP_MAIN
-			const list: PlatformInfoType[] = this.data.platformInfoList.map((item: any) => ({
+			const list: PlatformInfoType[] = this.data.platformInfoList.map((item: PlatformInfoType) => ({
 				...item,
 				select: item.appid === appid,
 			}))
@@ -120,13 +120,15 @@ perfPage({
 	},
 	radioChange(event: any) {
 		console.log('选中的值为:', event.detail.value)
-		const selectPoiTypeInfo = this.data.poiTypeInfoList.find(item => item.showType === event.detail.value)
+		const selectPoiTypeInfo = this.data.poiTypeInfoList.find(
+			(item: poiTypeInfoType) => item.showType === event.detail.value,
+		)
 		this.setData({ selectPoiTypeInfo })
 	},
 	bindSelectPoiTypeTap(event: any) {
 		const { showType } = event.currentTarget.dataset
 		if (showType) {
-			const list: poiTypeInfoType[] = this.data.poiTypeInfoList.map((item: any) => ({
+			const list: poiTypeInfoType[] = this.data.poiTypeInfoList.map((item: poiTypeInfoType) => ({
 				...item,
 				checked: item.showType === showType,
 			}))
@@ -155,7 +157,8 @@ perfPage({
 	bindCreatePoiPathTap() {
 		const { content, isDP } = this.data
 		if (content) {
-			const { appid = '', icon = '' } = this.data.platformInfoList.find(item => item.select) || {}
+			const { appid = '', icon = '' } =
+				this.data.platformInfoList.find((item: PlatformInfoType) => item.select) || {}
 			const {
 				dpPath = '',
 				mtPath = '',

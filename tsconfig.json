@@ -17,9 +17,10 @@
     "strict": true,
     "strictPropertyInitialization": true,
     "lib": ["ES2020"],
-    "typeRoots": [
-      "./typings"
-    ]
+    "types": [
+      "miniprogram-api-typings",  // 微信小程序核心API
+    ],
+    "typeRoots": ["./node_modules/@types", "./node_modules/miniprogram-api-typings"]
   },
   "include": [
     "./**/*.ts"
