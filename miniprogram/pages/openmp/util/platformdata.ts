@@ -155,12 +155,12 @@ export const envVersionList: EnvVersionInfoType[] = [
 		name: '体验版',
 		envVersion: 'trial',
 		checked: false,
-		disabled: true,
+		disabled: false,
 	},
 	{
 		name: '	开发版',
 		envVersion: 'develop',
 		checked: false,
-		disabled: true,
+		disabled: false,
 	},
 ]
