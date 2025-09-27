@@ -11,7 +11,8 @@
 		"pages/qrcode/qrcode",
 		"pages/plugin/plugin",
 		"pages/guide/guide",
-		"pages/domain/domain"
+		"pages/domain/domain",
+		"pages/wxscheme/wxscheme"
 	],
 	"subPackages": [
 		{

@@ -1,9 +1,10 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
-	APP_VERSION: '0.0.34',
-	APP_UPDATE_TIME: '2025/09/15',
+	APP_VERSION: '0.0.35',
+	APP_UPDATE_TIME: '2025/09/27',
 	APP_UPDATE_LOGS: [
+		{ time: '2025/09/27', msg: '新增小程序scheme生成工具' },
 		{ time: '2025/09/15', msg: '开启小程序跳转开发版功能（仅开发版跳开发版）' },
 		{ time: '2025/07/20', msg: '生成活动链接去前后空格' },
 		{ time: '2025/07/13', msg: '增加跳转任意小程序的默认名单' },

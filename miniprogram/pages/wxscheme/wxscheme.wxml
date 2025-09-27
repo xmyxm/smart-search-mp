@@ -1,0 +1,43 @@
+<navigation-bar title="小程序scheme生成工具" back="{{ true }}" color="black" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<block wx:if="{{ typeInfoList && typeInfoList.length > 0 }}">
+			<view class="title mt40">选择商户类型：</view>
+			<radio-group class="poi-type" bindchange="radioChange">
+				<view
+					wx:for="{{ typeInfoList }}"
+					class="{{ 'poi-box' }}"
+					wx:for-item="item"
+					wx:key="{{ item.type }}"
+					data-type="{{ item.type }}"
+				>
+					<radio class="poi-rad" value="{{item.type}}" checked="{{item.checked}}" />
+					<text class="poi-name">{{ item.name }}</text>
+				</view>
+			</radio-group>
+		</block>
+		<textarea
+			class="user-path"
+			auto-focus
+			auto-height
+			maxlength="500"
+			placeholder="粘贴或编辑小程序路径，如：/pages/home/home"
+			bindinput="handlePath"
+			value="{{path}}"
+		/>
+		<textarea
+			class="user-query"
+			auto-focus
+			auto-height
+			maxlength="500"
+			placeholder="粘贴或编辑小程序的参数，如：a=1&b=1&c=3"
+			bindinput="handleQuery"
+			value="{{queryStr}}"
+		/>
+		<view class="btn-list">
+			<view class="btn-use" bindtap="bindOpenMiniProgram">打开页面</view>
+			<view class="btn-use" bindtap="bindClearTap">清空输入框</view>
+			<view class="btn-use" bindtap="bindCreateLink">生成链接</view>
+		</view>
+	</view>
+</scroll-view>

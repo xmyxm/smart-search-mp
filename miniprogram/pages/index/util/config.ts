@@ -53,6 +53,12 @@ export const openLinkList: openLinkInfoType[] = [
 		icon: 'https://p0.meituan.net/travelcube/26901b7a81a1be9047f8bc87c01ef3376020.png',
 	},
 	{
+		type: PathType.MiniProgramPath,
+		name: '小程序Scheme生成',
+		path: '/pages/wxscheme/wxscheme',
+		icon: 'https://img.meituan.net/dpmobile/77aa843251bc1e5fc7fb0e8563b23b615725.png.webp',
+	},
+	{
 		type: PathType.MiniProgramEmbeddedApp,
 		name: '拉起半屏小程序体验',
 		appid: 'wx734c1ad7b3562129',
