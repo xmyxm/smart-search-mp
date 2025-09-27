@@ -54,7 +54,7 @@ export const openLinkList: openLinkInfoType[] = [
 	},
 	{
 		type: PathType.MiniProgramPath,
-		name: '小程序Scheme生成',
+		name: '小程序 Scheme 生成',
 		path: '/pages/wxscheme/wxscheme',
 		icon: 'https://img.meituan.net/dpmobile/77aa843251bc1e5fc7fb0e8563b23b615725.png.webp',
 	},
