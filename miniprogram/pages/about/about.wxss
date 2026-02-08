@@ -30,10 +30,10 @@
 }
 
 .content {
-	flex: 1;
-	line-height: 28rpx;
-	border-bottom: 1rpx solid #e1e1e1;
-	padding: 40rpx 0;
+    flex: 1;
+    line-height: 40rpx;
+    border-bottom: 1rpx solid #e1e1e1;
+    padding: 30rpx 0;
 }
 
 .version {
