@@ -60,7 +60,21 @@ export const openLinkList: openLinkInfoType[] = [
 	},
 	{
 		type: PathType.MiniProgramEmbeddedApp,
-		name: '拉起半屏小程序体验',
+		name: '拉起半屏小程序体验（POI）',
+		appid: 'wx734c1ad7b3562129',
+		path: '/pages/poi/poi?shopUuid=k4289mWOQ59KunDD',
+		icon: 'https://p0.meituan.net/travelcube/b28a6ce5dab0a43d560fc5a12edc26461934.png',
+	},
+	{
+		type: PathType.MiniProgramEmbeddedApp,
+		name: '拉起半屏小程序体验(榜单)',
+		appid: 'wx734c1ad7b3562129',
+		path: '/pages/ranklist/ranklist',
+		icon: 'https://p0.meituan.net/travelcube/b28a6ce5dab0a43d560fc5a12edc26461934.png',
+	},
+	{
+		type: PathType.MiniProgramEmbeddedApp,
+		name: '拉起半屏小程序体验(首页)',
 		appid: 'wx734c1ad7b3562129',
 		path: '/pages/home/home',
 		icon: 'https://p0.meituan.net/travelcube/b28a6ce5dab0a43d560fc5a12edc26461934.png',

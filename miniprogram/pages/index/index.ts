@@ -91,6 +91,7 @@ perfPage({
 				const options = {
 					appId: appid,
 					path: path,
+					envVersion: 'develop',
 					success() {
 						console.log('openEmbeddedMiniProgram success')
 					},
@@ -98,7 +99,7 @@ perfPage({
 						console.log('openEmbeddedMiniProgram fail', error)
 					},
 				}
-				wx.openEmbeddedMiniProgram(options)
+				wx.openEmbeddedMiniProgram(options as any)
 			}
 		}
 	},

@@ -6,6 +6,8 @@
 
 .logs .title {
 	font-size: 28rpx;
+	display: flex;
+	justify-content: space-between;
 }
 
 .log-list {
@@ -38,4 +40,6 @@
 	width: 100%;
 	line-height: 80rpx;
 	text-align: center;
+	font-size: 24rpx;
+	color: #b5b4b4;
 }

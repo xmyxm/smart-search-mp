@@ -2,7 +2,10 @@
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
 		<view class="logs">
-			<view class="title">更新记录</view>
+			<view class="title">
+				<text>更新记录</text>
+				<text>当前日期: {{currentDateText}}</text>
+			</view>
 			<view class="log-list">
 				<view
 					class="log-item"
