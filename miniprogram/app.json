@@ -18,6 +18,10 @@
 		{
 			"root": "packages/qrcode",
 			"pages": ["pages/index/index"]
+		},
+		{
+			"root": "packages/fuwuhao",
+			"pages": ["pages/index/index"]
 		}
 	],
 	"tabBar": {

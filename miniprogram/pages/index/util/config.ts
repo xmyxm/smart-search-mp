@@ -91,4 +91,10 @@ export const openLinkList: openLinkInfoType[] = [
 		path: '/pages/domain/domain',
 		icon: 'https://img.meituan.net/dpmobile/b94f8ad06c42415e7fd73d4b3ba7eaf71975.png.webp',
 	},
+	// {
+	// 	type: PathType.MiniProgramPath,
+	// 	name: '服务号生成二维码',
+	// 	path: '/packages/fuwuhao/pages/index/index',
+	// 	icon: 'https://img.meituan.net/dpmobile/b37d624357f1b00d164d6c108680ab878417.png.webp',
+	// },
 ]
