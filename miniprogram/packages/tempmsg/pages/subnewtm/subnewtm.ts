@@ -59,8 +59,8 @@ Page({
 	// 事件处理函数
 	onLiveActivityCreate(evt: any) {
 		const notify_code = evt.detail.code
-		const AppID = 'wx734c1ad7b3562129'
-		const AppSecret = 'd9d441e619c080bd71cd4d033374a1b5'
+		const AppID = 'wxddad6eb2e48f7db3'
+		const AppSecret = 'a04a537d9bfc2256717779a49ea0881f'
 		const content_json = JSON.stringify({
 
 		})
