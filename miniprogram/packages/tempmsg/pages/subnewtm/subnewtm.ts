@@ -1,9 +1,9 @@
-import { getAccessToken } from '../../../../utils/commonrequest'
-import { getTicket, getQRcodeImgUrl } from '../../utils/indexrequest'
+import { getAccessToken, getUserInfo } from '../../../../utils/commonrequest'
+import { setUserNotify, getQRcodeImgUrl } from '../../utils/indexrequest'
 
 Page({
 	data: {
-		title: '服务号生成二维码',
+		title: '新版一次性订阅消息',
 		content: '', // 用于存储用户输入的内容
 		qrcodeUrl: '',
 	},
@@ -57,22 +57,27 @@ Page({
 		}
 	},
 	// 事件处理函数
-	bindCreateQRCodeTap() {
-		const AppID = 'wx841a97238d9e17b2'
-		// 没有服务号的管理或开发权限看不到 AppSecret
-		const AppSecret = 'cd011983a415b327892e75cd5ce5e9f1'
+	onLiveActivityCreate(evt: any) {
+		const notify_code = evt.detail.code
+		const AppID = 'wx734c1ad7b3562129'
+		const AppSecret = 'd9d441e619c080bd71cd4d033374a1b5'
+		const content_json = JSON.stringify({
+
+		})
 		const data = {
-			expire_seconds: 604800,
-			action_name: "QR_SCENE",
-			action_info: {
-				scene: {
-					scene_id: 123
-				}
-			}
+			notify_type: 1005,
+			openid: "",
+			notify_code,
+			content_json
 		}
-		getAccessToken(AppID, AppSecret).then((accessToken: string) => getTicket(accessToken, data)).then((ticket: string)=> getQRcodeImgUrl(ticket)).then((imgUrl) => {
-			console.log(imgUrl)
-			this.setData({ qrcodeUrl: imgUrl })
+		getUserInfo().then((userInfo: any) => {
+			if (userInfo) {
+				data.openid = userInfo.openid
+			}
+			return getAccessToken(AppID, AppSecret)
+		}).then((accessToken: string) => setUserNotify(accessToken, data)).then((res) => {
+			console.log(res)
+			this.setData({ qrcodeUrl: res })
 		})
 	},
 })

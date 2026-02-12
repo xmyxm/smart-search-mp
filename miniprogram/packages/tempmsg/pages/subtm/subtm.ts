@@ -3,7 +3,7 @@ import { getTicket, getQRcodeImgUrl } from '../../utils/indexrequest'
 
 Page({
 	data: {
-		title: '服务号生成二维码',
+		title: '弹窗订阅消息',
 		content: '', // 用于存储用户输入的内容
 		qrcodeUrl: '',
 	},
@@ -57,22 +57,9 @@ Page({
 		}
 	},
 	// 事件处理函数
-	bindCreateQRCodeTap() {
-		const AppID = 'wx841a97238d9e17b2'
+	bindCreateSubscribe() {
+		const AppID = 'wxddad6eb2e48f7db3'
 		// 没有服务号的管理或开发权限看不到 AppSecret
-		const AppSecret = 'cd011983a415b327892e75cd5ce5e9f1'
-		const data = {
-			expire_seconds: 604800,
-			action_name: "QR_SCENE",
-			action_info: {
-				scene: {
-					scene_id: 123
-				}
-			}
-		}
-		getAccessToken(AppID, AppSecret).then((accessToken: string) => getTicket(accessToken, data)).then((ticket: string)=> getQRcodeImgUrl(ticket)).then((imgUrl) => {
-			console.log(imgUrl)
-			this.setData({ qrcodeUrl: imgUrl })
-		})
+		const AppSecret = 'a04a537d9bfc2256717779a49ea0881f'
 	},
 })

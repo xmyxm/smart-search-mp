@@ -97,4 +97,16 @@ export const openLinkList: openLinkInfoType[] = [
 	// 	path: '/packages/fuwuhao/pages/index/index',
 	// 	icon: 'https://img.meituan.net/dpmobile/b37d624357f1b00d164d6c108680ab878417.png.webp',
 	// },
+	{
+		type: PathType.MiniProgramPath,
+		name: '新版一次性订阅消息',
+		path: '/packages/tempmsg/pages/subnewtm/subnewtm',
+		icon: 'https://img.meituan.net/dpmobile/7af1b6008c9910ad1fbcb84bc4f245fd5803.png.webp',
+	},
+	{
+		type: PathType.MiniProgramPath,
+		name: '弹窗订阅消息',
+		path: '/packages/tempmsg/pages/subtm/subtm',
+		icon: 'https://img.meituan.net/dpmobile/de45115e3e8bd2878a93154e228394f48346.png.webp',
+	},
 ]

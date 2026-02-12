@@ -1,0 +1,6 @@
+<navigation-bar title="{{ title }}" back="{{ true }}" color="black" background="#FFF" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<button class="btn-qrcode" bindtap="bindCreateSubscribe">订阅一次性消息</button>
+	</view>
+</scroll-view>

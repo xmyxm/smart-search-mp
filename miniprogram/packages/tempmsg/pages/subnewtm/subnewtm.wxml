@@ -1,0 +1,6 @@
+<navigation-bar title="{{ title }}" back="{{ true }}" color="black" background="#FFF" />
+<scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="container">
+		<button class="btn-qrcode" open-type="liveActivity" activity-type="1005" bindcreateliveactivity="onLiveActivityCreate">开始排队</button>
+	</view>
+</scroll-view>
