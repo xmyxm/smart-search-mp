@@ -1,6 +1,7 @@
 export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
+	SECRET: 'a04a537d9bfc2256717779a49ea0881f',
 	APP_VERSION: '0.0.36',
 	APP_UPDATE_TIME: '2026/02/08',
 	APP_UPDATE_LOGS: [

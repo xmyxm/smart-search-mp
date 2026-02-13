@@ -1,4 +1,5 @@
-import { getAccessToken } from '../../../../utils/commonrequest'
+import { queryGlobalSubscribeStatus, openSubscribeStatus, openSettingPanel } from '../../utils/subscribe'
+import { subscribeTemplates, chooseTemplateIcons } from '../../utils/config'
 import { getTicket, getQRcodeImgUrl } from '../../utils/indexrequest'
 
 Page({
@@ -6,9 +7,16 @@ Page({
 		title: '弹窗订阅消息',
 		content: '', // 用于存储用户输入的内容
 		qrcodeUrl: '',
+		subscribeTemplateList: [],
 	},
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
+		queryGlobalSubscribeStatus(subscribeTemplates).then(res => {
+			console.log('----------查询订阅状态', res)
+			this.setData({
+				subscribeTemplateList: res.subscriptionInfoList,
+			})
+		})
 	},
 	onShow() {
 		// 页面显示/切入前台时触发。
@@ -55,6 +63,32 @@ Page({
 				})
 			},
 		}
+	},
+	bindUserTap(event: any) {
+		const { tmplid, type } = event.currentTarget.dataset
+		// 'accept'表示用户同意订阅这条消息，'reject'表示用户拒绝订阅这条消息，'ban'表示已被后台封禁
+		if (type === 'accept') {
+			return
+		} else if (type === 'reject') {
+			return openSettingPanel()
+			
+		} else if (type === 'ban') {
+			return openSettingPanel()
+		} else {
+			const list = this.data.subscribeTemplateList.map((item: any) => ({
+				...item,
+				type: item.tmplId === tmplid ? 'xuanzhong' : item.type,
+				icon: item.tmplId === tmplid ? chooseTemplateIcons.xuanzhong : item.icon,
+			}))
+			this.setData({ subscribeTemplateList: list as any })
+		}
+	},
+	bindUserSubscribe() {
+
+		const tmplIds = this.data.subscribeTemplateList.filter((item: any) => item.type === 'xuanzhong').map((item: any) => item.tmplId)
+		openSubscribeStatus(tmplIds).then(res => {
+			console.log('----------点击订阅', res)
+		})
 	},
 	// 事件处理函数
 	bindCreateSubscribe() {

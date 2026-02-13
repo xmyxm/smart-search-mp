@@ -1,6 +1,26 @@
 <navigation-bar title="{{ title }}" back="{{ true }}" color="black" background="#FFF" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
+	<view class="tmpl-list" wx:if="{{ subscribeTemplateList && subscribeTemplateList.length }}">
+		<view class="title">订阅列表平台：</view>
+		<view class="tmpl-boxs">
+			<view
+				wx:for="{{ subscribeTemplateList }}"
+				wx:for-item="item"
+				wx:key="{{ item.tmplId }}"
+				data-tmplid="{{ item.tmplId }}"
+				data-type="{{ item.type }}"
+				class="tmpl-item"
+				bindtap="bindUserTap"
+			>
+				<image class="tmpl-item-img" src="{{ item.icon }}" mode="cover" />
+				<text class="tmpl-item-title">{{ item.title }}</text>
+			</view>
+		</view>
+	</view>
 	<view class="container">
-		<button class="btn-qrcode" bindtap="bindCreateSubscribe">订阅一次性消息</button>
+		<button class="btn-qrcode" bindtap="bindUserSubscribe">订阅一次性消息</button>
+	</view>
+	<view class="container">
+		<button class="btn-qrcode" bindtap="bindCreateSubscribe">发送一次性消息</button>
 	</view>
 </scroll-view>
