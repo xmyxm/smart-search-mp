@@ -1,6 +1,7 @@
 import { queryGlobalSubscribeStatus, openSubscribeStatus, openSettingPanel } from '../../utils/subscribe'
+import { getAccessToken, getUserInfo } from '../../../../utils/commonrequest'
 import { subscribeTemplates, chooseTemplateIcons } from '../../utils/config'
-import { getTicket, getQRcodeImgUrl } from '../../utils/indexrequest'
+import { setSubscribeMessage } from '../../utils/indexrequest'
 
 Page({
 	data: {
@@ -77,8 +78,8 @@ Page({
 		} else {
 			const list = this.data.subscribeTemplateList.map((item: any) => ({
 				...item,
-				type: item.tmplId === tmplid ? 'xuanzhong' : item.type,
-				icon: item.tmplId === tmplid ? chooseTemplateIcons.xuanzhong : item.icon,
+				type: item.tmplId === tmplid ? 'xuanzhong' : '',
+				icon: item.tmplId === tmplid ? chooseTemplateIcons.xuanzhong : chooseTemplateIcons.daixuanze,
 			}))
 			this.setData({ subscribeTemplateList: list as any })
 		}
@@ -95,5 +96,33 @@ Page({
 		const AppID = 'wxddad6eb2e48f7db3'
 		// 没有服务号的管理或开发权限看不到 AppSecret
 		const AppSecret = 'a04a537d9bfc2256717779a49ea0881f'
+
+		const tmplInfo = (this.data.subscribeTemplateList as Array<any>).find((item: any) => item.type === 'accept');
+
+		if (tmplInfo) {
+			const { tmplId, data } = tmplInfo;
+			const oprions = {
+				template_id: tmplId,
+				page: 'pages/index/index',
+				touser: '', // 接收者（用户）的 openid
+				data,
+				miniprogram_state: 'formal',
+				lang: 'zh_CN'
+			}
+			getUserInfo().then((userInfo: any) => {
+				if (userInfo) {
+					oprions.touser = userInfo.openid
+				}
+				return getAccessToken(AppID, AppSecret)
+			}).then((accessToken: string) => setSubscribeMessage(accessToken, oprions)).then((res) => {
+				console.log('----------发送成功', res)
+			})
+		} else {
+			wx.showToast({
+				title: '请先完成消息订阅',
+				icon: 'none',
+				duration: 2000,
+			})
+		}
 	},
 })

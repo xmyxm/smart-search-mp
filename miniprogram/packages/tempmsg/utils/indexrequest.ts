@@ -61,3 +61,34 @@ export function getQRcodeImgUrl(ticket: string): Promise<string> {
 	})
 }
 
+/**
+ * 发送订阅消息
+ * @param access_token 
+ * @param data 
+ * @returns 
+ */
+export function setSubscribeMessage(access_token: string, data: object): Promise<string> {
+	return new Promise(resolve => {
+		const url = `https://qqweb.top/api/wxsubscribesend?access_token=${access_token}`
+		wx.request({
+			url,
+			method: 'POST',
+			data,
+			header: {
+				'content-type': 'application/json', // 默认值
+			},
+			success: (res: any) => {
+				if (res.data.data) {
+					resolve(res.data.data)
+				} else {
+					console.error('通过ticket换取二维码失败', res)
+					resolve('')
+				}
+			},
+			fail: err => {
+				console.error('通过ticket换取二维码异常', err)
+				resolve('')
+			},
+		})
+	})
+}

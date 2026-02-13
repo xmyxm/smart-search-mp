@@ -20,17 +20,19 @@ export function queryGlobalSubscribeStatus(subscribeTemplates = []) {
                         type: itemSettings[key]
                     })
                 })
-                subscribeTemplates.forEach(({ tmplId, title }) => {
+                subscribeTemplates.forEach(({ tmplId, title, data }) => {
                     const info = result.subscriptionInfoList.find(info => info.tmplId === tmplId)
                     if (!info) {
                         result.subscriptionInfoList.push({
                             tmplId,
                             type: '',
                             title: title,
+                            data: data,
                             icon: chooseTemplateIcons.daixuanze
                         })
                     } else {
                         info.title = title
+                        info.data = data
                         info.icon = chooseTemplateIcons[info.type]
                     }
                 })
