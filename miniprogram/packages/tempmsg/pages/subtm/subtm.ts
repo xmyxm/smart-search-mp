@@ -9,6 +9,7 @@ Page({
 		content: '', // 用于存储用户输入的内容
 		qrcodeUrl: '',
 		subscribeTemplateList: [],
+		logContent: '',
 	},
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
@@ -91,6 +92,11 @@ Page({
 			console.log('----------点击订阅', res)
 		})
 	},
+	addLogContent(content: string) {
+		this.setData({
+			logContent: this.data.logContent + content + '\n',
+		})
+	},
 	// 事件处理函数
 	bindCreateSubscribe() {
 		const AppID = 'wxddad6eb2e48f7db3'
@@ -114,8 +120,23 @@ Page({
 					oprions.touser = userInfo.openid
 				}
 				return getAccessToken(AppID, AppSecret)
-			}).then((accessToken: string) => setSubscribeMessage(accessToken, oprions)).then((res) => {
-				console.log('----------发送成功', res)
+			}).then((accessToken: string) => setSubscribeMessage(accessToken, oprions)).then((res: any) => {
+				if (res.errcode === 0) {
+					this.addLogContent('发送成功');
+					wx.showToast({
+						title: '发送成功',
+						icon: 'success',
+						duration: 2000,
+					})
+				} else {
+					wx.showToast({
+						title: '发送失败',
+						icon: 'none',
+						duration: 2000,
+					})
+					this.addLogContent('发送失败');
+					this.addLogContent(res.errmsg);
+				}
 			})
 		} else {
 			wx.showToast({

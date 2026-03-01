@@ -24,8 +24,8 @@
 }
 
 .tmpl-list .tmpl-item-img {
-	width: 30rpx;
-	height: 30rpx;
+	width: 40rpx;
+	height: 40rpx;
 	margin-right: 20rpx;	
 	border-radius: 50%;
 }
@@ -33,15 +33,33 @@
 .tmpl-list .tmpl-item-title {
 	font-size: 28rpx;
 }
-.container {
+.btn-list {
 	padding: 40rpx 40rpx;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 24rpx;
 }
 
-.btn-qrcode {
-	width: 340rpx;
+.btn-item {
 	height: 80rpx;
 	color: #ffffff;
 	background-color: #1aad19;
-	margin: 40rpx auto;
+	margin: 0;
 	border-radius: 8rpx;
+	white-space: nowrap;
+}
+
+.log-content {
+	margin: 40rpx 40rpx;
+}
+
+.user-content {
+	min-height: 800rpx;
+	width: 100%;
+	background-color: #e1e1e1;
+	border-radius: 16rpx;
+	padding: 20rpx;
+	color: #515151;
 }

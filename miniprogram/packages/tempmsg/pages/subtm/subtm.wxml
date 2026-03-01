@@ -17,10 +17,17 @@
 			</view>
 		</view>
 	</view>
-	<view class="container">
-		<button class="btn-qrcode" bindtap="bindUserSubscribe">订阅一次性消息</button>
+	<view class="btn-list">
+		<button class="btn-item" bindtap="bindUserSubscribe">订阅一次性消息</button>
+		<button class="btn-item" bindtap="bindCreateSubscribe">发送消息</button>
 	</view>
-	<view class="container">
-		<button class="btn-qrcode" bindtap="bindCreateSubscribe">发送一次性消息</button>
+
+	<view class="log-content">
+		<textarea
+			class="user-content"
+			auto-focus
+			auto-height
+			value="{{logContent}}"
+		/>
 	</view>
 </scroll-view>
