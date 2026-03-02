@@ -47,9 +47,9 @@ export function queryGlobalSubscribeStatus(subscribeTemplates = []) {
 }
 
 // 点击订阅
-export function openSubscribeStatus(subscribeTemplates) {
+export function openSubscribeStatus(tmplIds) {
     return new Promise((resolve) => {
-        console['log']('----------点击订阅', subscribeTemplates)
+        console['log']('----------点击订阅', tmplIds)
         wx.getSetting({
             withSubscriptions: true,
             success: function (res) {
@@ -65,7 +65,7 @@ export function openSubscribeStatus(subscribeTemplates) {
                 console['log']('----------点击订阅查询订阅状态1', mainSwitch, subscriptionInfoList)
                 if (mainSwitch) {
                     // 是否全部保持以上选择
-                    const isAllKeep = subscribeTemplates.every(tmplId => subscriptionInfoList.find(info => info.tmplId === tmplId));
+                    const isAllKeep = tmplIds.every(tmplId => subscriptionInfoList.find(info => info.tmplId === tmplId));
                     if (isAllKeep) {
                         // that.subscriptionInfoList = subscriptionInfoList
                         wx.openSetting({
@@ -80,7 +80,7 @@ export function openSubscribeStatus(subscribeTemplates) {
                     } else {
                         // 订阅弹窗曝光
                         wx.requestSubscribeMessage({
-                            tmplIds: subscribeTemplates,
+                            tmplIds,
                             success: function (data) {
                                 const currentSubscriptionInfo = {}
                                 let openList = [] // 是否有开启订阅
@@ -93,11 +93,6 @@ export function openSubscribeStatus(subscribeTemplates) {
                                     }
                                 })
                                 console['log']('----------点击订阅弹窗回调', currentSubscriptionInfo)
-                                const valLab = {
-                                    custom: {
-                                        select_status: openList.join(',') || '-999'
-                                    }
-                                }
                                 wx.getSetting({
                                     withSubscriptions: true,
                                     success: function (res) {

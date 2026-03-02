@@ -89,6 +89,16 @@ Page({
 		const tmplIds = this.data.subscribeTemplateList.filter((item: any) => item.type === 'xuanzhong').map((item: any) => item.tmplId)
 		openSubscribeStatus(tmplIds).then(res => {
 			console.log('----------点击订阅', res)
+			if (res && res.isPass) {
+				const list = this.data.subscribeTemplateList.map((item: any) => {
+					if (res.currentSubscriptionInfo[item.tmplId]) {
+						item.type = res.currentSubscriptionInfo[item.tmplId]
+						item.icon = res.currentSubscriptionInfo[item.tmplId]
+					}
+					return { ...item }
+				})
+				this.setData({ subscribeTemplateList: list as any })
+			}
 		})
 	},
 	addLogContent(content: string) {
