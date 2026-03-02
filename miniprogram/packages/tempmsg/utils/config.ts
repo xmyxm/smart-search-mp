@@ -33,10 +33,10 @@ export const subscribeTemplates = [
                 value: '张三'
             },
             date4: {
-                value: '2026-12-18'
+                value: new Date().toLocaleDateString()
             },
             time5: {
-                value: '18:24:00'
+                value: new Date().toLocaleTimeString()
             },
         }
     },
@@ -63,10 +63,10 @@ export const subscribeTemplates = [
         title: '宣讲会通知',
         data: {
             thing1: {
-                value: '每日7:天天公司宣讲'
+                value: '天天公司宣讲'
             },
             date2: {
-                value: '2026-012-01'
+                value: new Date().toLocaleDateString()
             },
             thing3: {
                 value: '体育馆'
@@ -81,7 +81,7 @@ export const subscribeTemplates = [
         title: '订阅课程开课提醒',
         data: {
             thing2: {
-                value: '每日7:ps入门到精通'
+                value: 'PS入门到精通'
             },
             thing3: {
                 value: '第一讲：操作界面的使用'

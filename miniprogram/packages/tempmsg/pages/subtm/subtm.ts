@@ -79,14 +79,13 @@ Page({
 		} else {
 			const list = this.data.subscribeTemplateList.map((item: any) => ({
 				...item,
-				type: item.tmplId === tmplid ? 'xuanzhong' : '',
+				type: item.tmplId === tmplid ? 'xuanzhong' : item.type,
 				icon: item.tmplId === tmplid ? chooseTemplateIcons.xuanzhong : item.icon,
 			}))
 			this.setData({ subscribeTemplateList: list as any })
 		}
 	},
 	bindUserSubscribe() {
-
 		const tmplIds = this.data.subscribeTemplateList.filter((item: any) => item.type === 'xuanzhong').map((item: any) => item.tmplId)
 		openSubscribeStatus(tmplIds).then(res => {
 			console.log('----------点击订阅', res)
