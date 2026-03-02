@@ -12,17 +12,25 @@
 				class="tmpl-item"
 				bindtap="bindUserTap"
 			>
-				<image class="tmpl-item-img" src="{{ item.icon }}" mode="cover" />
-				<text class="tmpl-item-title">{{ item.title }}</text>
+				<view class="tmpl-item-box">
+					<image class="tmpl-item-img" src="{{ item.icon }}" mode="cover" />
+					<text class="tmpl-item-title">{{ item.title }}</text>
+				</view>
+				<view wx:if="{{ item.type === 'accept' }}" class="tmpl-item-btn" data-tmplid="{{ item.tmplId }}" bindtap="bindCreateSubscribe">
+					发送消息
+				</view>
 			</view>
 		</view>
 	</view>
 	<view class="btn-list">
 		<button class="btn-item" bindtap="bindUserSubscribe">订阅一次性消息</button>
-		<button class="btn-item" bindtap="bindCreateSubscribe">发送消息</button>
 	</view>
 
 	<view class="log-content">
+		<view class="log-title-box">
+			<text class="log-title-content">日志内容：</text>
+			<text class="log-clear-btn" bindtap="clearLogContent">清空日志</text>
+		</view>
 		<textarea
 			class="user-content"
 			auto-focus

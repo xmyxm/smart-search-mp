@@ -5,7 +5,7 @@
 .tmpl-list .title {
 	font-size: 28rpx;
 	font-weight: bold;
-	margin-bottom: 20rpx;
+	margin-bottom: 10rpx;
 }
 
 .tmpl-list .tmpl-boxs {
@@ -18,9 +18,28 @@
 .tmpl-list .tmpl-item {
 	display: flex;
 	flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
 	align-items: center;
-	margin-top: 20rpx;
+	margin-top: 30rpx;
+}
+
+.tmpl-list .tmpl-item-box {
+	display: flex;
+	flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tmpl-list .tmpl-item-btn {
+	display: flex;
+	flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+	background-color: #1aad19;
+    color: #fff;
+    font-size: 24rpx;
+    border-radius: 8rpx;
+    padding: 4rpx 8rpx;
 }
 
 .tmpl-list .tmpl-item-img {
@@ -43,6 +62,7 @@
 }
 
 .btn-item {
+	flex: 1;
 	height: 80rpx;
 	color: #ffffff;
 	background-color: #1aad19;
@@ -52,10 +72,30 @@
 }
 
 .log-content {
-	margin: 40rpx 40rpx;
+	padding: 30rpx;
+}
+
+.log-title-box {
+	display: flex;
+	flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.log-title-content {
+	font-size: 28rpx;
+	font-weight: bold;
+}
+
+.log-clear-btn {
+	font-size: 24rpx;
+	background-color: #cccaca;
+    border-radius: 8rpx;
+    padding: 4rpx 8rpx;
 }
 
 .user-content {
+	margin-top: 20rpx;
 	min-height: 800rpx;
 	width: 100%;
 	background-color: #e1e1e1;

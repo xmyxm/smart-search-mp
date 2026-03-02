@@ -87,7 +87,7 @@ export const subscribeTemplates = [
                 value: '第一讲：操作界面的使用'
             },
             date5: {
-                value: '2026年12月16日 20：00'
+                value: new Date().toLocaleDateString()
             },
             character_string6: {
                 value: '1/10'

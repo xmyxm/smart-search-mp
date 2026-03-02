@@ -97,13 +97,19 @@ Page({
 			logContent: this.data.logContent + content + '\n',
 		})
 	},
+	clearLogContent() {
+		this.setData({
+			logContent: '',
+		})
+	},
 	// 事件处理函数
-	bindCreateSubscribe() {
+	bindCreateSubscribe(event: any) {
+		const { tmplid } = event.currentTarget.dataset
 		const AppID = 'wxddad6eb2e48f7db3'
 		// 没有服务号的管理或开发权限看不到 AppSecret
 		const AppSecret = 'a04a537d9bfc2256717779a49ea0881f'
 
-		const tmplInfo = (this.data.subscribeTemplateList as Array<any>).find((item: any) => item.type === 'accept');
+		const tmplInfo = (this.data.subscribeTemplateList as Array<any>).find((item: any) => item.tmplId === tmplid) as any;
 
 		if (tmplInfo) {
 			const { tmplId, data } = tmplInfo;
