@@ -33,6 +33,7 @@
 		</view>
 		<textarea
 			class="user-content"
+			maxlength="-1"
 			auto-focus
 			auto-height
 			value="{{logContent}}"

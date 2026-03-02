@@ -79,8 +79,8 @@ Page({
 		} else {
 			const list = this.data.subscribeTemplateList.map((item: any) => ({
 				...item,
-				type: item.tmplId === tmplid ? 'xuanzhong' : item.type,
-				icon: item.tmplId === tmplid ? chooseTemplateIcons.xuanzhong : item.icon,
+				type: item.tmplId === tmplid ? (type === 'xuanzhong' ? 'daixuanze' :'xuanzhong') : item.type,
+				icon: item.tmplId === tmplid ? (type === 'xuanzhong' ? chooseTemplateIcons.daixuanze : chooseTemplateIcons.xuanzhong) : item.icon,
 			}))
 			this.setData({ subscribeTemplateList: list as any })
 		}
@@ -92,8 +92,9 @@ Page({
 			if (res && res.isPass) {
 				const list = this.data.subscribeTemplateList.map((item: any) => {
 					if (res.currentSubscriptionInfo[item.tmplId]) {
-						item.type = res.currentSubscriptionInfo[item.tmplId]
-						item.icon = res.currentSubscriptionInfo[item.tmplId]
+						const type = res.currentSubscriptionInfo[item.tmplId] as string
+						item.type = type
+						item.icon = chooseTemplateIcons[type]
 					}
 					return { ...item }
 				})
@@ -121,7 +122,7 @@ Page({
 		const tmplInfo = (this.data.subscribeTemplateList as Array<any>).find((item: any) => item.tmplId === tmplid) as any;
 
 		if (tmplInfo) {
-			const { tmplId, data } = tmplInfo;
+			const { tmplId, data, title } = tmplInfo;
 			const oprions = {
 				template_id: tmplId,
 				page: 'pages/index/index',
@@ -137,7 +138,7 @@ Page({
 				return getAccessToken(AppID, AppSecret)
 			}).then((accessToken: string) => setSubscribeMessage(accessToken, oprions)).then((res: any) => {
 				if (res.errcode === 0) {
-					this.addLogContent('发送成功');
+					this.addLogContent(`${title}: 发送成功`);
 					wx.showToast({
 						title: '发送成功',
 						icon: 'success',
@@ -149,7 +150,7 @@ Page({
 						icon: 'none',
 						duration: 2000,
 					})
-					this.addLogContent('发送失败');
+					this.addLogContent(`${title}: 发送失败`);
 					this.addLogContent(res.errmsg);
 				}
 			})

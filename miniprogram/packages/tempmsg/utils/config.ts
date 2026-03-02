@@ -94,9 +94,69 @@ export const subscribeTemplates = [
             },
         }
     },
+    {
+        tmplId: 'w2MqZkXg8AGMmoUZYueqeY2mmXp9yFRDyUp3i3NmZJU',
+        title: '砍价成功通知',
+        data: {
+            thing1: {
+                value: '幼儿编程精讲课'
+            },
+            phrase2: {
+                value: '已砍完'
+            },
+            thing3: {
+                value: '领取成功后在我的课程查看'
+            },
+            thing4: {
+                value: '点击查看详情领取'
+            },
+            thing5: {
+                value: '邀好友砍价得《幼儿编程入门实践》'
+            },
+        }
+    },
+    {
+        tmplId: 'JTbLdEUoTVbxMRXYXL2Ancm21AYT7Ybtxh7DMlok0Hg',
+        title: '拼团成功通知',
+        data: {
+            phrase2: {
+                value: '已完成'
+            },
+            thing3: {
+                value: '领取成功后在我的课程查看'
+            },
+            thing4: {
+                value: '点击查看详情领取'
+            },
+            time5: {
+                value: formatMiniTime(new Date())
+            },
+            thing7: {
+                value: '飞碟'
+            },
+        }
+    },
+    {
+        tmplId: 'EGh-QFkroJgb7rGwl-IF0wstWkxFjGJ7LQ6HgnfaGa4',
+        title: '活动预约提醒',
+        data: {
+            thing2: {
+                value: '秒杀活动预约提醒'
+            },
+            date3: {
+                value: new Date().toLocaleDateString()
+            },
+            thing4: {
+                value: '大量精品商品等你来抢'
+            },
+            thing10: {
+                value: '上海市杨浦区黄兴路221号'
+            },
+        }
+    },
 ]
 
-export const chooseTemplateIcons = {
+export const chooseTemplateIcons: Record<string, string> = {
     xuanzhong: 'https://img.meituan.net/dpmobile/55ab7f172eb0b5121dfb5a261ec5085f4806.png.webp',
     daixuanze: 'https://img.meituan.net/dpmobile/e09b33c07ffa6570c1e2457822adbfa63263.png.webp',
     // 已订阅
