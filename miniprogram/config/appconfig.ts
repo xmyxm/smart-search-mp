@@ -2,10 +2,10 @@ export default {
 	APP_NAME: 'smart-search-mp',
 	APPID: 'wxddad6eb2e48f7db3',
 	SECRET: 'a04a537d9bfc2256717779a49ea0881f',
-	APP_VERSION: '0.0.36',
-	APP_UPDATE_TIME: '2026/03/01',
+	APP_VERSION: '0.0.38',
+	APP_UPDATE_TIME: '2026/03/02',
 	APP_UPDATE_LOGS: [
-		{ time: '2026/03/01', msg: '弹窗订阅消息页面' },
+		{ time: '2026/03/02', msg: '弹窗订阅消息页面' },
 		{ time: '2026/02/08', msg: '更新style' },
 		{ time: '2025/09/27', msg: '新增小程序scheme生成工具' },
 		{ time: '2025/09/15', msg: '开启小程序跳转开发版功能（仅开发版跳开发版）' },
