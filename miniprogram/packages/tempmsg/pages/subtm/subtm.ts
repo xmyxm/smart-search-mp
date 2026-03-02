@@ -80,7 +80,7 @@ Page({
 			const list = this.data.subscribeTemplateList.map((item: any) => ({
 				...item,
 				type: item.tmplId === tmplid ? 'xuanzhong' : '',
-				icon: item.tmplId === tmplid ? chooseTemplateIcons.xuanzhong : chooseTemplateIcons.daixuanze,
+				icon: item.tmplId === tmplid ? chooseTemplateIcons.xuanzhong : item.icon,
 			}))
 			this.setData({ subscribeTemplateList: list as any })
 		}

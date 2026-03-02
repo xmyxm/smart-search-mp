@@ -100,7 +100,7 @@ export const chooseTemplateIcons = {
     xuanzhong: 'https://img.meituan.net/dpmobile/55ab7f172eb0b5121dfb5a261ec5085f4806.png.webp',
     daixuanze: 'https://img.meituan.net/dpmobile/e09b33c07ffa6570c1e2457822adbfa63263.png.webp',
     // 已订阅
-    accept: 'https://img.meituan.net/dpmobile/d89431812aa19c6cc13891172d000fa96901.png.webp',
+    accept: 'https://img.meituan.net/dpmobile/4b6eca8119aba63e8cc40909a7293cbe5043.png.webp', //'https://img.meituan.net/dpmobile/d89431812aa19c6cc13891172d000fa96901.png.webp',
     // 拒绝
     reject: 'https://img.meituan.net/dpmobile/87a381e90b749326a99ad4f3810f930d3466.png.webp',
 }
