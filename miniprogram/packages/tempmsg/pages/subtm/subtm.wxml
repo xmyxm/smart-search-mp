@@ -7,16 +7,18 @@
 				wx:for="{{ subscribeTemplateList }}"
 				wx:for-item="item"
 				wx:key="{{ item.tmplId }}"
-				data-tmplid="{{ item.tmplId }}"
-				data-type="{{ item.type }}"
 				class="tmpl-item"
-				bindtap="bindUserTap"
 			>
-				<view class="tmpl-item-box">
+				<view 
+					class="tmpl-item-box"
+					data-tmplid="{{ item.tmplId }}"
+					data-type="{{ item.type }}"
+					bindtap="bindUserTap"
+				>
 					<image class="tmpl-item-img" src="{{ item.icon }}" mode="cover" />
 					<text class="tmpl-item-title">{{ item.title }}</text>
 				</view>
-				<view wx:if="{{ item.type === 'accept' }}" class="tmpl-item-btn" data-tmplid="{{ item.tmplId }}" bindtap="bindCreateSubscribe">
+				<view wx:if="{{ item.type === 'acceptWithForcePush' || item.type === 'accept' }}" class="tmpl-item-btn" data-tmplid="{{ item.tmplId }}" bindtap="bindCreateSubscribe">
 					发送消息
 				</view>
 			</view>

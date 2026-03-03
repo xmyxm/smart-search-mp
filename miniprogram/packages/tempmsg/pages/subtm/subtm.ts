@@ -69,21 +69,21 @@ Page({
 	bindUserTap(event: any) {
 		const { tmplid, type } = event.currentTarget.dataset
 		// 'accept'表示用户同意订阅这条消息，'reject'表示用户拒绝订阅这条消息，'ban'表示已被后台封禁
-		if (type === 'accept') {
-			return
-		} else if (type === 'reject') {
-			return openSettingPanel()
+		// if (type === 'accept' || type === 'acceptWithForcePush') {
+		// 	return
+		// } else if (type === 'reject') {
+		// 	return openSettingPanel()
 			
-		} else if (type === 'ban') {
-			return openSettingPanel()
-		} else {
+		// } else if (type === 'ban') {
+		// 	return openSettingPanel()
+		// } else {
 			const list = this.data.subscribeTemplateList.map((item: any) => ({
 				...item,
 				type: item.tmplId === tmplid ? (type === 'xuanzhong' ? 'daixuanze' :'xuanzhong') : item.type,
 				icon: item.tmplId === tmplid ? (type === 'xuanzhong' ? chooseTemplateIcons.daixuanze : chooseTemplateIcons.xuanzhong) : item.icon,
 			}))
 			this.setData({ subscribeTemplateList: list as any })
-		}
+		// }
 	},
 	bindUserSubscribe() {
 		const tmplIds = this.data.subscribeTemplateList.filter((item: any) => item.type === 'xuanzhong').map((item: any) => item.tmplId)
@@ -99,6 +99,12 @@ Page({
 					return { ...item }
 				})
 				this.setData({ subscribeTemplateList: list as any })
+			} else {
+				wx.showToast({
+					title: '请到设置面板取消拒绝接收订阅',
+					icon: 'none',
+					duration: 2000,
+				})
 			}
 		})
 	},

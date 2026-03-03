@@ -162,7 +162,13 @@ export const chooseTemplateIcons: Record<string, string> = {
     // 已订阅
     accept: 'https://img.meituan.net/dpmobile/4b6eca8119aba63e8cc40909a7293cbe5043.png.webp', //'https://img.meituan.net/dpmobile/d89431812aa19c6cc13891172d000fa96901.png.webp',
     // 拒绝
-    reject: 'https://img.meituan.net/dpmobile/87a381e90b749326a99ad4f3810f930d3466.png.webp',
+    reject: 'https://img.meituan.net/dpmobile/fbfd90b98964e9b5f094b9c66685fdf66906.png.webp',
+    // 已订阅并通过横幅提醒
+    acceptWithForcePush: 'https://img.meituan.net/dpmobile/54f755735d0cf4ebb401abe29ee9c70c6143.png.webp',
+    // 'ban'表示已被后台封禁
+    ban: 'https://img.meituan.net/dpmobile/e0530e96829e20da1ea61993cce250777315.png.webp',
+    // 'filter'表示该模板因为模板标题同名被后台过滤
+    filter: 'https://img.meituan.net/dpmobile/a5d24a77644d45bb4cd402f35e622c676044.png.webp',
 }
 
 export default subscribeTemplates

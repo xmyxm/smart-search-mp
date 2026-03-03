@@ -66,18 +66,18 @@ export function openSubscribeStatus(tmplIds) {
                 if (mainSwitch) {
                     // 是否全部保持以上选择
                     const isAllKeep = tmplIds.every(tmplId => subscriptionInfoList.find(info => info.tmplId === tmplId));
-                    if (isAllKeep) {
-                        // that.subscriptionInfoList = subscriptionInfoList
-                        wx.openSetting({
-                            success: function (res) {
-                                console['log']('----------点击订阅打开设置成功', res)
-                            },
-                            fail: function (data) {
-                                console['log']('----------点击订阅打开设置失败', data)
-                            },
-                        })
-                        resolve(false)
-                    } else {
+                    // if (isAllKeep) {
+                    //     // that.subscriptionInfoList = subscriptionInfoList
+                    //     wx.openSetting({
+                    //         success: function (res) {
+                    //             console['log']('----------点击订阅打开设置成功', res)
+                    //         },
+                    //         fail: function (data) {
+                    //             console['log']('----------点击订阅打开设置失败', data)
+                    //         },
+                    //     })
+                    //     resolve(false)
+                    // } else {
                         // 订阅弹窗曝光
                         wx.requestSubscribeMessage({
                             tmplIds,
@@ -87,7 +87,7 @@ export function openSubscribeStatus(tmplIds) {
                                 Object.keys(data).forEach((key) => {
                                     if (key !== 'errMsg') {
                                         currentSubscriptionInfo[key] = data[key]
-                                        if (data[key] === 'accept' && !subscriptionInfoList.find(info => info.tmplId === key && ['accept', 'acceptWithForcePush'].includes(info.type))) {
+                                        if (['accept', 'acceptWithForcePush'].includes(data[key])) {
                                             openList.push(key)
                                         }
                                     }
@@ -121,7 +121,7 @@ export function openSubscribeStatus(tmplIds) {
                                 resolve(false)
                             },
                         })
-                    }
+                    // }
                 } else {
                     // that.subscriptionInfoList = subscriptionInfoList
                     wx.openSetting({
