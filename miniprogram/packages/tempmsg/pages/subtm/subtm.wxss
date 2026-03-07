@@ -11,14 +11,14 @@
 .tmpl-list .tmpl-boxs {
 	display: flex;
 	flex-direction: column;
-    justify-content: flex-start;
-    align-items: left;
+	justify-content: flex-start;
+	align-items: left;
 }
 
 .tmpl-list .tmpl-item {
 	display: flex;
 	flex-direction: row;
-    justify-content: space-between;
+	justify-content: space-between;
 	align-items: center;
 	margin-top: 30rpx;
 }
@@ -26,26 +26,26 @@
 .tmpl-list .tmpl-item-box {
 	display: flex;
 	flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .tmpl-list .tmpl-item-btn {
 	display: flex;
 	flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
+	justify-content: flex-end;
+	align-items: center;
 	background-color: #1aad19;
-    color: #fff;
-    font-size: 24rpx;
-    border-radius: 8rpx;
-    padding: 4rpx 8rpx;
+	color: #fff;
+	font-size: 24rpx;
+	border-radius: 8rpx;
+	padding: 4rpx 8rpx;
 }
 
 .tmpl-list .tmpl-item-img {
 	width: 40rpx;
 	height: 40rpx;
-	margin-right: 20rpx;	
+	margin-right: 20rpx;
 	border-radius: 50%;
 }
 
@@ -78,8 +78,8 @@
 .log-title-box {
 	display: flex;
 	flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .log-title-content {
@@ -90,8 +90,8 @@
 .log-clear-btn {
 	font-size: 24rpx;
 	background-color: #cccaca;
-    border-radius: 8rpx;
-    padding: 4rpx 8rpx;
+	border-radius: 8rpx;
+	padding: 4rpx 8rpx;
 }
 
 .user-content {

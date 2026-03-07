@@ -25,10 +25,7 @@
 		},
 		{
 			"root": "packages/tempmsg",
-			"pages": [
-				"pages/subnewtm/subnewtm",
-				"pages/subtm/subtm"
-			]
+			"pages": ["pages/subnewtm/subnewtm", "pages/subtm/subtm"]
 		}
 	],
 	"tabBar": {

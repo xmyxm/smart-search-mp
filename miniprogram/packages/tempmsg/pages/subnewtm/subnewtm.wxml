@@ -1,6 +1,20 @@
 <navigation-bar title="{{ title }}" back="{{ true }}" color="black" background="#FFF" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
-		<button class="btn-qrcode" open-type="liveActivity" activity-type="1005" bindcreateliveactivity="onLiveActivityCreate">开始排队</button>
+		<button
+			class="btn-qrcode"
+			open-type="liveActivity"
+			activity-type="1005"
+			bindcreateliveactivity="onLiveActivityCreate"
+		>
+			激活一次性订阅消息
+		</button>
+	</view>
+	<view class="log-content">
+		<view class="log-title-box">
+			<text class="log-title-content">日志内容：</text>
+			<text class="log-clear-btn" bindtap="clearLogContent">清空日志</text>
+		</view>
+		<textarea class="user-content" maxlength="-1" auto-focus auto-height value="{{logContent}}" />
 	</view>
 </scroll-view>

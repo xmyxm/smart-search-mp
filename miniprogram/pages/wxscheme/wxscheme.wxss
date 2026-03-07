@@ -31,7 +31,6 @@
 	margin-left: 4rpx;
 }
 
-
 .platform {
 	display: flex;
 	justify-content: space-between;

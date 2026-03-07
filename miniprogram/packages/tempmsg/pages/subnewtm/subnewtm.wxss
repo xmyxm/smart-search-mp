@@ -3,10 +3,45 @@
 }
 
 .btn-qrcode {
-	width: 340rpx;
+	width: auto;
 	height: 80rpx;
+	padding: 0 32rpx;
 	color: #ffffff;
 	background-color: #1aad19;
 	margin: 40rpx auto;
 	border-radius: 8rpx;
+	white-space: nowrap;
+}
+
+.log-content {
+	padding: 30rpx;
+}
+
+.log-title-box {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.log-title-content {
+	font-size: 28rpx;
+	font-weight: bold;
+}
+
+.log-clear-btn {
+	font-size: 24rpx;
+	background-color: #cccaca;
+	border-radius: 8rpx;
+	padding: 4rpx 8rpx;
+}
+
+.user-content {
+	margin-top: 20rpx;
+	min-height: 800rpx;
+	width: 100%;
+	background-color: #e1e1e1;
+	border-radius: 16rpx;
+	padding: 20rpx;
+	color: #515151;
 }

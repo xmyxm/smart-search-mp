@@ -1,8 +1,8 @@
 /**
  * 激活与更新服务卡片
- * @param access_token 
- * @param data 
- * @returns 
+ * @param access_token
+ * @param data
+ * @returns
  */
 export function setUserNotify(access_token: string, data: object): Promise<string> {
 	return new Promise(resolve => {
@@ -15,8 +15,8 @@ export function setUserNotify(access_token: string, data: object): Promise<strin
 				'content-type': 'application/json', // 默认值
 			},
 			success: (res: any) => {
-				if (res.data.data) {
-					resolve(res.data.data)
+				if (res.data) {
+					resolve(res.data)
 				} else {
 					console.error('激活与更新服务卡片失败', res)
 					resolve('')
@@ -32,8 +32,8 @@ export function setUserNotify(access_token: string, data: object): Promise<strin
 
 /**
  * 通过ticket换取二维码 URL
- * @param ticket 
- * @returns 
+ * @param ticket
+ * @returns
  */
 export function getQRcodeImgUrl(ticket: string): Promise<string> {
 	return new Promise(resolve => {
@@ -63,9 +63,9 @@ export function getQRcodeImgUrl(ticket: string): Promise<string> {
 
 /**
  * 发送订阅消息
- * @param access_token 
- * @param data 
- * @returns 
+ * @param access_token
+ * @param data
+ * @returns
  */
 export function setSubscribeMessage(access_token: string, data: object): Promise<string> {
 	return new Promise(resolve => {

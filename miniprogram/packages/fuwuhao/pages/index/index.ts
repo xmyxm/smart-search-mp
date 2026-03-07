@@ -63,16 +63,19 @@ Page({
 		const AppSecret = 'cd011983a415b327892e75cd5ce5e9f1'
 		const data = {
 			expire_seconds: 604800,
-			action_name: "QR_SCENE",
+			action_name: 'QR_SCENE',
 			action_info: {
 				scene: {
-					scene_id: 123
-				}
-			}
+					scene_id: 123,
+				},
+			},
 		}
-		getAccessToken(AppID, AppSecret).then((accessToken: string) => getTicket(accessToken, data)).then((ticket: string)=> getQRcodeImgUrl(ticket)).then((imgUrl) => {
-			console.log(imgUrl)
-			this.setData({ qrcodeUrl: imgUrl })
-		})
+		getAccessToken(AppID, AppSecret)
+			.then((accessToken: string) => getTicket(accessToken, data))
+			.then((ticket: string) => getQRcodeImgUrl(ticket))
+			.then(imgUrl => {
+				console.log(imgUrl)
+				this.setData({ qrcodeUrl: imgUrl })
+			})
 	},
 })

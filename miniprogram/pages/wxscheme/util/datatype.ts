@@ -1,12 +1,12 @@
 export interface typeInfoListType {
-	type: string,
-	name: string,
-	checked: boolean,
+	type: string
+	name: string
+	checked: boolean
 }
 
 export interface WxcodeStateType {
-	typeInfo: typeInfoListType,
-	typeInfoList: typeInfoListType[],
+	typeInfo: typeInfoListType
+	typeInfoList: typeInfoListType[]
 	path: string
 	queryStr: string
 }

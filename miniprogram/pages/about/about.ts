@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 perfComponent({
 	data: {
 		appConfig,
-		currentDateText: dayjs().format('YYYY-MM-DD')
+		currentDateText: dayjs().format('YYYY-MM-DD'),
 	},
 	methods: {
 		// 事件处理函数

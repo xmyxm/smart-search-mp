@@ -1,8 +1,8 @@
 /**
  * 获取的二维码ticket
- * @param access_token 
- * @param data 
- * @returns 
+ * @param access_token
+ * @param data
+ * @returns
  */
 export function getTicket(access_token: string, data: object): Promise<string> {
 	return new Promise(resolve => {
@@ -33,8 +33,8 @@ export function getTicket(access_token: string, data: object): Promise<string> {
 
 /**
  * 通过ticket换取二维码 URL
- * @param ticket 
- * @returns 
+ * @param ticket
+ * @returns
  */
 export function getQRcodeImgUrl(ticket: string): Promise<string> {
 	return new Promise(resolve => {
@@ -61,4 +61,3 @@ export function getQRcodeImgUrl(ticket: string): Promise<string> {
 		})
 	})
 }
-

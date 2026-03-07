@@ -35,7 +35,9 @@ function getWxDataCode(
 ): Promise<string> {
 	return new Promise(resolve => {
 		if (accessToken) {
-			let url = `https://qqweb.top/api/${api_path}?access_token=${accessToken}&path=${encodeURIComponent(path)}&query=${encodeURIComponent(query)}`
+			let url = `https://qqweb.top/api/${api_path}?access_token=${accessToken}&path=${encodeURIComponent(
+				path,
+			)}&query=${encodeURIComponent(query)}`
 			wx.request({
 				url,
 				method: 'GET',

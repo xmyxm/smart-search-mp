@@ -6,6 +6,7 @@ Page({
 		title: '新版一次性订阅消息',
 		content: '', // 用于存储用户输入的内容
 		qrcodeUrl: '',
+		logContent: '',
 	},
 	onLoad() {
 		// 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。
@@ -61,23 +62,35 @@ Page({
 		const notify_code = evt.detail.code
 		const AppID = 'wxddad6eb2e48f7db3'
 		const AppSecret = 'a04a537d9bfc2256717779a49ea0881f'
-		const content_json = JSON.stringify({
-
-		})
+		const content_json = JSON.stringify({})
 		const data = {
 			notify_type: 1005,
-			openid: "",
+			openid: '',
 			notify_code,
-			content_json
+			content_json,
 		}
-		getUserInfo().then((userInfo: any) => {
-			if (userInfo) {
-				data.openid = userInfo.openid
-			}
-			return getAccessToken(AppID, AppSecret)
-		}).then((accessToken: string) => setUserNotify(accessToken, data)).then((res) => {
-			console.log(res)
-			this.setData({ qrcodeUrl: res })
+		getUserInfo()
+			.then((userInfo: any) => {
+				if (userInfo) {
+					data.openid = userInfo.openid
+				}
+				return getAccessToken(AppID, AppSecret)
+			})
+			.then((accessToken: string) => setUserNotify(accessToken, data))
+			.then(res => {
+				console.log(res)
+				// this.setData({ qrcodeUrl: res })
+				this.addLogContent(`发送结果：${JSON.stringify(res)}`)
+			})
+	},
+	addLogContent(content: string) {
+		this.setData({
+			logContent: this.data.logContent + content + '\n',
+		})
+	},
+	clearLogContent() {
+		this.setData({
+			logContent: '',
 		})
 	},
 })

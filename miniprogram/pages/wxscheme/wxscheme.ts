@@ -14,7 +14,7 @@ const SELECTLIST = [
 		type: 'urlscheme',
 		name: 'URL Scheme',
 		checked: false,
-	}
+	},
 ]
 
 perfPage({
@@ -78,9 +78,7 @@ perfPage({
 	},
 	radioChange(event: any) {
 		console.log('选中的值为:', event.detail.value)
-		const typeInfo = this.data.typeInfoList.find(
-			(item: any) => item.type === event.detail.value,
-		)
+		const typeInfo = this.data.typeInfoList.find((item: any) => item.type === event.detail.value)
 		this.setData({ typeInfo })
 	},
 	// 处理 textarea 输入事件
@@ -155,7 +153,7 @@ perfPage({
 		this.verifyPath((path: string, queryStr: string) => {
 			wx.navigateToMiniProgram({
 				appId: APPID_KEY.DIANPING_MP_MAIN,
-				path: path + (queryStr ? `?${queryStr}`: ''),
+				path: path + (queryStr ? `?${queryStr}` : ''),
 				extraData: {},
 				envVersion: 'release', // 可选
 				success(res) {
@@ -176,31 +174,35 @@ perfPage({
 		const that = this
 		this.verifyPath((path: string, queryStr: string) => {
 			if (that.data.typeInfo.type === 'urllink') {
-				createUrlLink(path, queryStr).then((res) => {
-					console.log('====================createUrlLink sus', res)
-					//@ts-ignore
-					if (res && res.url_link) {
+				createUrlLink(path, queryStr)
+					.then(res => {
+						console.log('====================createUrlLink sus', res)
 						//@ts-ignore
-						that.copyURL(res.url_link, that.data.typeInfo.name)
-					} else {
-						that.createError()
-					}
-				}).catch(err => {
-					console.error('================createUrlLink err', err)
-				})
+						if (res && res.url_link) {
+							//@ts-ignore
+							that.copyURL(res.url_link, that.data.typeInfo.name)
+						} else {
+							that.createError()
+						}
+					})
+					.catch(err => {
+						console.error('================createUrlLink err', err)
+					})
 			} else {
-				createUrlScheme(path, queryStr).then((res) => {
-					console.log('====================createUrlScheme sus', res)
-					//@ts-ignore
-					if (res && res.openlink) {
+				createUrlScheme(path, queryStr)
+					.then(res => {
+						console.log('====================createUrlScheme sus', res)
 						//@ts-ignore
-						that.copyURL(res.openlink, that.data.typeInfo.name)
-					} else {
-						that.createError()
-					}
-				}).catch(err => {
-					console.error('================createUrlScheme err', err)
-				})
+						if (res && res.openlink) {
+							//@ts-ignore
+							that.copyURL(res.openlink, that.data.typeInfo.name)
+						} else {
+							that.createError()
+						}
+					})
+					.catch(err => {
+						console.error('================createUrlScheme err', err)
+					})
 			}
 		})
 	},
@@ -236,5 +238,5 @@ perfPage({
 				duration: 3000,
 			})
 		}, 6000)
-	}
+	},
 })

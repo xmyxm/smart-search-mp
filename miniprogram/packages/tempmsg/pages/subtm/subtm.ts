@@ -73,20 +73,27 @@ Page({
 		// 	return
 		// } else if (type === 'reject') {
 		// 	return openSettingPanel()
-			
+
 		// } else if (type === 'ban') {
 		// 	return openSettingPanel()
 		// } else {
-			const list = this.data.subscribeTemplateList.map((item: any) => ({
-				...item,
-				type: item.tmplId === tmplid ? (type === 'xuanzhong' ? 'daixuanze' :'xuanzhong') : item.type,
-				icon: item.tmplId === tmplid ? (type === 'xuanzhong' ? chooseTemplateIcons.daixuanze : chooseTemplateIcons.xuanzhong) : item.icon,
-			}))
-			this.setData({ subscribeTemplateList: list as any })
+		const list = this.data.subscribeTemplateList.map((item: any) => ({
+			...item,
+			type: item.tmplId === tmplid ? (type === 'xuanzhong' ? 'daixuanze' : 'xuanzhong') : item.type,
+			icon:
+				item.tmplId === tmplid
+					? type === 'xuanzhong'
+						? chooseTemplateIcons.daixuanze
+						: chooseTemplateIcons.xuanzhong
+					: item.icon,
+		}))
+		this.setData({ subscribeTemplateList: list as any })
 		// }
 	},
 	bindUserSubscribe() {
-		const tmplIds = this.data.subscribeTemplateList.filter((item: any) => item.type === 'xuanzhong').map((item: any) => item.tmplId)
+		const tmplIds = this.data.subscribeTemplateList
+			.filter((item: any) => item.type === 'xuanzhong')
+			.map((item: any) => item.tmplId)
 		openSubscribeStatus(tmplIds).then(res => {
 			console.log('----------点击订阅', res)
 			if (res && res.isPass) {
@@ -125,41 +132,46 @@ Page({
 		// 没有服务号的管理或开发权限看不到 AppSecret
 		const AppSecret = 'a04a537d9bfc2256717779a49ea0881f'
 
-		const tmplInfo = (this.data.subscribeTemplateList as Array<any>).find((item: any) => item.tmplId === tmplid) as any;
+		const tmplInfo = (this.data.subscribeTemplateList as Array<any>).find(
+			(item: any) => item.tmplId === tmplid,
+		) as any
 
 		if (tmplInfo) {
-			const { tmplId, data, title } = tmplInfo;
+			const { tmplId, data, title } = tmplInfo
 			const oprions = {
 				template_id: tmplId,
 				page: 'pages/index/index',
 				touser: '', // 接收者（用户）的 openid
 				data,
 				miniprogram_state: 'formal',
-				lang: 'zh_CN'
+				lang: 'zh_CN',
 			}
-			getUserInfo().then((userInfo: any) => {
-				if (userInfo) {
-					oprions.touser = userInfo.openid
-				}
-				return getAccessToken(AppID, AppSecret)
-			}).then((accessToken: string) => setSubscribeMessage(accessToken, oprions)).then((res: any) => {
-				if (res.errcode === 0) {
-					this.addLogContent(`${title}: 发送成功`);
-					wx.showToast({
-						title: '发送成功',
-						icon: 'success',
-						duration: 2000,
-					})
-				} else {
-					wx.showToast({
-						title: '发送失败',
-						icon: 'none',
-						duration: 2000,
-					})
-					this.addLogContent(`${title}: 发送失败`);
-					this.addLogContent(res.errmsg);
-				}
-			})
+			getUserInfo()
+				.then((userInfo: any) => {
+					if (userInfo) {
+						oprions.touser = userInfo.openid
+					}
+					return getAccessToken(AppID, AppSecret)
+				})
+				.then((accessToken: string) => setSubscribeMessage(accessToken, oprions))
+				.then((res: any) => {
+					if (res.errcode === 0) {
+						this.addLogContent(`${title}: 发送成功`)
+						wx.showToast({
+							title: '发送成功',
+							icon: 'success',
+							duration: 2000,
+						})
+					} else {
+						wx.showToast({
+							title: '发送失败',
+							icon: 'none',
+							duration: 2000,
+						})
+						this.addLogContent(`${title}: 发送失败`)
+						this.addLogContent(res.errmsg)
+					}
+				})
 		} else {
 			wx.showToast({
 				title: '请先完成消息订阅',
