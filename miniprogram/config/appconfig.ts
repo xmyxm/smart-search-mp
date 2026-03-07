@@ -3,8 +3,9 @@ export default {
 	APPID: 'wxddad6eb2e48f7db3',
 	SECRET: 'a04a537d9bfc2256717779a49ea0881f',
 	APP_VERSION: '0.0.39',
-	APP_UPDATE_TIME: '2026/03/03',
+	APP_UPDATE_TIME: '2026/03/07',
 	APP_UPDATE_LOGS: [
+		{ time: '2026/03/07', msg: '修复商户链接生成工具' },
 		{ time: '2026/03/03', msg: '新增重复多次订阅功能' },
 		{ time: '2026/03/02', msg: '弹窗订阅消息页面' },
 		{ time: '2026/02/08', msg: '更新style' },
