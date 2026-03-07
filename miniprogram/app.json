@@ -64,7 +64,7 @@
 	},
 	"plugins": {
 		"citySelector": {
-			"version": "1.0.2",
+			"version": "1.0.3",
 			"provider": "wx63ffb7b7894e99ae"
 		}
 	},
