@@ -1,10 +1,12 @@
 .container {
-	padding: 30rpx;
+	padding: 32rpx;
 }
 
 .title,
 .option-title {
 	font-size: 28rpx;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.9);
 }
 
 .mt40 {
@@ -44,7 +46,7 @@
 	justify-content: center;
 	align-items: center;
 	width: 160rpx;
-	border-radius: 20rpx;
+	border-radius: 12rpx;
 	padding: 20rpx;
 }
 
@@ -66,24 +68,16 @@
 	margin-top: 6rpx;
 }
 
-.user-path {
-	margin-top: 40rpx;
-	min-height: 200rpx;
-	width: 100%;
-	background-color: #e1e1e1;
-	border-radius: 16rpx;
-	padding: 20rpx;
-	color: #515151;
-}
-
+.user-path,
 .user-query {
 	margin-top: 40rpx;
 	min-height: 200rpx;
 	width: 100%;
 	background-color: #e1e1e1;
-	border-radius: 16rpx;
-	padding: 20rpx;
+	border-radius: 12rpx;
+	padding: 24rpx;
 	color: #515151;
+	box-sizing: border-box;
 }
 
 .btn-list {
@@ -91,19 +85,17 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-}
-
-.btn-use {
-	line-height: 40rpx;
-	color: #ffffff;
-	background-color: #1aad19;
-	border-radius: 8rpx;
-	text-align: center;
-	padding: 20rpx 10rpx;
+	gap: 24rpx;
 }
 
 .btn-use {
 	width: 30%;
+	line-height: 40rpx;
+	color: #fff;
+	background-color: #1aad19;
+	border-radius: 8rpx;
+	text-align: center;
+	padding: 20rpx 10rpx;
 }
 
 .option-box {
@@ -114,11 +106,11 @@
 }
 
 .option-name {
-	font-size: 14px;
+	font-size: 28rpx;
 }
 
 .option-icon {
-	font-size: 12rpx;
+	font-size: 24rpx;
 	border-radius: 8rpx;
 	background-color: #e1e1e1;
 	padding: 8rpx 12rpx;

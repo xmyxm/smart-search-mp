@@ -1,17 +1,18 @@
 .container {
-	padding: 30rpx;
+	padding: 32rpx;
 	justify-content: space-between;
 	min-height: 88vh;
 }
 
 .logs .title {
 	font-size: 28rpx;
+	font-weight: 600;
 	display: flex;
 	justify-content: space-between;
 }
 
 .log-list {
-	margin-top: 30rpx;
+	margin-top: 32rpx;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -20,20 +21,21 @@
 
 .log-item {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
-	font-size: 24rpx;
+	font-size: 26rpx;
 }
 
 .time {
 	width: 160rpx;
+	flex-shrink: 0;
 }
 
 .content {
 	flex: 1;
 	line-height: 40rpx;
-	border-bottom: 1rpx solid #e1e1e1;
-	padding: 30rpx 0;
+	border-bottom: 1rpx solid #ebebeb;
+	padding: 28rpx 0;
 }
 
 .version {
@@ -41,5 +43,5 @@
 	line-height: 80rpx;
 	text-align: center;
 	font-size: 24rpx;
-	color: #b5b4b4;
+	color: #999;
 }

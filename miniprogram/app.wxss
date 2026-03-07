@@ -1,13 +1,29 @@
+/* 设计 token，色系保持原有搭配 */
 page {
+	--color-page-bg: #f8f8f8;
+	--color-card: #fff;
+	--color-primary: #1aad19;
+	--color-fill: #e1e1e1;
+	--color-text: rgba(0, 0, 0, 0.9);
+	--color-text-secondary: #515151;
+	--color-border: #ebebeb;
+	--radius-sm: 8rpx;
+	--radius-md: 12rpx;
+	--radius-lg: 16rpx;
+	--spacing: 32rpx;
+
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	background-color: #f8f8f8;
+	background-color: var(--color-page-bg);
+	color: var(--color-text);
 }
+
 .scrollarea {
 	flex: 1;
 	overflow-y: scroll;
 }
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -15,7 +31,7 @@ page {
 }
 
 .single-line-ellipsis {
-	overflow: hidden; /* 超出部分隐藏 */
-	text-overflow: ellipsis; /* 使用省略号显示超出部分 */
-	white-space: nowrap; /* 强制文本在一行内显示 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }

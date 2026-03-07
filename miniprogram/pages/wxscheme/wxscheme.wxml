@@ -1,8 +1,8 @@
-<navigation-bar title="小程序scheme生成工具" back="{{ true }}" color="black" />
+<navigation-bar title="点小scheme生成工具" back="{{ true }}" color="black" />
 <scroll-view class="scrollarea" scroll-y="true" type="list">
 	<view class="container">
 		<block wx:if="{{ typeInfoList && typeInfoList.length > 0 }}">
-			<view class="title mt40">选择商户类型：</view>
+			<view class="title mt40">选择 Scheme 类型：</view>
 			<radio-group class="poi-type" bindchange="radioChange">
 				<view
 					wx:for="{{ typeInfoList }}"

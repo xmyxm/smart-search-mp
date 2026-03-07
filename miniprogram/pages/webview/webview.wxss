@@ -1,10 +1,11 @@
 .container {
-	padding: 30rpx;
+	padding: 32rpx;
 }
 
 .title,
 .option-title {
 	font-size: 28rpx;
+	font-weight: 600;
 }
 
 .platform {
@@ -20,7 +21,7 @@
 	justify-content: center;
 	align-items: center;
 	width: 160rpx;
-	border-radius: 20rpx;
+	border-radius: 12rpx;
 	padding: 20rpx;
 }
 
@@ -47,13 +48,14 @@
 	min-height: 300rpx;
 	width: 100%;
 	background-color: #e1e1e1;
-	border-radius: 16rpx;
-	padding: 20rpx;
+	border-radius: 12rpx;
+	padding: 24rpx;
 	color: #515151;
+	box-sizing: border-box;
 }
 
 .app-content {
-	margin-top: 20rpx;
+	margin-top: 24rpx;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -73,12 +75,13 @@
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 40rpx;
+	gap: 24rpx;
 }
 
 .btn-use,
 .dialog-btn-use {
 	line-height: 80rpx;
-	color: #ffffff;
+	color: #fff;
 	background-color: #1aad19;
 	border-radius: 8rpx;
 	text-align: center;
@@ -100,11 +103,11 @@
 }
 
 .option-name {
-	font-size: 14px;
+	font-size: 28rpx;
 }
 
 .option-icon {
-	font-size: 12rpx;
+	font-size: 24rpx;
 	border-radius: 8rpx;
 	background-color: #e1e1e1;
 	padding: 8rpx 12rpx;
@@ -124,9 +127,8 @@
 	align-items: center;
 	width: 100%;
 	white-space: nowrap;
-	padding-bottom: 24rpx;
-	padding-top: 24rpx;
-	border-top: 1px solid #e8e8e8;
+	padding: 24rpx 0;
+	border-top: 1rpx solid #ebebeb;
 }
 
 .urllist-icon {
@@ -134,20 +136,21 @@
 	width: 36rpx;
 	height: 36rpx;
 	border-radius: 50%;
-	margin-right: 10rpx;
+	margin-right: 12rpx;
 }
 
 .urllist-url {
-	font-size: 36rpx;
+	font-size: 28rpx;
 	flex: 1;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	margin-right: 10rpx;
+	margin-right: 12rpx;
 }
 
 .urllist-time {
-	font-size: 36rpx;
+	font-size: 24rpx;
+	color: #999;
 }
 
 .btn-icon {
@@ -161,22 +164,23 @@
 .modal-main {
 	background-color: #fff;
 	padding: 40rpx;
-	border-radius: 30rpx;
+	border-radius: 24rpx;
 }
 
 .modal-title {
 	width: 100%;
-	font-size: 40rpx;
+	font-size: 36rpx;
 	text-align: center;
 	font-weight: 600;
 }
 
 .modal-content {
-	margin-top: 30rpx;
+	margin-top: 24rpx;
 	min-height: 300rpx;
 	width: 100%;
 	background-color: #f8f8f8;
-	border-radius: 16rpx;
-	padding: 20rpx;
+	border-radius: 12rpx;
+	padding: 24rpx;
 	color: #515151;
+	box-sizing: border-box;
 }

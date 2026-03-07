@@ -1,5 +1,5 @@
 .container {
-	padding: 30rpx;
+	padding: 32rpx;
 	justify-content: space-between;
 	min-height: 88vh;
 }
@@ -10,7 +10,7 @@
 }
 
 .log-list {
-	margin-top: 20rpx;
+	margin-top: 24rpx;
 	margin-bottom: 60rpx;
 	display: flex;
 	flex-direction: column;
@@ -20,25 +20,28 @@
 
 .log-item {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
-	font-size: 24rpx;
+	font-size: 26rpx;
 }
 
 .time {
 	padding-left: 10rpx;
 	width: 50rpx;
+	flex-shrink: 0;
 }
 
 .content {
 	flex: 1;
-	line-height: 28rpx;
-	border-bottom: 1rpx solid #e1e1e1;
-	padding: 20rpx 0;
+	line-height: 40rpx;
+	border-bottom: 1rpx solid #ebebeb;
+	padding: 24rpx 0;
 }
 
 .version {
 	width: 100%;
 	line-height: 80rpx;
 	text-align: center;
+	font-size: 24rpx;
+	color: #999;
 }

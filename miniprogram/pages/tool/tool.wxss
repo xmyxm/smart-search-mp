@@ -1,18 +1,19 @@
 .container {
-	color: #000000;
-	padding: 0 20rpx 88rpx;
+	color: rgba(0, 0, 0, 0.9);
+	padding: 0 32rpx 88rpx;
 }
 
 .menu-box {
 	display: flex;
 	flex-direction: column;
-	margin-top: 50rpx;
-	border-bottom: 1px solid #eae7e7;
+	margin-top: 48rpx;
+	border-bottom: 1rpx solid #ebebeb;
 }
 
 .menu-title {
-	font-size: 36rpx;
-	line-height: 36rpx;
+	font-size: 32rpx;
+	line-height: 44rpx;
+	font-weight: 600;
 }
 
 .menu-child-box {
@@ -33,7 +34,7 @@
 }
 
 .menu-name {
-	font-size: 14px;
+	font-size: 28rpx;
 }
 
 .menu-icon {

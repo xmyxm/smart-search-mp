@@ -1,10 +1,11 @@
 .container {
-	padding: 30rpx 30rpx 30rpx 30rpx;
+	padding: 32rpx;
 }
 
 .title,
 .option-title {
 	font-size: 28rpx;
+	font-weight: 600;
 }
 
 .platform {
@@ -13,11 +14,10 @@
 	justify-content: flex-start;
 	align-items: center;
 	margin-top: 40rpx;
-	overflow-x: auto; /* 启用水平滚动 */
-	white-space: nowrap; /* 防止子元素换行 */
+	overflow-x: auto;
+	white-space: nowrap;
 }
 
-/* 隐藏滚动条 */
 .scroll-view::-webkit-scrollbar {
 	display: none;
 }
@@ -28,10 +28,10 @@
 	justify-content: center;
 	align-items: center;
 	width: 160rpx;
-	border-radius: 20rpx;
+	border-radius: 12rpx;
 	padding: 20rpx;
 	box-sizing: border-box;
-	flex: 0 0 auto; /* 子元素不会缩放或扩展 */
+	flex: 0 0 auto;
 }
 
 .platform-box:nth-child(n + 2) {
@@ -54,37 +54,37 @@
 	line-height: 36rpx;
 	height: 36rpx;
 	margin-top: 6rpx;
-	white-space: nowrap; /* 强制文本不换行 */
-	overflow: hidden; /* 隐藏超出部分 */
-	text-overflow: ellipsis; /* 显示省略号 */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	width: 100%;
 	text-align: center;
 }
 
 .user-input {
 	margin-top: 40rpx;
-	font-size: 32rpx;
+	font-size: 28rpx;
 	height: 100rpx;
 	line-height: 100rpx;
 	background-color: #fff;
 	color: #515151;
-	border: 1rpx solid #e1e1e1;
-	border-radius: 8rpx;
-	padding: 20rpx;
+	border: 1rpx solid #ebebeb;
+	border-radius: 12rpx;
+	padding: 20rpx 24rpx;
 	box-sizing: border-box;
 }
 
 .user-textarea {
-	margin-top: 30rpx;
-	font-size: 32rpx;
+	margin-top: 24rpx;
+	font-size: 28rpx;
 	width: 100%;
 	height: 200rpx;
-	padding: 20rpx;
+	padding: 24rpx;
 	min-height: 200rpx;
 	color: #515151;
 	background-color: #fff;
-	border: 1rpx solid #e1e1e1;
-	border-radius: 8rpx;
+	border: 1rpx solid #ebebeb;
+	border-radius: 12rpx;
 	box-sizing: border-box;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .env-type {
-	margin-top: 30rpx;
+	margin-top: 24rpx;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -117,30 +117,31 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 24rpx;
 }
 
 .btn-use {
 	width: 45%;
 	line-height: 80rpx;
-	color: #ffffff;
+	color: #fff;
 	background-color: #1aad19;
 	border-radius: 8rpx;
 	text-align: center;
 }
 
 .option-box {
-	margin-top: 100rpx;
+	margin-top: 64rpx;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 }
 
 .option-name {
-	font-size: 14px;
+	font-size: 28rpx;
 }
 
 .option-icon {
-	font-size: 12rpx;
+	font-size: 24rpx;
 	border-radius: 8rpx;
 	background-color: #e1e1e1;
 	padding: 8rpx 12rpx;
@@ -160,9 +161,8 @@
 	align-items: center;
 	width: 100%;
 	white-space: nowrap;
-	padding-bottom: 24rpx;
-	padding-top: 24rpx;
-	border-top: 1px solid #e8e8e8;
+	padding: 24rpx 0;
+	border-top: 1rpx solid #ebebeb;
 }
 
 .urllist-icon {
@@ -170,20 +170,21 @@
 	width: 36rpx;
 	height: 36rpx;
 	border-radius: 50%;
-	margin-right: 10rpx;
+	margin-right: 12rpx;
 }
 
 .urllist-url {
-	font-size: 36rpx;
+	font-size: 28rpx;
 	flex: 1;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	margin-right: 10rpx;
+	margin-right: 12rpx;
 }
 
 .urllist-time {
-	font-size: 36rpx;
+	font-size: 24rpx;
+	color: #999;
 }
 
 .btn-icon {
