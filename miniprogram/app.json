@@ -66,6 +66,10 @@
 		"citySelector": {
 			"version": "1.0.3",
 			"provider": "wx63ffb7b7894e99ae"
+		},
+		"logisticsPlugin": {
+			"version": "2.3.0",
+			"provider": "wx9ad912bf20548d92"
 		}
 	},
 	"permission": {
