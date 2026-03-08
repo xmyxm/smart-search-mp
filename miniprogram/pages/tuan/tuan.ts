@@ -149,7 +149,7 @@ perfPage({
 			const { appid = '', icon = '' } =
 				this.data.platformInfoList.find((item: PlatformInfoType) => item.select) || {}
 			const {
-				showType = '',
+				// showType = '',
 				dpPath = '',
 				mtPath = '',
 				dpRegex = 'shopshare\\/([a-zA-Z0-9]+)\\?',
@@ -159,35 +159,19 @@ perfPage({
 			const regex = new RegExp(isDP ? dpRegex : mtRegex)
 			// 使用正则表达式进行匹配
 			const match = content.match(regex)
-			const url = match && match[0] ? match[0] : ''
-			if (url) {
-				const matchId = url.match(/\/deal\/(\d+)/)
-				const dealId = matchId && matchId[1] ? matchId[1] : '0'
-				const urlParams = parseUrlParams(url)
-				//@ts-ignore
-				const shopid = urlParams?.shopId || ''
-				let currentPoiPath = ''
-				if (showType === 'dc') {
-					//@ts-ignore
-					const utm_source = urlParams?.utm_source || ''
-					currentPoiPath = `${path}?shopuuid=&utm_source=${utm_source}&shopId=${shopid}&dealGroupId=${dealId}`
-				} else {
-					//@ts-ignore
-					const share_id = urlParams?.share_id || ''
-					//@ts-ignore
-					const source = urlParams?.source || ''
-					currentPoiPath = `${path}?nsrc=2&dealid=${dealId}&share_id=${share_id}&source=${source}&shopid=${shopid}`
-				}
+			const dealId = match && match[1] ? match[1] : ''
+			if (dealId) {
+				let currentTuanDetailPath = path.replace(/\[id\]/g, dealId)
 				const historyList: PoiPathHistoryInfoType[] = this.data.poiPathHistoryList.filter(
 					(item: PoiPathHistoryInfoType) => {
-						return !(item.appid === appid && item.poiPath === currentPoiPath)
+						return !(item.appid === appid && item.poiPath === currentTuanDetailPath)
 					},
 				)
 				const currentTime = Date.now()
 				historyList.unshift({
 					icon,
 					appid,
-					poiPath: currentPoiPath,
+					poiPath: currentTuanDetailPath,
 					timeStamp: `${currentTime}`,
 					time: formatMiniTime(new Date(currentTime)),
 				})
